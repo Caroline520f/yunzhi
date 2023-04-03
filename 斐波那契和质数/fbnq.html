@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fib(num) { // 递归函数
+            if (num < 2) {
+                return num;
+            }
+
+            return fib(num - 1) + fib(num - 2);
+        }
+        var num = 10;
+        //斐波那契
+        function fibArr(prod) {
+            if (prod < 2) {
+                return prod;
+            }
+
+            const numArr = [0, 1];
+            for (let i = 2; i <= prod; i++) {
+                numArr.push(numArr[0] + numArr[1]);
+                numArr.splice(0, 1);
+            }
+
+            return numArr[1];
+        }
+        console.log(fib(num));
+        console.log(fibArr(num));
+
+        // fib(1) = 1
+        // fib(2) = 1
+        // fib(n) = fib(n - 1) + fib(n - 2)
+    </script>
+</body>
+
+</html>

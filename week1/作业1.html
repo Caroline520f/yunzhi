@@ -61,8 +61,11 @@
         var lv = rabbit.replace("rabbit","驴")
         console.log(lv)
         var book = "this is a book"
-        var firstUpper = book.slice(0,1).toLocaleUpperCase() + book.slice(1)
-        console.log(firstUpper);
+        var uper = book.split(" ")
+        for(var i = 0; i < uper.length; i++){
+            uper[i] = uper[i].charAt(0).toLocaleUpperCase() + uper[i].slice(1)
+        }
+       console.log(uper.join(" "))
         var xiaoxie = "This IS a BOOK"
         console.log(xiaoxie.toLocaleLowerCase())
     </script>
