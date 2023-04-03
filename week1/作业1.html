@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("文档1")
+        var str = "他们不会被忘记，也不该被忘记。跨越这一切，怒号光明！";
+        console.log(str[3])
+        console.log(str.indexOf("忘"), str.indexOf("记"))
+        console.log(str.lastIndexOf("忘"), str.lastIndexOf("记"))
+        var res = str.slice(str.indexOf("怒"), str.indexOf("明" + 1))
+        console.log(res)
+        var forgot = str.replace("忘记", "遗忘")
+        console.log(forgot)
+
+        var str2 = "In the face of natural disasters, we are not helpless"
+        var daxie = str2.toLocaleUpperCase();
+        console.log(daxie);
+        console.log(daxie.toLocaleLowerCase());
+
+        var str3 = "大伟哥与明日方舟";
+        var str4 = str3.concat("，原神与海猫")
+        console.log(str4)
+        var wg = str4.replace("大伟哥", "伟哥")
+        console.log(wg)
+        var mrfz = str3.slice(str3.indexOf("明"), str3.indexOf("舟") + 1)
+        console.log(mrfz)
+        console.log("--------------------")
+        console.log("文档2")
+        var calc = 2 + 35 % 3;
+        console.log(calc)
+        var y = 1;
+        var x = 2 + y++;
+        var calc2 = (x + y) ** 2;
+        console.log(calc2)
+        var dierti = "生于黑夜，怒号光明，灯火相熄，长夜终尽.To fight with beauty!"
+        console.log(dierti[2])
+        console.log(dierti.indexOf("灯"))
+        var cyzj = dierti.slice(dierti.indexOf("长"), dierti.indexOf("尽" + 1))
+        console.log(cyzj)
+        console.log("--------------------")
+        console.log("文档3")
+        var daxie = "for in";
+        console.log(daxie.toLocaleUpperCase())
+        var disheng = "天有熔炉，地生五金";
+        console.log(disheng.indexOf("地"), disheng.indexOf("生"))
+        var string = "我们牵手唱啊跳，踩在开始变软的泥土地上";
+        var ruan = string.replace("软","冷")
+        console.log(ruan)
+        var string2 =  "阿米娅修炼第一期.html"
+        var jieQu = string2.slice(0,string2.indexOf("."))
+        console.log(jieQu)
+        var rabbit = "this is a rabbit"
+        var lv = rabbit.replace("rabbit","驴")
+        console.log(lv)
+        var book = "this is a book"
+        var firstUpper = book.slice(0,1).toLocaleUpperCase() + book.slice(1)
+        console.log(firstUpper);
+        var xiaoxie = "This IS a BOOK"
+        console.log(xiaoxie.toLocaleLowerCase())
+    </script>
+</body>
+
+</html>
