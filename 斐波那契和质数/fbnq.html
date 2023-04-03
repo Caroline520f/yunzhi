@@ -10,14 +10,13 @@
 
 <body>
     <script>
-        function fib(num) { // 递归函数
+        function fib(num) { 
             if (num < 2) {
                 return num;
             }
-
             return fib(num - 1) + fib(num - 2);
         }
-        var num = 10;
+        var num = 20;
         //斐波那契
         function fibArr(prod) {
             if (prod < 2) {
@@ -34,7 +33,15 @@
         }
         console.log(fib(num));
         console.log(fibArr(num));
-
+        //斐波那契以数组显示
+       function fibARr(num){
+        let newar = []
+        for(let i = 0; i < num; i++){
+            newar.push(fib(i))
+        }
+        return newar
+       }
+         console.log(fibARr(num))
         // fib(1) = 1
         // fib(2) = 1
         // fib(n) = fib(n - 1) + fib(n - 2)
