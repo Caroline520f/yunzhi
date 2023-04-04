@@ -29,8 +29,8 @@
     console.log("将二维数组中的第二项删除", arr2wei);
     console.log("二维数组中剩余的两项合并", (arr2wei[0].join(" ") + arr2wei[1].join(" ")).split(" "))
     var multiArray = [["name", ["Reimu", "Marisa", "Yukari", "Yuyuko", "Nue"]], ["score", [99, 100, 101, 88, 89, 0]], ["hobby", ["money", "books", "red white", "food", "play"]]]
-    
-    var objArray=[]
+
+    var objArray = []
     for (var i = 0; i < multiArray[0][1].length; i++) {
       var obj = {};
       obj.name = multiArray[0][1][i];
@@ -38,12 +38,12 @@
       obj.hobby = multiArray[2][1][i];
       objArray.push(obj);
     }
-      console.log(multiArray[0][1]) //5个名字
+    console.log(multiArray[0][1]) //5个名字
     console.log(objArray);
 
     console.log("2......")
 
-      // 2. 对象
+    // 2. 对象
     /**
      * Tom = {
       name: "罗德岛",
@@ -72,8 +72,31 @@
      * (3）、获取Tom的叔叔Stephen的年龄
      * (4）、修改Tom的叔叔John的年龄为41
      */
-      // 3. 定义一个二维对象dog, 包含属性： name, color , age ,
-      // 以及children (数组组成的对象集合,长度至少为2,每个对象包含name,color,age属性)
+    var Tom = {
+      name: "罗德岛",
+      age: 25,
+      leader: {
+        name: "Jack",
+        age: 45
+      },
+      members: [
+        {
+          name: "凯尔希",
+          staff: "医生"
+        },
+        {
+          name: "陨星",
+          staff: "狙击手"
+        },
+        {
+          name: "芙兰卡",
+          staff: "近卫兵"
+        }
+      ],
+    };
+    console.log("获取Tom父亲的年龄", Tom.leader.age)
+    // 3. 定义一个二维对象dog, 包含属性： name, color , age ,
+    // 以及children (数组组成的对象集合,长度至少为2,每个对象包含name,color,age属性)
     /**
      * i. 获取对象中的children
      * ii. 修改对象中age的属性值
@@ -82,26 +105,33 @@
      * v. 将对象的children中的每个对象转化为数组
      */
     var dog = {
-      name:"dog",
-      color:"red",
-      age:9,
-      children:{
-        name:"cat",
-        color:"white",
-        age:0
+      name: "dog",
+      color: "red",
+      age: 9,
+      children: [{
+        name: "cat",
+        color: "white",
+        age: 0
+      },
+      {
+        name: "rabbit",
+        color: "pink",
+        age: 1
       }
+      ]
     }
     console.log(dog)
-    console.log("获取对象中的children",dog.children)
-    dog.age=99;
-    console.log("修改对象中age的属性值",dog)
+    console.log("获取对象中的children", dog.children)
+    dog.age = 99;
+    console.log("修改对象中age的属性值", dog)
     dog.profession = "tracing"
-    console.log("新增对象属性profession",dog)
+    console.log("新增对象属性profession", dog)
     delete dog.age;
     delete dog.children.age
-    console.log("删除对象age属性",dog)
-    var sz = Object.entries(dog.children)
-    console.log("将对象的children中的每个对象转化为数组",sz)
+    console.log("删除对象age属性", dog)
+    var sz = Object.entries(dog.children[0])
+    var sz2 = Object.entries(dog.children[1])
+    console.log("将对象的children中的每个对象转化为数组", sz, sz2)
   </script>
 </body>
 
