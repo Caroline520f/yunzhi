@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    //1. 现有数组 [1,3,5,7,9]
+    //   (1). 获取数组的第二项和第四项
+    //   (2). 该获取数组的长度
+    //   (3). 在数组的头部加入"2","3"
+    //   (4). 删除数组的"2"
+    //   (5). 在数组的尾部加入["a","b","c"]
+    //   (6). 在数组的小数组内，删除尾部的"c"
+    //   (7). 连接该数组与数组[2,4,6,8]
+    //   (8). 将数组反序
+      var arr = [1,3,5,7,9];
+      console.log("获取数组的第二项和第四项",arr[2], arr[4]);
+      console.log("数组长度",arr.length);
+      arr.unshift(2,3);
+      console.log("在数组的头部加入'2",'3',arr); //在数组的头部加入"2","3"
+      arr.shift();
+      console.log("删除数组的'2'",arr); //删除数组的"2"
+      arr.push("a","b","c") //
+      console.log("在数组的尾部加入['a','b','c']",arr);
+      arr.pop();
+      console.log("在数组的小数组内，删除尾部的'c'",arr);
+      var arr2 = [2,4,6,8];
+      var connect = arr.concat(arr2);
+      console.log("连接该数组与数组[2,4,6,8]",connect);
+      console.log("将数组反序",connect.reverse())
+    // 2. 现有字符串"hello,world,good"
+    //   (1). 将"good" 替换为 "hook"
+    //   (2). 将"world"中的o转化为大写
+    //   (3). 将所有单词的最末尾的字母转为大写
+      console.log("第二题")
+      var str = "hello,world,good";
+      console.log("将'good' 替换为 'hook'",str.replace("good","hook"));
+      console.log("将'world中的o转化为大写",str.replace("world","wOrld"));
+      var strArr = str.split(",");
+      // var up = strArr[0].substring(0,strArr[0].length-1) + strArr[0][strArr[0].length-1].toUpperCase();
+      for(let i = 0;i<strArr.length;i++){
+        strArr[i] = strArr[i].substring(0,strArr[i].length-1) +  strArr[i][strArr[i].length-1].toUpperCase();
+      }
+      console.log(strArr.join(" "))
+      // console.log("将所有单词的最末尾的字母转为大写",strArr);
+    </script>
+  </body>
+</html>

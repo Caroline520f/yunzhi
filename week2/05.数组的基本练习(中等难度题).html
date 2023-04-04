@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 1. 创建一个数组，该数组的每个内容要求以以下规律添加
+         *     (1). 新生成一个长度为5的数组，数组的所有内容遵循等差数列规律： 如[-3,0,3]
+         *     (2). 新生成一个长度为5的数组，数组的所有内容遵循等比数列的规律: 如 [50,72,98] 
+         * 
+         * 2. 将字符串"we","are","famaily"和字符串"you","and","me" 拼接为"You-And-Me, We-Are-Famaily"
+        */
+        var dengcha = [-3, 0, 3, 6, 9];
+        console.log("遵循等差数列规律",dengcha);
+        var dengbi = [2,4,8,16,32];
+        console.log("等比数列的规律",dengbi);
+        var str1 = "we,are,famaily";
+        var str2 = "you,and,me";
+        var str3 = str1.split(",");
+        var str4 = str2.split(",");
+        for(let i = 0;i<str3.length;i++){
+            str3[i] = str3[i].charAt(0).toUpperCase() + str3[i].slice(1);
+        }
+        console.log(str3);
+        for(let i = 0;i<str4.length;i++){
+            str4[i] = str4[i].charAt(0).toUpperCase() + str4[i].slice(1);
+        }
+        console.log(str4);
+       var newstr = str3.join("-");
+       var newstr2 = str4.join("-");
+        console.log(newstr2 + "," + newstr);
+
+    </script>
+</body>
+
+</html>

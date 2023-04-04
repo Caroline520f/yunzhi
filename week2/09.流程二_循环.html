@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 循环： 将重复执行的代码(有规律)，利用for/while/do while...手段进行优化循环，用机器去执行
+
+        // 循环代码：  
+        // 1. for(循环变量;循环上限/下限;循环步数){  循环语句(JS语句) }
+        /* 
+           var arr = []
+                arr.push(-3)
+                arr.push(0)
+                arr.push(3)
+                arr.push(6)
+                arr.push(9)
+                console.log("一个长度为五,遵循An=3n规律的等差数列：",arr)
+                console.log("-------我是分隔符-------")
+         */
+        var arr = []
+        for(var i = 0 ; i < 5 ; i++){
+            console.log("现在是第"+i+"次循环，对应的push的值是：",-3+3*i)
+            arr.push(-3+3*i)
+        }
+        console.log(arr)
+
+        /* 
+         var arr2 = []
+                arr2.push(50);
+                arr2.push(72);
+                arr2.push(98);
+                arr2.push(128);
+                arr2.push(162);
+                console.log("一个长度为五,遵循An=3n规律的等差数列：",arr2);
+                console.log("-------我是分隔符-------")
+         */
+         var arr2 = []
+         for(var i = 5 ; i < 10 ; i++){
+            console.log("现在是第"+i+"次循环，对应的push的值是：",2*i*i)
+            arr2.push(2*i*i)
+         }
+         console.log(arr2);
+
+         /* 
+         var arr = ["we","are","famaily","you","and","me"]
+
+            var str = arr[0][0].toLocaleUpperCase();
+            console.log("将we首字母大写：",str)
+            var str2 = arr[0].replace(arr[0][0],str);
+            console.log("将we中的w替换为W:",str2)
+            arr.splice(0,1,str2)
+            console.log("替换完毕的arr",arr)
+        
+            var str3 = arr[1][0].toLocaleUpperCase();
+            console.log("将are首字母大写：",str3)
+            var str4 = arr[1].replace(arr[1][0],str3);
+            console.log("将are中的a替换为A:",str4)
+            arr.splice(1,1,str4)
+            console.log("替换完毕的arr",arr)
+            
+            var str4 = arr[2][0].toLocaleUpperCase();
+            console.log("将famaily首字母大写：",str4)
+            var str5 = arr[2].replace(arr[2][0],str4);
+            console.log("将famaily中的f替换为F:",str5)
+            arr.splice(2,1,str5)
+            console.log("替换完毕的arr",arr)
+
+            var str6 = arr[3][0].toLocaleUpperCase();
+            console.log("将you首字母大写：",str6)
+            var str7 = arr[3].replace(arr[3][0],str6);
+            console.log("将you中的y替换为Y:",str7)
+            arr.splice(3,1,str7)
+            console.log("替换完毕的arr",arr)
+
+            var str8 = arr[4][0].toLocaleUpperCase();
+            console.log("将and首字母大写：",str8)
+            var str9 = arr[4].replace(arr[4][0],str8);
+            console.log("将and中的a替换为A:",str9)
+            arr.splice(4,1,str9)
+            console.log("替换完毕的arr",arr)
+
+            var str10 = arr[5][0].toLocaleUpperCase();
+            console.log("将me首字母大写：",str10)
+            var str11 = arr[5].replace(arr[5][0],str10);
+            console.log("将me中的m替换为M:",str11)
+            arr.splice(5,1,str11)
+            console.log("替换完毕的arr",arr)
+             */
+
+             var arr = ["we","are","famaily","you","and","me"]
+
+             for(var i = 0 ; i < arr.length ; i++){
+                // arr.splice(i,1,"SB")
+                var str = arr[i][0].toLocaleUpperCase()
+                // console.log("现在是第"+i+"次循环，对应的str的值是：",str)
+                var str2 = arr[i].replace(arr[i][0],str)
+                // console.log("现在是第"+i+"次循环，对应的str2的值是：",str2)
+                arr.splice(i,1,str2)
+                // console.log("现在是第"+i+"次循环，对应的arr的值是：",arr)
+             }
+             console.log(arr)
+    </script>
+</body>
+</html>

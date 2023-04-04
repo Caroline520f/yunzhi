@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. 现有数组[1,2,3,5,8,13],截取数组的后三项。
+      // 2. 现有数组["特蕾西娅","博士","凯尔希"] ，删除数组头部一项，并向头部添加一项"阿米娅"
+      var arr = [1,2,3,5,8,13];
+      var sli = arr.slice(arr.length-3,arr.length)
+      console.log(sli)
+      var str = ["特蕾西娅","博士","凯尔希"];
+      str.shift()+str.unshift("阿米娅");
+      console.log("删除数组头部一项，并向头部添加",str)
+      // 3.声明一个对象 obj 包含name,age,profession，对应的值为"张三",24,"法外狂徒"
+      // (1). 获取对象中的name属性
+      // (2). 向对象中增加一项新的属性(任意自定)
+      // (3). 删除对象中的age属性
+      // (4). 修改对象中的name属性
+      // (5). 将对象obj的所有属性转化为数组
+      // (6). 将对象obj的所有属性值转化为数组
+      // (7). 将对象转化为数组
+      var obj={
+        name:"张三",
+        age:24,
+        profession:"法外狂徒"
+      }
+      console.log("获取对象中的name属性",obj.name)
+      obj.killed = 50;
+      console.log("向对象中增加一项新的属性",obj)
+      delete obj.age
+      console.log("删除对象中的age属性",obj)
+      obj.name = "李四"
+      console.log("修改对象中的name属性",obj)
+      var arrr = Object.keys(obj)
+      console.log("对象obj的所有属性转化为数组",arrr)
+      var arrr2 = Object.values(obj)
+      console.log("对象obj的所有属性值转化为数组",arrr2)
+      var arrr3 = Object.entries(obj)
+      console.log("将对象转化为数组",arrr3)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 1. 现有字符串"we are web engineer"
+         *      (1). 将字符串转化为数组
+         *      (2). 在(1)的基础上，将字符串中的“web”和"engineer"转为大写
+         *      (3). 在(2)的基础上将英文翻译为中文，并将其转化为字符串
+         *      (4). 在(3)的基础上，将字符串反序
+         * 
+         * 2. 数组['a'],['123','bc'],[true,false,null]合并
+         * 
+         * 3. 复制数组['(⊙o⊙)…','_(:з」∠)_','ლ(′◉❥◉｀ლ)']
+         * 
+         * 4. 数组 var shuzu = ['a',2,'b','88',true];
+         *      (1). 获取第4项的值
+         *      (2). 修改第3项为"abcd"
+         *      (3). 从第4项位置插入“苹果”，“西瓜”
+         *      (4). 向开始添加“龙眼”,“荔枝”
+         *      (5). 向结尾添加“榴莲”，“芒果"
+         * 
+         * 5. 现有一个数组 [1,1,2,3,5,8,13,21],
+         *      (1) 获取8于数组中的下标
+         *      (2) 获取数组的第4项
+         *      (3) 修改数组中的第0项为11
+         *      (4) 向数组的头部添加一个内容（自定）
+         *      (5) 向数组的尾部添加一个内容(自定)
+         *      (6) 删除数组的头部和尾部一个内容
+         *      (7) 将原数组与经过上述操纵的新的数组连接。
+        */
+        var str = "we are web engineer";
+        var arr = str.split(" ");
+        console.log("第一题")
+        console.log("将字符串转化为数组",arr);
+
+        arr[2] = arr[2].toUpperCase();
+        arr[3] = arr[3].toUpperCase();
+        console.log(arr);
+        // arr = ["我们","是","网络","工程师"];
+        arr
+        console.log(arr)
+        console.log(arr.reverse());
+
+        console.log("第二题")
+        var a = ['a']
+        var b = ['123','bc']
+        var c = [true,false,null]
+        var d = a.concat(b,c);
+        console.log("合并",d)
+
+        console.log("第三题复制数组[")
+        var ar = [];
+        var newar = ['(⊙o⊙)…','_(:з」∠)_','ლ(′◉❥◉｀ლ)'];
+        console.log(ar.concat(newar));
+
+        console.log("第4题数组[")
+        var shuzu = ['a',2,'b','88',true];
+        console.log("第四项值",shuzu[4])
+        shuzu.splice(3,1,"abcd");
+        console.log("修改第3项为'abcd",shuzu)
+        shuzu.splice(4,0,"苹果","西瓜")
+        console.log("从第4项位置插入“苹果”，“西瓜”",shuzu)
+        shuzu.unshift("龙眼","荔枝")
+        console.log("向开始添加“龙眼”,“荔枝”",shuzu)
+        shuzu.push("榴莲","芒果")
+        console.log("向结尾添加“榴莲”，“芒果",shuzu)
+
+        console.log("第5题数组[")
+      
+        var fbnq = [1,1,2,3,5,8,13,21];
+        const newarr = [1,1,2,3,5,8,13,21];
+        console.log(fbnq)
+        console.log("获取8于数组中的下标",fbnq.indexOf(8))
+        console.log("获取数组中你的第四项",fbnq[4])
+        fbnq.splice(0,1,11)
+        console.log("修改数组中的第0项为11",fbnq)
+        fbnq.unshift("head")
+        console.log("向数组的头部添加一个内）",fbnq)
+        fbnq.push("tail")
+        console.log("向数组的尾部添加一个内容",fbnq)
+        fbnq.shift();
+        fbnq.pop();
+        console.log("删除数组的头部和尾部一个内容",fbnq)
+        console.log("将原数组与经过上述操纵的新的数组连接",newarr.concat(fbnq))
+    </script>
+</body>
+
+</html>

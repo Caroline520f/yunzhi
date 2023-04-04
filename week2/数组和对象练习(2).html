@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1、定义一个二维数组，内有三个小数组
+    /**
+     * i.第一项小数组包括5个人的姓名(自定义)
+     * 第二项小数组包括5个人的成绩(自定义)
+     * 第三项小数组包括5个人的爱好(自定义)
+     * ii. 将二维数组中的第二项删除
+     * iii. 将二维数组中剩余的两项合并
+     * ^ IV.创建一个多维数组，该数组每一项均可转化为一个对象，共5个对象
+     *  包括5个人的姓名
+     *  包括5个人的成绩
+     *  包括5个人的爱好
+     */
+    console.log("1......")
+    var arr2wei = [["Reimu", "Marisa", "Yukari", "Yuyuko", "Nue"], [99, 100, 101, 88, 89, 0], ["money", "books", "red white", "food", "play"]]
+    console.log(arr2wei)
+    arr2wei.splice(1, 1)
+    console.log("将二维数组中的第二项删除", arr2wei);
+    console.log("二维数组中剩余的两项合并", (arr2wei[0].join(" ") + arr2wei[1].join(" ")).split(" "))
+    var multiArray = [["name", ["Reimu", "Marisa", "Yukari", "Yuyuko", "Nue"]], ["score", [99, 100, 101, 88, 89, 0]], ["hobby", ["money", "books", "red white", "food", "play"]]]
+    
+    var objArray=[]
+    for (var i = 0; i < multiArray[0][1].length; i++) {
+      var obj = {};
+      obj.name = multiArray[0][1][i];
+      obj.score = multiArray[1][1][i];
+      obj.hobby = multiArray[2][1][i];
+      objArray.push(obj);
+    }
+      console.log(multiArray[0][1]) //5个名字
+    console.log(objArray);
+
+    console.log("2......")
+
+      // 2. 对象
+    /**
+     * Tom = {
+      name: "罗德岛",
+      age: ???,
+      leader:{
+        name: "Jack",
+        age: 45
+      },
+        members: [
+          {
+            name:"凯尔希",
+            staff:"医生"
+          },
+          {
+            name:"陨星",
+            staff:"狙击手"
+          },
+          {
+            name:"芙兰卡",
+            staff:"近卫兵"
+          }
+        ],
+    };
+     * (1)、获取Tom父亲的年龄
+     * (2）、打印出Tom所有的爱好
+     * (3）、获取Tom的叔叔Stephen的年龄
+     * (4）、修改Tom的叔叔John的年龄为41
+     */
+      // 3. 定义一个二维对象dog, 包含属性： name, color , age ,
+      // 以及children (数组组成的对象集合,长度至少为2,每个对象包含name,color,age属性)
+    /**
+     * i. 获取对象中的children
+     * ii. 修改对象中age的属性值
+     * iii. 新增对象属性profession
+     * vi. 删除对象age属性
+     * v. 将对象的children中的每个对象转化为数组
+     */
+    var dog = {
+      name:"dog",
+      color:"red",
+      age:9,
+      children:{
+        name:"cat",
+        color:"white",
+        age:0
+      }
+    }
+    console.log(dog)
+    console.log("获取对象中的children",dog.children)
+    dog.age=99;
+    console.log("修改对象中age的属性值",dog)
+    dog.profession = "tracing"
+    console.log("新增对象属性profession",dog)
+    delete dog.age;
+    delete dog.children.age
+    console.log("删除对象age属性",dog)
+    var sz = Object.entries(dog.children)
+    console.log("将对象的children中的每个对象转化为数组",sz)
+  </script>
+</body>
+
+</html>

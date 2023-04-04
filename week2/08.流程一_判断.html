@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // if 流程判断语句
+        // if(条件表达式){   JS语句  }
+        // 如果if里面的条件表达式布尔值为true,则执行if{}里面的JS语句.
+        // 如果条件表达式布尔值为false，则不会执行if{}里面的JS语句
+
+        // 情况一：直接设置布尔值
+        /* var RMB = 500
+        var buy = false;
+        var liulian = 0;
+        if(buy){
+            RMB = 0;
+            liulian++;
+        }
+        console.log("人民币：",RMB)
+        console.log("榴莲数量：",liulian) */
+
+        // 情况二：条件表达式
+        var RMB = 20;
+        var liulian = 0;
+        if (RMB >= 50) {
+            RMB -= 50;
+            liulian++;
+        }
+        console.log("人民币：", RMB)
+        console.log("榴莲数量：", liulian)
+
+        /** if(条件表达式){ 
+         *          JS语句 
+         *  }else if(条件表达式){
+         *          JS语句
+         *  }
+         */
+        // 如果能够进入第一个if的条件，执行JS语句，那就不进入else if的条件判断
+        // 如果不能够进入第一个if的条件，那就进入else if的条件，执行JS语句
+        // 如果两个都不能够进入，就两个{}里的JS语句都不执行
+        // 如果if和else if的条件同时满足，优先执行if{}内的JS语句，else if{}内的JS语句不会执行
+        /* var S1 = true;
+        var S2 = true;
+        var L1 = "灭"
+        var L2 = "灭"
+
+        if(S1){
+            L1 = "亮"
+        }else if(S2){
+            L2 = "亮"
+        }
+
+        console.log("L1灯泡的状态：",L1)
+        console.log("L2灯泡的状态：",L2) */
+
+        /** 
+         * if(条件表达式){
+         *      JS语句
+         * }else if(条件表达式){
+         *      JS语句
+         * }else{
+         *      JS语句
+         * }
+         *  // 如果能够进入第一个if的条件，执行JS语句，那就不进入else if的条件判断
+        // 如果不能够进入第一个if的条件，那就进入else if的条件，执行JS语句
+        // 如果两个都不能够进入，就两个{}里的JS语句都不执行
+        // 如果if和else if的条件同时满足，优先执行if{}内的JS语句，else if{}内的JS语句不会执行
+        // else语句，如果上述表达式均不满足的情况下，进入else语句
+        */
+        /* 
+                var S1 = null;
+                var S2 = 2;
+                var L1 = "灭"
+                var L2 = "灭"
+        
+                if(S1 && S2 == false){
+                    L1 = "亮"
+                }else if(S2 && S1 == false){
+                    L2 = "亮"
+                }else if(S1 && S2){
+                    L1 = "亮";
+                    L2 = "亮"
+                }else{
+                    console.log("L1灯泡的状态："+L1,"L2灯泡的状态："+L2)
+                }
+        
+                S1 && S2 ==false ?  L1 = "亮" :
+                S2 && S1 == false ? L2 = "亮" :
+                S1 && S2 ? L1= "亮";L2 = "亮;" : console.log("L1灯泡的状态："+L1,"L2灯泡的状态："+L2)
+        
+                console.log("L1灯泡的状态：",L1)
+                console.log("L2灯泡的状态：",L2) */
+
+        // 三目运算法
+        // 条件表达式 ?  表达式为true执行的JS语句 : 表达式为false时执行的JS语句
+        var num = 2;
+        var num2 = 4;
+        (num + num2) <= 5 ? console.log(num) : console.log(num2)
+
+        // 三目运算法嵌套
+        var num3 = 1;
+        var num4 = 2;
+        (num3 + num4) < 1 ? console.log(num3) :
+            (num3 * num4) >= 2 ? console.log(1) : console.log(2)
+
+        var isNa = '1';
+        !isNaN(isNa) ? console.log(true) : console.log(false)
+
+    </script>
+</body>
+
+</html>
