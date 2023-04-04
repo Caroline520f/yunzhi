@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-     
+        // 14.编写一个函数，计算任意两个数字之间所能组成的所有奇数，并将它们组成数组
+        function getOd(n, m) {
+            let arr= [];
+            for (let i = n; i <= m; i++) {
+                for (let j = n; j <= m; j++) {
+                    let res = i+""+j;
+                    // console.log(res);
+                    if (res % 2 != 0 && i%2 ==1) { // 不能被2整除 且 i 为奇数
+                       arr.push(res);
+                    }
+                }
+            }
+            console.log(arr);
+        }
+        getOd(0, 3)
+        console.log();
+
+        function norepeatSort(arr){
+            let newArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) == -1) {
+                    newArr.push(arr[i]);
+                }
+            }
+            let temp = 0;
+            for(let i = 0;i<newArr.length;i++){
+               if(newArr[i]>newArr[i+1]){
+                   temp = newArr[i];
+                   newArr[i] = newArr[i+1];
+                   newArr[i+1] = temp; // 交换位置 替换后的数组+1
+               }
+
+            }
+            return newArr;
+        }
+        var arra = [1,2,3,43,3,4,4,2,3,3,3,3,1,25,65,34,2]
+        console.log(norepeatSort(arra));
     </script>
 </body>
+
 </html>

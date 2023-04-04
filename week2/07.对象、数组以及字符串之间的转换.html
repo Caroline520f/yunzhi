@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组 Array  对象  Object  字符串 String
+        // 数组转化为字符串
+        // join(字符串的分隔符)
+        // 不改变原数组，生成一个新的字符串
+        var arr = [1,2,3,4,5]
+        console.log(arr)
+        var str = arr.join("=")
+        console.log("arr转化成字符串的结果：",str);
+        console.log("-----分隔符-----")
+
+        // 字符串转化为数组
+        // split(字符串的分隔符)
+        // 不改变原字符串，生成一个新的数组
+        var str2 = "明日方舟=原神"
+        var arr2 = str2.split("=")
+        console.log("str2转化成数组的结果：",arr2);
+        console.log("-----分隔符-----")
+
+        // * 对象转化为字符串
+        // JSON.stringify(所要转化的对象)
+        // 不改变原对象，生成一个新的字符串
+        var obj = {
+            "name":"张三",
+            "prop":"法外狂徒"
+        }
+        var str3 = JSON.stringify(obj)
+        console.log("obj转化成字符串的结果：",str3);
+        console.log(typeof str3)
+        console.log("-----分隔符-----")
+
+        // * 字符串转化为对象
+        // 字符串必须有明确的属性名和属性值，且只有对象格式
+        // JSON.parse(符合对象格式要求的字符串)
+        // 不会改变原字符串，会生成一个新的对象
+        var str4 = '{"name":"张三","age":"24"}'
+        var obj2 = JSON.parse(str4)
+        console.log("str4转化成对象的结果：",obj2);
+        console.log(typeof obj2)
+        console.log("-----分隔符-----")
+
+        // 对象转化为数组
+
+        var obj3 = {
+            name:"张三",
+            prop:"法外狂徒"
+        }
+        // 将对象的属性名转为数组
+        // Object.keys(目标对象)
+        // 不会改变原对象，会生成一个新的数组
+        var keyArr = Object.keys(obj3)
+        console.log("obj的属性名转化成数组的结果：",keyArr);
+        console.log(typeof keyArr)
+        console.log("-----分隔符-----")
+
+        // 将对象的属性值转为数组
+        // Object.values(目标对象)
+        // 不会改变原对象，会生成一个新的数组
+        var valueArr = Object.values(obj3);
+        console.log("obj的属性值转化成数组的结果：",valueArr);
+        console.log(typeof valueArr)
+        console.log("-----分隔符-----")
+
+        // 将对象所有属性转为二维数组
+         // Object.entries(目标对象)
+        // 不会改变原对象，会生成一个新的二维数组(大数组包了小数组，每个小数组的长度为2，小数组包含属性名和属性值)
+        var propArr = Object.entries(obj3)
+        console.log("obj的属性转化成数组的结果：",propArr);
+        console.log(typeof propArr)
+        console.log("-----分隔符-----")
+
+        // 将符合特征的二维数组转化为对象(大数组包了小数组，每个小数组的长度为2，小数组包含属性名和属性值)
+        // Object.fromEntries(目标数组)
+        // 不会改变原数组，会生成一个新对象
+        // 小数组的第0项永远是属性名(key)，第一项永远是属性值(value)
+        var objArr = [
+            ["name","李四"],
+            ["age","24"]
+        ]
+        var obj4 = Object.fromEntries(objArr)
+        console.log("objArr数组转化成对象的结果：",obj4);
+        console.log(typeof obj4)
+        console.log("-----分隔符-----")
+    </script>
+</body>
+</html>

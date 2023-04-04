@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明对象 Object
+        // 对象内包含属性（属性(prop)由属性名(key)和属性值(value)构成）
+        var obj = {
+            name2:"张三",
+            age:24
+        }
+        console.log(obj)
+        console.log("---------分隔符---------")
+
+        // 获取对象的某一条属性(属性值)
+        // 第一种方式
+        var fullName = obj.name2;
+        console.log("对象obj的name2属性的属性值方式一：",fullName);
+        console.log("---------分隔符---------")
+
+        // 第二种方式
+        // 对象名[string]
+        var fullNAME = obj["name2"]
+        console.log("对象obj的name2属性的属性值方式二：",fullNAME);
+        console.log("---------分隔符---------")
+
+        // 修改对象的某一条属性(属性值)
+        // 第一种方式
+        obj.name2 = "李四";
+        console.log("修改完name2属性的属性值的对象obj方式一：",obj);
+        console.log("---------分隔符---------")
+
+        // 第二种方式
+        obj["name2"] = "王五"
+        console.log("修改完name2属性的属性值的对象obj方式二：",obj);
+        console.log("---------分隔符---------")
+        // 新增对象某一属性(属性名+属性值)
+        // 第一种方式
+        obj.staff = "术师";
+        var staff = obj.staff;
+        console.log("新增staff属性时，staff属性的值：",staff)
+        console.log("新增完staff属性的对象obj：",obj);
+        console.log("---------分隔符---------")
+
+        // 第二种方式
+        obj["job"] = "憨批"
+        console.log("新增完job属性的对象obj：",obj);
+        console.log("---------分隔符---------")
+
+        // 删除对象某一属性
+        // delete 关键字
+        // 第一种方式
+        delete obj.staff
+        console.log("删除完staff属性的对象obj：",obj)
+        console.log("---------分隔符---------")
+
+        // 第二种方式
+        delete obj["job"]
+        console.log("删除完job属性的对象obj：",obj);
+        console.log("---------分隔符---------")
+
+        // 数组是特殊的对象
+        var arr = ["张三","李四","老王","老六"];
+        console.log(arr)
+        console.log("获取arr中的第2项：",arr[2])
+
+        var obj2 = {
+            "0":"张三",
+            "1":"李四",
+            "2":"老王",
+            "3":"老六",
+            length:4
+        }
+        console.log(obj2)
+        console.log("获取obj2中的第2项：",obj2[2])
+        console.log("---------分隔符---------")
+
+    </script>
+</body>
+</html>
