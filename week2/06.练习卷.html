@@ -123,8 +123,19 @@
     // v. 给定两个数组[1,2,3,4]、[5,6,7,8]将两个数组内的元素对应位置互换
     var a = [1, 2, 3, 4];
     var b = [5, 6, 7, 8];
-    
-    console.log(a)
+    console.log("元素朱1",a)
+    console.log("元素朱2",b)
+   
+    // for(let i = 0;i<a.length;i++){
+    //   a.splice(i,1,a[i]+4)
+    // }
+    // for(let i = 0;i<b.length;i++){
+    //   b.splice(i,1,b[i]-4)
+    // }
+    // console.log("修改后",a)
+    // console.log("修改后2",b)   
+
+      // console.log(a)
     // c.push(a[0],b[0])
 
     // console.log("将两个数组内的元素对应位置互换", c)
@@ -139,14 +150,17 @@
     console.log(sstr)
     console.log(sstrAr)//转换数组
     var sstrAr2 = sstrAr.slice(0, 5); //截取字符串前5个单词
-    sstrAr2[2] = sstrAr2[2].slice(0, 1).toUpperCase() + sstrAr2[2].slice(1);
-    sstrAr2[3] = sstrAr2[3].slice(0, 1).toUpperCase() + sstrAr2[3].slice(1);
-    sstrAr2[4] = sstrAr2[4].slice(0, 1).toUpperCase() + sstrAr2[4].slice(1); 
+    for (let i = 2; i < sstrAr2.length; i++) {
+      sstrAr2[i] = sstrAr2[i].slice(0, 1).toUpperCase() + sstrAr2[i].slice(1);
+    }
+    // sstrAr2[2] = sstrAr2[2].slice(0, 1).toUpperCase() + sstrAr2[2].slice(1);
+    // sstrAr2[3] = sstrAr2[3].slice(0, 1).toUpperCase() + sstrAr2[3].slice(1);
+    // sstrAr2[4] = sstrAr2[4].slice(0, 1).toUpperCase() + sstrAr2[4].slice(1);
     var sstrAr3 = sstrAr2.join(" ");
     console.log("截取字符串前5个单词大写", sstrAr3)
     var sstrAr4 = sstrAr3 + sstrAr.slice(5).join(" ") + " quickly";
     console.log("在sound后加入quickly", sstrAr4)
-    var sstr5 = sstrAr.slice(0,5).join("-") + sstrAr.slice(5).join("-");
+    var sstr5 = sstrAr.slice(0, 5).join("-") + sstrAr.slice(5).join("-");
     console.log(sstr5)
   </script>
 </body>
