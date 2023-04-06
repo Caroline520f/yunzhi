@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 函数：Javascript的一个基本模块单元。它被用于代码复用、组合调用和信息隐藏。 
+        
+        如何创建一个函数：
+        1. 使用关键字 function 命名一个函数
+        2. 使用字面量(声明一个变量) 创建匿名函数
+        3. 使用 new Function 去构造一个构造函数
+
+        如何执行函数内部的代码？(执行函数体)
+        通过调用函数的形式
+        注意点：
+        1. 通过 函数名 + () 的形式去调用函数(已经声明/创建过的函数)
+        2. 如果函数带有参数的话，可以通过 参数的传递 来改变函数执行的结果
+
+        函数的参数：可以通过设置函数首部的形参，通过函数调用时首部的实参来影响函数最终的结果值
+        形参：函数被声明/创建时，函数首部()(function 函数名())内的参数，该参数没有实际存在的值，仅是一个标识符
+        实参：函数被调用时，函数首部()内的参数，是一个实际存在值的参数，它的参数可被形参引用。
+
+        参数传递的几个注意点
+        1. 一个形参对应一个实参
+        
+
+        深入探讨：
+        1. 如果多个形参对应一个实参,溢出的形参的值将会是undefined
+        2. 如果多个实参对应一个形参，溢出的实参会被忽略。
+    -->
+    <script>
+        // 1. 使用关键字 function + 函数名 命名一个函数
+        /** 语法：  
+         * function 函数名(){
+         *         JS代码(函数体)
+         * }
+        */
+        function direction(){
+            console.log("方向盘")
+        }
+        console.log(direction)
+        console.log("------分隔符-----")
+        // 2. 使用字面量(声明一个变量)创建匿名函数
+        /** 语法：
+         * var 字面量 = function(){
+         *         JS代码(函数体)
+         * }
+         * 
+        */
+        var youmen = function(){
+            console.log("油门")
+        }
+        console.log(youmen)
+        console.log("------分隔符-----")
+
+        // 3. 使用new Function() 构造一个函数
+        /** 
+         * 语法：
+         * var 字面量 = new Function("JS语句(函数体)")
+        */
+        var shache = new Function("console.log('刹车')")
+        console.log(shache)
+        console.log("------分隔符-----")
+
+        // 调用函数  通过函数名/变量名+()
+        direction()
+        console.log("------分隔符-----")
+
+        youmen()
+        console.log("------分隔符-----")
+
+        shache()
+        console.log("------分隔符-----")
+
+        // 函数的代码复用性
+        var num = 0;
+        function add(){
+            num++;
+            console.log(num);
+            console.log("------分隔符-----")
+        }
+        add()
+        add()
+        add()
+
+        // 函数参数的调用
+        function add2(num){
+            num++;
+            console.log(num);
+            console.log("------分隔符-----")
+        }
+        add2(2)
+        add2(10)
+
+        // 多个形参对应一个实参
+        function add3(num,num2,num3){
+            num++;
+            console.log(num,num2,num3);
+            console.log("------分隔符-----")
+        }
+        add3(8)
+
+        // 多个实参对应一个形参
+        function add4(num){
+            num++;
+            console.log(num);
+            console.log("------分隔符-----")
+        }
+        add4(2.3,4)
+    </script>
+</body>
+</html>
