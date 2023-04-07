@@ -170,7 +170,7 @@
       }
 
     }
-    // console.log(cul4(13));
+    console.log(cul4(13));
     // 13. 创建一个函数，求任意数组中的最大值和最小值
     function maxMin(arr) {
       let max = arr[0];
@@ -195,7 +195,7 @@
         }
       }
     }
-
+    //es5冒泡方法
     function sortNum(a, b, c) {
       let arr = [a, b, c];
       // arr.sort(function(a,b){
@@ -219,14 +219,14 @@
         arr[i] > max ? max = arr[i] :
           arr[i] < min ? min = arr[i] : ""
       }
-      sum = max + min;
+      sum = newCul(max) + newCul(min);
+
       console.log("最高和最低之和为", sum);
     }
-    // maxMinSum(array)
+    maxMinSum(array)
     // 16. 将任意一个数组进行排序。现输入一个数，要求按原来的规律插入数组中
     function sortArr(arr, num) {
       arr.push(num);
-
       arr.sort(function (a, b) {
         return a - b;
       })
@@ -248,15 +248,41 @@
     }
     // arrr([1,2,3,1,12,2,2,2,2,3,4,5,1,1241,123,5-124,124-124,124,1-2,])
     // 18. ，该三位数等于其每位数字的阶乘之和
-    function cull(num) {
-      // 求一个三位数
-      let sum = 0;
-      if (num < 100) {
-        return "请输入三位数"
+    function cull(n1, n2) {
+      for (let i = n1; i < n2; i++) {
+        let res = 0;
+        let val = i;
+        while (val) {
+          res += newCul(val % 10);
+          val = Math.floor(val / 10);
+        }
+        if (res == i) {
+          console.log(i);
+        }
       }
 
+
+
+      // 求一个三位数
+      // let sum = 0;
+      // if (num < 100 || num > 999) {
+      //   return "请输入三位数"
+      // }
+      // for (let i = 100; i < 1000; i++) {
+      //   let a = (((num / 100) + "")[0]) * 1
+      //   let b = (((num / 10 % 10 + ""))[0]) * 1
+      //   let c = num % 10
+      //   sum = newCul(a) + newCul(b) + newCul(c);
+      // }
+      // if(sum == num){
+      //   console.log(`${sum}等于其每位数字的阶乘之和`);
+      // return sum
+      // }else{
+      //   console.log(`${sum}不等于其每位数字的阶乘之和`);
+      // return sum
+      // }
     }
-    console.log(cull(422));
+    cull(100, 1000)
     // 19.生成任意项符合斐波那契规律的数组(至少大于2项)。
     function fibo(n, m, num) {
       let arr = [n, m];
@@ -278,32 +304,61 @@
     // 高难题
     // 21.输出在任意两个三位数范围内的所有的水仙花数，所谓水仙花数是指一个三位数，各个位上的数的立方相加在一起等于这个三位数，
     // 比如153，1的3次方 + 5的三次方 + 3的三次方 等于153
-      function sxh(n,m){
-        let arr = [];
-        if(n<100||m>999){
-          return "请输入三位数"
+    function sxh(n, m) {
+      for (let i = n; i < m; i++) {
+        let res = 0;
+        let val = i;
+        while (val > 0) {
+          res += Math.pow(val % 10, 3);
+          val = Math.floor(val / 10);
         }
-        for(let i =n;i<=m;i++){
-          let a = parseInt(i/100)
-          let b = parseInt(i/10%10)
-          let c = parseInt(i%10)
-         
-          if(a*a*a+b*b*b+c*c*c==i){
-            arr.push(i)
-          
-          }
+        if (res == i) {
+          console.log(i);
         }
-        console.log(arr);
       }
-      sxh(100,999)
-    // 22. 接收用户输入的数组，并生成一个新的由素数组成的数组
+      // let arr = [];
+      // if (n < 100 || m > 999) {
+      //   return "请输入三位数"
+      // }
+      // for (let i = n; i <= m; i++) {
+      //   let a = (((i / 100) + "")[0]) * 1
+      //   let b = (((i / 10 % 10 + ""))[0]) * 1
+      //   let c = i % 10
+      //   if (a * a * a + b * b * b + c * c * c == i) {
+      //     arr.push(i)
 
+      //   }
+      // }
+      // console.log(arr);
+    }
+    // sxh(100, 999)
+    // 22. 接收用户输入的数组，并生成一个新的由素数组成的数组
+    var checkPrime = [1, 2, 3, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+    // console.log(isArrPrime(checkPrime));
     // 23. 现有数组：["红心","梅花","方块","黑桃"]和["A","1","2","3","4","5","6","7","8","9","10","j","q","k"]
     // 编写一个函数,返回一个扑克牌列表。例如:[(“黑桃”,“2”),(“红心”,“A”)…(“红桃”,“J”)]
-
+    var pocket = ["红心", "梅花", "方块", "黑桃"]
+    var pocketNum = ["A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"]
+    function list(ar1, ar2) {
+      let arr = [];
+      for (let i = 0; i < ar1.length; i++) {
+        for (let j = 0; j < ar2.length; j++) {
+          arr.push([ar1[i], ar2[j]])
+        }
+      }
+      console.log(arr);
+    }
+    list(pocket, pocketNum)
     // 24. 利用递归求两个数字的最大公约数（欧几里得算法）
-
+    function ojld(n, m) {
+      if (m % n == 0) return n;
+      if (n % m == 0) return m;
+      if (n > m) return ojld(n % m, m);
+      if (n < m) return ojld(n, m % n);
+    }
+    console.log(ojld(12, 18));
     // 25. 任何大于6的偶数，都能分解成两个质数的和。 要求输入一个整数，输出这个数能被分解为哪两个质数的和
+    //for NUmber
     function isPrime(num) {
       let prime = [];
       if (num == 1) {
@@ -318,6 +373,27 @@
       }
       if (flag) {
         prime.push(num)
+      }
+      return prime
+    }
+
+    //for Array
+    function isArrPrime(arr) {
+      let prime = [];
+      if (arr.length == 0) {
+        return false;
+      }
+      for (let i = 0; i < arr.length; i++) {
+        let flag = true;
+        for (let j = 2; j < arr[i]; j++) {
+          if (arr[i] % j == 0) {
+            flag = false;
+            break;
+          }
+        }
+        if (flag) {
+          prime.push(arr[i])
+        }
       }
       return prime
     }
@@ -339,7 +415,7 @@
       console.log("两个质数的和", sumprime)
 
     }
-    check(18)
+    // check(18)
   </script>
 </body>
 
