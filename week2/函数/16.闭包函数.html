@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JS垃圾回收机制： 当函数执行完毕时，所声明的变量/形参会被销毁
+        // 闭包函数：(保护变量不被销毁),变量信息隐藏
+        var obj = {
+            name:fun1(),
+            name2:fun3(3)
+        }
+        var num = 1;
+        function fun1(){
+            return function fun2(){
+                return num++
+            }
+        }
+        console.log("第一次num++闭包函数的num的值：",fun1()())
+        console.log("第二次num++闭包函数的num的值：",fun1()())
+        console.log("第三次num++闭包函数的num的值：",fun1()())
+        // console.log(obj.name)
+        // console.log(obj.name2)
+
+        
+        // 普通函数
+        function fun3(num){
+            num++
+            return num
+        }
+        console.log("第一次num++普通函数的num的值：",fun3(0))
+        console.log("第二次num++普通函数的num的值：",fun3(0))
+    </script>
+</body>
+</html>

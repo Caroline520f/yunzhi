@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 全局作用域
+        // 全局变量： 全局作用域中声明的变量
+        // a 是全局变量
+        var a = 0;
+        console.log(a);
+        console.log("----分隔符----")
+
+        function fun1(){
+        // 局部作用域
+        // 局部变量： 局部作用域中声明的变量
+        // 局部变量只能在该局部作用域中被获取
+        //  b 是局部变量
+            var b = 0;
+            console.log(b);
+            console.log(a)
+            console.log("----分隔符----")
+        }
+        fun1()
+
+        /* function fun2(){
+            console.log(b)
+        }
+        fun2() */
+
+        // 变量提升
+        c = 1;
+        var c = 2;
+        console.log(c);
+        console.log("----分隔符----")
+
+        function fun3(){
+            d = 3;
+            console.log(d);
+        }
+        fun3()
+        console.log(d)
+        console.log("----分隔符----")
+
+        // window对象 全局最高对象
+        // 所有未声明，但赋值的变量，都会在window里创建并赋值。
+        console.log(window)
+        console.log("----分隔符----")
+
+        // 在全局用var声明的变量，和直接在全局给变量赋值是同一个效果
+        // 在局部用var声明的变量在Window全局对象中无法被找到，
+        // 在局部直接给变量赋值在window全局对象中可以被找到
+        var e = 2;
+        e = 2;
+        console.log(window.e)
+        console.log(e)
+        console.log("----分隔符----")
+
+        // 作用域链
+        // 可以向上找上层的作用域,不可以向下找下层的作用域
+        var around = "全局作用"
+        console.log(around);
+        function fun4(){
+            var area1 = "局部作用1"
+            area1 += around
+            console.log(area1);
+            function fun5(){
+                var area2 = "局部作用2"
+                // area2 += area1
+                // console.log(area2)
+                area2 += around
+                console.log(area2)
+            }
+            fun5()
+        }
+        fun4()
+    </script>
+</body>
+</html>

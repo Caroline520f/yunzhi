@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // this: 内存指针。
+        // this 默认指向window对象
+        console.log("全局下的this指向：",this)
+        console.log("----我是分隔符---")
+
+        function fun1(){
+            console.log("fun1函数默认的this指向",this);
+            console.log("----我是分隔符---")
+
+        }
+        fun1()
+
+        // this的指向能够被改变
+        // 被对象包裹的函数的this 就指向包裹着这个函数的对象
+        var obj = {
+            name:"张三",
+            age:24,
+            fun2:function fun2(){
+                console.log("在obj对象中函数fun2的this指向",this)
+                console.log("----我是分隔符---")
+
+            }
+        }
+        console.log(obj.fun2)
+        obj.fun2()
+
+        // 三种能够改变函数this指向的方法
+        // 1. call 改变this指向
+        // call(目标对象(object),实参1,实参2...)
+        function fun3(method){
+            console.log(method)
+            console.log("fun3函数this的指向：",this)
+            console.log("----我是分隔符---")
+        }
+        fun3("默认指向")
+
+        fun3.call(obj,"call改变指向")
+
+        // 2. apply 
+        // apply(目标对象(object),[实参1,实参2])
+        fun3.apply(obj,["apply改变指向"])
+
+        // 3. bind
+        // bind(目标对象(object))(实参1,实参2)
+        fun3.bind(obj)("bind改变指向")
+    </script>
+</body>
+</html>

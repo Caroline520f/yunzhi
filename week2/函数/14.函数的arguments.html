@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 多个实参对应一个形参：多余的实参被忽略
+        function fun1(num) {
+            // 多余的实参并未被忽略，而是在arguments中都能被找到
+            // arguments: 实参集合伪数组
+            // 伪数组： 具备数组的下标和长度，但不能使用数组所有的方法。
+            console.log(num)
+            console.log(arguments)
+            console.log(arguments[2])
+            console.log(arguments.length)
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i])
+            }
+
+        }
+        fun1(1, 2, 3, 4, 5)
+
+    </script>
+</body>
+
+</html>

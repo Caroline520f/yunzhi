@@ -217,8 +217,7 @@
         let total = 0;
         for(let i = 0;i<3;i++){
             total += firstMonth * Math.pow(rate,i); 
-            pro += 15000 * Math.pow(rate,i)
-            tax = 10000 * (i + 0.01 + 0.06)
+       
         }
         // let firstMonth = perMonth * price;
         // let secondMonth = firstMonth * rate;
@@ -240,7 +239,7 @@
         }
         console.log("输出排序后的数组", fib)
         for (let i = 0; i < 10; i++) {
-            fib.push(fib[fib.length - 1] + fib[fib.length - 2])
+            fib.push((fib[fib.length - 1] + fib[fib.length - 2])*2)
         }
         console.log("输出后10项", fib)
         for (let i = 0; i < 4; i++) {
