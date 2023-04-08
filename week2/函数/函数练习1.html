@@ -93,10 +93,10 @@
       if (n == 1) {
         return n;
       } else {
-        return n * cul2(n - 1) //
+        return n * cul2(n  - 1)  //
       }
     }
-    // console.log(cul2(6));
+    console.log(cul2(10));
     // 9. 返回任意两个数字范围内的完全平方数(完全平方：如9是3的平方，25是5的平方)。
 
     function cul3(n1, m2) {
@@ -350,13 +350,19 @@
     }
     list(pocket, pocketNum)
     // 24. 利用递归求两个数字的最大公约数（欧几里得算法）
-    function ojld(n, m) {
-      if (m % n == 0) return n;
-      if (n % m == 0) return m;
-      if (n > m) return ojld(n % m, m);
-      if (n < m) return ojld(n, m % n);
+    function gcd(n, m) {
+      if (m === 0) {
+        return n;
+      } else {
+        return gcd(m, n % m);
+      }
+      // }
+      // if (m % n == 0) return n;
+      // if (n % m == 0) return m;
+      // if (n > m && m % n != 0) return gcd(n % m, m);
+      // if (n < m && n % m != 0) return gcd(n, m % n);
     }
-    console.log(ojld(12, 18));
+    console.log(gcd(54, 16));
     // 25. 任何大于6的偶数，都能分解成两个质数的和。 要求输入一个整数，输出这个数能被分解为哪两个质数的和
     //for NUmber
     function isPrime(num) {
@@ -398,6 +404,14 @@
       return prime
     }
 
+    function checkPr(num) {
+      for (let i = 2; i < num; i++) {
+        if (num % i == 0) { //不是质数
+          return false
+        }
+      }
+      return true;
+    }
     function check(od) {
       if (od < 6 || od % 2 != 0) {
         return consloe.log("请输入大于6的偶数");
@@ -405,17 +419,17 @@
       let sumprime = 0;
       for (let i = 1; i <= od / 2; i++) {
         // 是否是质数(isPrime(i)>0)
-        if (isPrime(i) > 0 && isPrime(od - i) > 0) {
-          sumprime = i + (od - i);
+        if (checkPr(i) > 0 && checkPr(od - i) > 0) {
           console.log("第一个质数是", i, "第二个指数是", od - i)
         }
 
       }
 
-      console.log("两个质数的和", sumprime)
 
     }
-    // check(18)
+    check(10)
+
+
   </script>
 </body>
 

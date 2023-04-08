@@ -8,25 +8,156 @@
     <title>Document</title>
 </head>
 <style>
-    #mydiv {
+    button {
         width: 100px;
-        height: 100px;
-
+        height: 50px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
     }
 </style>
+<!-- <div id="demo"></div>
+  <button onclick="clik()">click</button>
+    <button onclick="disappear()">disappear</button> -->
+<div id="qqq"></div>
+<button onclick="change()"></button>
+<!-- <div id="nnn"></div> -->
 
 <body>
 
     <script>
-        //   $("#myDiv").css({color:"#000", background:"#f5f5f5", fontSize:"12px",fontWeight:"normal"});
-      
-        var str = "hello world";
-        var reg = /hello/;
-        var reg1 = new RegExp("hello");
-        console.log(reg.test(str));          
-    //regExp
+        // change div
+        // change div background color
+        // change div width and height
+        // change div border
+        // change div border radius
+        // change div border color
+
+        // function clik() {
+        //     document.getElementById("demo").style.display = "block";
+        //     document.getElementById("demo").style.backgroundColor = "red";
+        //     document.getElementById("demo").style.width = "300px";
+        //     document.getElementById("demo").style.height = "300px";
+        //     document.getElementById("demo").style.border = "5px solid black";
+        //     document.getElementById("demo").style.borderRadius = "50%";
+        // }
+
+        // // let the button disappear
+        // function disappear() {
+        //     document.getElementById("demo").style.display = "none";
+        // }
+
+        // var str = document.getElementById("nnn");
+
+        // str.innerHTML = "Hello World";
 
 
+        // 按钮实现按下显示，再按下消失/
+        var str = document.getElementById("qqq");
+        var btn = document.querySelector("button");
+        var flag = true;
+        function change() {
+            if (flag) {
+                str.innerHTML = "Hello World";
+                btn.innerHTML = "消失";
+                flag = false;
+            } else {
+                str.innerHTML = "";
+                btn.innerHTML = "显示";
+                flag = true;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //regExp
+        //排序算法递归
+        function mergeSort(arr) {
+            if (arr.length < 2) {
+                return arr;
+            }
+            var middle = Math.floor(arr.length / 2); //Math.floor()向下取整
+            var left = arr.slice(0, middle); //slice()方法返回一个新数组，包含从 start 到 end （不包括该元素）的 arrObject 中的元素。
+            var right = arr.slice(middle); //slice()方法返回一个新数组，包含从 start 到 end （不包括该元素）的 arrObject 中的元素。
+            return merge(mergeSort(left), mergeSort(right)); //merge()方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
+        }
+        function merge(left, right) {
+            var result = [];
+            while (left.length && right.length) { //length属性返回或设置元素的数目。
+                if (left[0] <= right[0]) { //shift()方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+                    result.push(left.shift()); //push()方法可向数组的末尾添加一个或多个元素，并返回新的长度。
+                } else {
+                    result.push(right.shift());
+                }
+            }
+            while (left.length) { //
+                result.push(left.shift());
+            }
+            while (right.length) {
+                result.push(right.shift());
+            }
+            return result;
+        }
+        function jiaoji(arr1, arr2) {
+            let newar = [];
+            if (arr1.length == 0 && arr2.length == 0) {
+                return false;
+            }
+            for (let i = 0; i < arr1.length; i++) {
+                for (let j = 0; j < arr2.length; j++) {
+                    if (arr1[i] == arr2[j]) {
+                        newar.push(arr1[i]);
+                    }
+                }
+            }
+            return newar;
+        }
+
+        function bingji(arr1, arr2) {
+            let newar = [];
+            
+            if (arr1.length == 0 && arr2.length == 0) {
+                return false;
+            }
+            newar = arr1.concat(arr2);
+           
+            return newar;
+        }
+
+        function chaji(arr1,arr2){
+            let newar = [];
+            
+            if (arr1.length == 0 && arr2.length == 0) {
+                return false;
+            }
+            for (let i = 0; i < arr1.length; i++) {
+                for (let j = 0; j < arr2.length; j++) {
+                   
+                }
+            }
+            return newar;
+        }
+        var arr1 = [1, 2, 3, 4, 5];
+        var arr2 = [2, 4, 6, 8, 10];
+        console.log(jiaoji(arr1, arr2));
+        console.log(bingji(arr1, arr2));
+        console.log(chaji(arr1, arr2));
+    // 写四个函数，分别实现求两个数组的交集、并集、差集、补集的功能
+    // var arr = [2, 3, 12, 5, 1, 5, 26, 34, 26, 34, 6, 346, 3, 426, 3246, 0, 346, 23, 6];
+    // console.log(mergeSort(arr)); 
     </script>
 </body>
 
