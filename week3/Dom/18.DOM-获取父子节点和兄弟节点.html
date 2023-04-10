@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul>li:nth-child(2){}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+    </ul>
+    <script>
+        // 父子节点的选取
+        // 父元素选取子元素节点
+        // parentNode.children
+        // 返回一个伪数组
+        var ul = document.querySelector("ul")
+        console.log(ul)
+        var lis = ul.children
+        console.log("ul的所有子元素",lis)
+        console.log("ul的第二个子元素",lis[1])
+        console.log("-----我是分隔符-----")
+
+        // 子元素获取父元素
+        // childNode.parentNode
+        // 返回一个HTML元素
+        var parent = lis[0].parentNode
+        console.log("li的父元素",parent)
+        console.log("-----我是分隔符-----")
+
+        // 兄弟节点获取
+        var li_2 = lis[1]
+        // 上一个兄弟节点
+        // element.previousElementSibling
+        var previous = li_2.previousElementSibling
+        console.log("第二个li的上一个兄弟节点",previous)
+        console.log("-----我是分隔符-----")
+
+        // 下一个兄弟节点   
+        // element.nextElementSibling
+        var next = li_2.nextElementSibling
+        console.log("第二个li的下一个兄弟节点",next)
+        console.log("-----我是分隔符-----")
+    </script>
+</body>
+</html>

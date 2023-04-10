@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="lis" id="li1">111</li>
+        <li class="lis" id="li1">222</li>
+        <li class="lis">333</li>
+        <li class="lis">444</li>
+    </ul>
+    <script>
+        // 通过 文档对象模型(DOM) 获取页面元素
+        // 关键字 document
+        
+        // 1. 通过页面元素的标签名获取相应的元素节点
+        // document.getElementsByTagName(string:元素标签名称)
+        // 返回一个伪数组
+        var lis = document.getElementsByTagName("li")
+        console.log("通过标签名获取到的页面元素：",lis)
+        // 遍历HTML伪数组
+        for( var i = 0 ; i < lis.length ; i++){
+            console.log(lis[i])
+        }
+        console.log("-----分隔符-----")
+
+        // 2. 通过页面元素的类名获取相应的元素节点
+        // document.getElementsByClassName(string:元素类名)
+        // 返回一个伪数组
+        var lis2 = document.getElementsByClassName("lis")
+        console.log("通过类名获取到的页面元素：",lis2)
+        console.log("-----分隔符-----")
+
+        // 3. 通过页面元素的id名获取相应的元素节点
+        // document.getElementById(string:元素id名)
+        // 返回一个HTML元素
+        var li1 = document.getElementById("li1")
+        console.log("通过id名获取到的页面元素：",li1)
+        console.log("-----分隔符-----")
+
+        // 4. 通过ES6的方式选择一个页面相应的元素节点
+        // document.querySelector()
+        // i. 通过标签名选择一个元素
+        // document.querySelector(string:元素标签名)
+        var liFirst = document.querySelector("li")
+        console.log("通过querySelector通过标签名获取到的页面元素：",liFirst)
+        console.log("-----分隔符-----")
+
+        // ii. 通过类名选择一个元素
+        // document.querySelector(string:元素类名)
+        var liOne = document.querySelector(".lis")
+        console.log("通过querySelector通过类名获取到的页面元素：",liOne)
+        console.log("-----分隔符-----")
+
+        // iii. 通过id名选择一个元素
+        // document.querySelector(string:id名)
+        var li_1 = document.querySelector("#li1")
+        console.log("通过querySelector通过id名获取到的页面元素：",li_1)
+        console.log("-----分隔符-----")
+
+        // 5. 通过ES6的方式选择全部页面相应的元素节点
+        // document.querySelectorAll()
+        // i. 通过标签名选择全部相应的元素
+        // document.querySelectorAll(string:元素标签名)
+        // 返回一个伪数组
+        var liAll = document.querySelectorAll("li")
+        console.log("用querySelectorAll通过标签名获取到所有相应的页面元素：",liAll)
+        console.log("-----分隔符-----")
+
+        // ii. 通过类名选择全部相应的元素
+       // document.querySelectorAll(string:元素类名)
+        // 返回一个伪数组
+        var liClassAll = document.querySelectorAll(".lis")
+        console.log("用querySelectorAll通过类名获取到所有相应的页面元素：",liClassAll)
+        console.log("-----分隔符-----")
+
+         // iii. 通过id名选择全部相应的元素
+            // document.querySelectorAll(string:元素id名)
+        // 返回一个伪数组
+        var liIdAll = document.querySelectorAll("#li1")
+        console.log("用querySelectorAll通过id名获取到所有相应的页面元素：",liIdAll)
+        console.log("-----分隔符-----")
+    </script>
+</body>
+</html>

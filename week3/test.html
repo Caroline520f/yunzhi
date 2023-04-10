@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   
+    <script>
+        console.log("Dom")
+        let div = document.createElement("div")
+        div.innerHTML = "Hello World"
+        document.body.appendChild(div) // add div to body
+        let div2 = document.createElement("div")
+        div2.innerHTML = "Hello World 2"
+        document.body.appendChild(div2) // add div2 to body
+        let section = document.createElement("section")
+        section.innerHTML = "Hello World 3"
+        document.body.appendChild(section) // add section to body
+        //explain the appendChild to me
+        //appendChild is a method that adds a node to the end of the list of children of a specified parent node.
+        //how can i add the element in div
+        //you can use the appendChild method to add the element in div
+        //show me
+        let div3 = document.createElement("div")
+        div3.innerHTML = "Hello World 4"
+        div.appendChild(div3) // add div3 to div
+
+        //what is Node
+        //Node is an interface from which a number of DOM types inherit, and allows these various types to be treated similarly; for example, inheriting the same set of methods, or being tested in the same way.
+        //give me some examples
+        Node.ELEMENT_NODE 
+        Node.TEXT_NODE
+        Node.COMMENT_NODE 
+        Node.DOCUMENT_NODE 
+        Node.DOCUMENT_TYPE_NODE
+        Node.DOCUMENT_FRAGMENT_NODE
+        //what is the difference between Node and Element
+        //Node is an interface from which a number of DOM types inherit, and allows these various types to be treated similarly; for example, inheriting the same set of methods, or being tested in the same way.
+        //Element is an interface that represents an element in an HTML or XML document.
+        //hot to get the parent of an element
+        //you can use the parentNode property to get the parent of an element
+        //show me
+        let div4 = document.createElement("div")
+        div4.innerHTML = "Hello World 5"
+        div.appendChild(div4) // add div4 to div
+        console.log(div4.parentNode) // get the parent of div4
+        //what is the difference between innerHTML and textContent
+        //innerHTML is a property that represents the HTML or XML markup contained within the element.
+        //textContent is a property that represents the text content of an element and its descendants.
+        //how to get the first child of an element
+        //you can use the firstChild property to get the first child of an element
+        //show me
+        let div5 = document.createElement("div")
+        div5.innerHTML = "Hello World 6"
+        div.appendChild(div5) // add div5 to div
+        console.log(div5.firstChild) // get the first child of div5
+        //how to get the last child of an element
+        //you can use the lastChild property to get the last child of an element
+        //show me
+        let div6 = document.createElement("div")
+        div6.innerHTML = "Hello World 7"
+        div.appendChild(div6) // add div6 to div
+        console.log(div6.lastChild) // get the last child of div6
+        //how to get the next sibling of an element
+        //you can use the nextSibling property to get the next sibling of an element
+        //show me
+        let div7 = document.createElement("div")
+        div7.innerHTML = "Hello World 8"
+        div.appendChild(div7) // add div7 to div
+        console.log(div7.nextSibling) // get the next sibling of div7 
+        //why the result is null
+        //because div7 is the last child of div
+
+        //how to get the previous sibling of an element
+        //you can use the previousSibling property to get the previous sibling of an element
+        //show me
+
+        let div8 = document.createElement("div")
+        div8.innerHTML = "Hello World 9"
+        div.appendChild(div8) // add div8 to div
+        console.log(div8.previousSibling) // get the previous sibling of div8
+        //how to get the children of an element
+        //you can use the children property to get the children of an element
+        //show me
+        let div9 = document.createElement("div")
+        div9.innerHTML = "Hello World 10"
+        div.appendChild(div9) // add div9 to div
+        console.log(div9.children) // get the children of div9
+        //why the array is none
+        //because div9 has no children
+        //how to gei the tag name of an element
+        //you can use the tagName property to get the tag name of an element
+        //show me
+        let div10 = document.createElement("div")
+        div10.innerHTML = "Hello World 11"
+        div.appendChild(div10) // add div10 to div
+        console.log(div10.tagName) // get the tag name of div10
+        //how to get the text content of an element
+        //you can use the textContent property to get the text content of an element
+        //show me
+        let div11 = document.createElement("div")
+        div11.innerHTML = "Hello World 12"
+        div.appendChild(div11) // add div11 to div
+        console.log(div11.textContent) // get the text content of div11
+
+        //how to get the element of ul
+        //you can use the querySelector method to get the element of ul
+        //show me
+        let ul = document.querySelector("ul")
+        console.log(ul) // get the element of ul
+        //how to get the first element of ul
+        //you can use the querySelector method to get the first element of ul
+        //show me
+        let li = document.querySelector("ul li")
+        console.log(li) // get the first element of ul
+        //how to get the second element of ul
+        //you can use the querySelector method to get the second element of ul
+        //show me
+        let li2 = document.querySelector("ul li:nth-child(2)")
+        console.log(li2) // get the second element of ul
+
+        //what is getElementsByTagname
+        //getElementsByTagname is a method that returns a live HTMLCollection of elements with the given tag name.
+        //show me
+        let lis = document.getElementsByTagName("li")
+        console.log(lis) // get all li elements
+
+        //can i use Dom to create a class?
+        //yes you can
+        //show me
+        let div12 = document.createElement("div")
+        div12.innerHTML = "Hello World 13"
+        div12.classList.add("myClass") // add class to div12
+        div.appendChild(div12) // add div12 to div
+        //how to get the class of an element
+        //you can use the classList property to get the class of an element
+        //show me
+        console.log(div12.classList) // get the class of div12
+        //what is HTMLcollection
+        //HTMLCollection is an array-like object corresponding to a list of HTML elements and offers methods and properties for selecting from the list.
+        //how to get the length of HTMLcollection
+        //you can use the length property to get the length of HTMLcollection
+        //show me
+        console.log(lis.length) // get the length of lis
+
+        //getElementByClassName
+        //getElementByClassName is a method that returns a live HTMLCollection of elements with the given class name.
+        //will it return a array?
+        //yes it will
+        //show me
+        let divs = document.getElementsByClassName("myClass")
+        console.log(divs) // get all divs with class myClass
+        //thanks
+        //how can i get all elements in ul
+        //you can use the querySelectorAll method to get all elements in ul
+        //can i use doucment.all to get all elements
+        //yes you can
+        //show me
+        let all = document.all
+        console.log(all) // get all elements
+        //if i just want to get the ul element
+        //you can use the querySelector method to get all the li from ul
+        //show me
+        let uls = document.querySelectorAll("ul li")
+        console.log(uls) // get all the li from ul
+        //what is nodelist
+        //Nodelist is an array-like object representing a collection of nodes.
+
+        //why the doucment.querySelector only return the first element
+        //because querySelector only return the first element
+        //if i want to get the second one
+        //you can use the querySelector method to get the second element
+        //show me
+        let ul2 = document.querySelector("li:nth-child(2)")
+        console.log(ul2) // get the second ul
+
+        let  section1 = document.createElement("section")
+        section1.innerHTML = "welcome"
+        document.body.appendChild(section1)
+
+        let getSection = document.querySelector("section")
+        console.log(getSection)
+
+        //create an animation of smooth scrolling
+        let dele = document.querySelectorAll("div")
+
+        //how to create a id
+        //you can use the setAttribute method to create a id
+        //show me
+        let contain = document.createElement("container")
+        contain.setAttribute("id", "container")
+
+        const contai = document.getElementById("container")
+
+        const data = ['apple','banna','orange','none']
+
+        for(let i = 0;i<data.length;i++){
+            const item = document.createElement("div")
+            item.textContent = data[i];
+            contain.appendChild(item)
+        }
+        document.body.appendChild(contain)
+        
+
+
+        //mouse event
+
+        
+    </script>
+</body>
+
+</html>

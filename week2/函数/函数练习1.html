@@ -93,7 +93,7 @@
       if (n == 1) {
         return n;
       } else {
-        return n * cul2(n  - 1)  //
+        return n * cul2(n - 1)  //
       }
     }
     console.log(cul2(10));
@@ -102,7 +102,7 @@
     function cul3(n1, m2) {
       let pf = []
       for (let i = n1; i <= m2; i++) { // 1-100
-        for (let j = 1; j <= i; j++) {
+        for (let j = 1; j <= i; j++) { //
           if (j * j == i) {
             //j*j == i是一个条件语句，它用于检查内层循环迭代变量j的平方是否等于外层循环迭代变量i。
             // 这个条件语句是用来判断当前的i是否为完全平方数。如果j*j的值等于i，那么就说明i是一个完全平方数，将其添加到数组pf中。
@@ -252,7 +252,7 @@
       for (let i = n1; i < n2; i++) {
         let res = 0;
         let val = i;
-        while (val) {
+        while (val > 0) {
           res += newCul(val % 10);
           val = Math.floor(val / 10);
         }
@@ -292,14 +292,9 @@
       console.log(arr);
     }
     // fibo(1, 1, 10)
-    // 20. 使用递归函数完成斐波那契数列任意项数的阶乘。（如：1，1   阶乘为1*1。1，1，2，3，阶乘为1*1*2*3）
-    var culll = 1;
-    let arrFib = [1, 1];
-    function fbnq(n) {
-      if (n == 1) {
-        return 1;
-      }
-    }
+    // 20. 使用递归函数完成斐波那契数列任意项数的阶乘。（
+    // 如：1，1   阶乘为1*1。1，1，2，3，阶乘为1*1*2*3）
+   
     // console.log(fbnq(5));
     // 高难题
     // 21.输出在任意两个三位数范围内的所有的水仙花数，所谓水仙花数是指一个三位数，各个位上的数的立方相加在一起等于这个三位数，

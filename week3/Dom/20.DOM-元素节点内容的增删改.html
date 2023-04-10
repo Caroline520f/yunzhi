@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+        }
+        .new_div1{
+            background-color: #0000ff;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+    </ul>
+    <img src="" alt="图片无法正常显示">
+    <div class="div1"></div>
+    <script>
+        // 对元素节点的内容、属性进行修改、增加、删除、查询
+        var ul = document.querySelector("ul")
+        var lis = ul.children
+        console.log(lis)
+
+        // 对元素节点的文本内容进行修改
+        // 获取
+        // element.innerText
+        lis[2].innerText = "<span>999</span>"
+        console.log("第三个li的元素文本内容",lis[2].innerText)
+        console.log("-----我是分隔符-----")
+
+        // 对元素节点的内容进行修改
+        // element.innerHTML
+        lis[1].innerHTML = "<section>\43/\44/\45\46</section>"
+        console.log("第二个li的元素内容",lis[1].innerHTML)
+        console.log("-----我是分隔符-----")
+
+        // 对元素节点的属性进行增加、删除、修改、查询
+        // 查询某一个元素节点的属性
+        // element.getAttribute(string:属性名)
+        // 结果返回该属性的属性值
+        var img = document.querySelector("img")
+        var value = img.getAttribute("alt")
+        console.log("img中alt属性的属性值：",value)
+        console.log("-----我是分隔符-----")
+
+        // element.setAttribute(string:属性名,string:属性值)
+        // 当元素没有这一个属性时
+        // 增加某一属性
+        img.setAttribute("id","picture")
+
+        // 当元素有这一个属性时，
+        // 修改某一属性
+        img.setAttribute("src","./崩坏.png")
+        
+        // 删除某一个元素节点的属性
+        // element.removeAttribute(string:属性名)
+        img.removeAttribute("id")
+
+        // 判断某一个元素节点是否包含某个属性
+        // element.hasAttribute(string:属性名)
+        // 返回结果：布尔值
+        var bool = img.hasAttribute("src")
+        console.log("判断Img中是否包含src",bool)
+        var bool2 = img.hasAttribute("id")
+        console.log("判断Img中是否包含id",bool2)
+        console.log("-----我是分隔符-----")
+
+        // 对元素节点的类名进行增加、删除、修改、查询
+        // element.classList
+        // 获取某个元素节点的所有类名
+        // 结果返回一个伪数组
+        var box = document.querySelector(".div1")
+        var classes = box.classList
+        console.log("获取div的所有类名：",classes)
+        console.log("-----我是分隔符-----")
+
+        // 给某个元素节点增加一个类名
+        // element.classList.add(string:类名)
+        box.classList.add("new_div1")
+        console.log("获取div的所有类名：",classes)
+        console.log("-----我是分隔符-----")
+
+        // 给某个元素节点删除一个类名
+        // element.classList.remove(string:类名)
+        box.classList.remove("new_div1")
+        console.log("获取div的所有类名：",classes)
+        console.log("-----我是分隔符-----")
+
+        // 给某个元素节点修改一个类名
+        // element.classList.replace(旧类名，新类名)
+        box.classList.replace("div1","new_div1")
+        console.log("获取div的所有类名：",classes)
+        console.log("-----我是分隔符-----")
+
+        // 判断某个元素节点是否包含这个类名
+        // element.classList.contains(string:类名)
+        // 结果返回一个布尔值
+        var bool3 = box.classList.contains("div1")
+        console.log("判断div中是否包含div1类名：",bool3)
+        var bool4 = box.classList.contains("new_div1")
+        console.log("判断div中是否包含div1类名：",bool4)
+        console.log("-----我是分隔符-----")
+    </script>
+</body>
+</html>

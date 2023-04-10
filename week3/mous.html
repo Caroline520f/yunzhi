@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let bt = document.createElement("button")
+        let bt2 = document.createElement("button")
+        let bt3 = document.createElement("button")
+        bt.innerText = "添加元素"
+        bt2.innerText = "remove元素"
+        bt3.innerText = "change元素"
+        document.body.appendChild(bt)
+        document.body.appendChild(bt2)
+        document.body.appendChild(bt3)
+        function mouseDown(){
+            let div = document.createElement("div")
+            div.innerText = "我是新添加的元素"
+            document.body.appendChild(div)
+        }
+        //use the bt2 to remove the div
+        function mouseadown(){
+            let div = document.querySelector("div")
+            document.body.removeChild(div)
+        }
+        //use the bt3 to change the div's style 
+        //change all the div's style
+
+        function mousebdown(){
+            let div = document.querySelectorAll("div")
+            for(let i = 0; i < div.length; i++){
+                div[i].style.backgroundColor = "blue"
+            }
+        }
+
+        bt.onmousedown = mouseDown
+        bt2.onmousedown = mouseadown
+         // bt2.onmousedown = mouseadown
+        bt3.onmousedown = mousebdown
+    
+    </script>
+</body>
+</html>
