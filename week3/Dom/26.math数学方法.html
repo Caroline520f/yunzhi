@@ -1,0 +1,74 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数学方法 Math对象
+        console.log(Math)
+
+        // π 圆周率
+        console.log(`π的值是${Math.PI}`)
+
+        // 对数
+        console.log(`对数log10(1)的值是${Math.log10(1)}`)
+
+        // 自然对数，欧拉常数：e
+        console.log(`自然对数，欧拉常数e的值${Math.E}`)
+
+        // 自然对数
+        console.log(`自然对数,LN2的值${Math.LN2}`)
+        console.log(`自然对数,LN10的值${Math.LN10}`)
+
+        // Math.pow(底数，指数)
+        // 幂函数
+        console.log(`幂函数`)
+        function mi(n){
+            var res = Math.pow(2,n)
+            console.log(res)
+        }
+        mi(3)
+
+         // 指数函数
+         console.log(`指数函数`)
+        function zhiShu(n){
+            var res = Math.pow(n,2)
+            console.log(res)
+        }
+        zhiShu(8)
+
+        // 平方根
+        // Math.sqrt(num)
+        var res = Math.sqrt(9)
+        console.log(`9的平方根：${res}`)
+
+        // 立方根
+        // Math.cbrt(num)
+        var res2 = Math.cbrt(125)
+        console.log(`125的立方根： ${res2}`)
+
+        // 三角函数
+        // sin  : 三角形对应角对边比斜边
+        // Math.sin(deg)
+        var res3 = Math.sin(45)
+        console.log(`三角函数sin45的值是${Math.sin(45)}`)
+        var degs = Math.PI / 4
+        var res4 = Math.sin(degs)
+        console.log(`三角函数sin45°的值是${res4}`)
+
+        // cos : 三角形对应角的邻边比斜边
+        // Math.cos(deg)
+        var res5 = Math.cos(degs)
+        console.log(`三角函数cos45°的值是${res5}`)
+
+        // tan : 三角形对应角的邻边比斜边
+        // Math.tan(deg)
+        var res5 = Math.tan(degs)
+        console.log(`三角函数tan45°的值是${res5}`)
+    </script>
+</body>
+</html>

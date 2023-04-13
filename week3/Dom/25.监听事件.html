@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 事件监听： 
+        
+        事件捕获：一旦某个元素触发了事件，监听机制就能捕获该事件的发生。 事件捕获从父元素到子元素
+        事件冒泡：一旦某个子元素触发了事件，就会触及到父元素的事件发生。 事件冒泡从子元素到父元素
+
+        element.addEventListener(事件类型,事件函数,是否采取事件捕获机制(默认是false,采取事件冒泡机制,如果是true就采取事件捕获机制))
+    -->
+        <input type="text">
+    <script>
+        var input = document.querySelector("input")
+
+        // 键盘事件
+        // 键盘按下时
+        input.addEventListener("keydown",function(event){
+            // 键盘事件的事件主体
+            // 按下的键名
+            console.log(event.code)
+        })
+
+        // 键盘按一次
+        input.addEventListener("keypress",function(event){
+            console.log(event.code)
+        })
+
+        // 键盘松起
+        input.addEventListener("keyup",function(event){
+            console.log(`我松开了${event.code}键`)
+        })
+    </script>
+</body>
+</html>

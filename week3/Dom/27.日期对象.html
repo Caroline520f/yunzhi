@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 日期对象 date
+        var date = new Date()
+
+        // 时间戳：以毫秒制，1 秒 = 1000 毫秒。从1970年1月1日起，至今的时间差。
+        // 获取时间戳
+        // date.getTime()
+        var time = date.getTime()
+        console.log(`时间戳的值${time}`,typeof time)
+        console.log("----分隔符----")
+
+        // 将时间设定为时间戳所对应的时间
+        // date.setTime()
+        var time2 = date.setTime(date.getTime())
+        console.log(time2)
+        console.log("----分隔符----")
+
+        // 将时间的格式进行转化，转化为本地时间
+        // date.toLocaleString()
+        var time3 = date.toLocaleString()
+        console.log(time3)
+        console.log("----分隔符----")
+
+ 
+        // 获取日期
+        // date.getDay()
+        var day = date.getDate()
+        console.log(day)
+        console.log("----分隔符----")
+        
+        // * 将时间设定为一天后
+        var setDay = date.setDate(date.getDate()+1)
+        console.log("一天的毫秒数",1*24*60*60*1000)
+        console.log("当前时间戳",time)
+        console.log("设定的时间：",setDay);
+        console.log("设定的时间与当前时间的差",setDay-time)
+        console.log("----分隔符----")
+
+        // 获取星期
+        // date.getDay()
+        var week = date.getDay()
+        console.log(week)
+        console.log("----分隔符----")
+
+        // 获取月
+        // date.getMonth()
+        var month = date.getMonth()+1
+        console.log("月份：",month)
+        console.log("----分隔符----")
+
+
+        // 获取年
+        // date.getFullyear()
+        var year = date.getFullYear()
+        console.log("年份：",year)
+        console.log("----分隔符----")
+
+        // 获取时
+        // date.getHours()
+        var hour = date.getHours()
+        console.log("小时：",hour)
+        console.log("----分隔符----")
+
+        // 获取分
+        // date.getMinutes()
+        var Minutes = date.getMinutes()
+        console.log("分：",Minutes)
+        console.log("----分隔符----")
+
+        // 获取秒
+        // date.getSeconds()
+        var Seconds = date.getSeconds()
+        console.log("秒：",Seconds)
+        console.log("----分隔符----")
+    </script>
+</body>
+</html>

@@ -11,12 +11,15 @@
         let bt = document.createElement("button")
         let bt2 = document.createElement("button")
         let bt3 = document.createElement("button")
+        let bt4 = document.createElement("button")
         bt.innerText = "添加元素"
         bt2.innerText = "remove元素"
         bt3.innerText = "change元素"
+        bt3.innerText = "deleteAAAAAAAAAAAAAALLLLLLLL"
         document.body.appendChild(bt)
         document.body.appendChild(bt2)
         document.body.appendChild(bt3)
+        document.body.appendChild(bt4)
         function mouseDown(){
             let div = document.createElement("div")
             div.innerText = "我是新添加的元素"
@@ -36,7 +39,10 @@
                 div[i].style.backgroundColor = "blue"
             }
         }
-
+        function mousecdown(){
+           let div = document.querySelectorAll("div")
+           
+        }
         bt.onmousedown = mouseDown
         bt2.onmousedown = mouseadown
          // bt2.onmousedown = mouseadown

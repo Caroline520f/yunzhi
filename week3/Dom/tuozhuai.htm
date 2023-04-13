@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            position: fixed;
+            background-image: url(./QQ图片20230403092517.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #ff00ff;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let root = document.querySelector("div")
+        //鼠标跟随案例
+        // document.body.onmousemove = function(event) {
+        //     root.style.left = event.clientX - root.offsetWidth / 2 + "px" //鼠标距离页面左上角的X轴上的距离
+        //     //how to calculate the center of the div?
+        //     //div's width is 300px, so the center is 150px
+        //     //div's height is 300px, so the center is 150px
+        //     //so the Xcenter is 150px - 150px = 0px
+        //     //so the Ycenter is 150px - 0px = 150px
+        //     //what is the event.clientX?
+        //     //the event.clientX is the distance between the mouse and the left of the page
+        //     //so the event.clientX - 150px = the distance between the mouse and the left of the div
+            
+        //     root.style.top = event.clientY - root.offsetHeight / 2 + "px" //鼠标距离页面左上角的Y轴上的距离
+        // }
+        // //拖拽盒子
+
+
+
+            
+        let words = ["baka", "hentai", "kuso", "kawaii", "suki", "suki desu", "suki desu ka", "suki desu ne", "suki desu yo", "suki desu yo ne", "suki desu yo ka", "su"]
+        root.onclick = function () {
+            root.innerText = words[(Math.random() * words.length - 1).toFixed(0) * 1]
+            root.style.fontSize = "20px"
+        }
+
+
+        root.onmousedown = function (event) { //鼠标按下事件
+            let x = event.offsetX
+            let y = event.offsetY
+            document.body.onmousemove = function (event) {
+                root.style.left = event.clientX - x + "px"
+                root.style.top = event.clientY - y + "px"
+            }
+        }
+        document.body.onmouseup = function () {
+            document.body.onmousemove = null //清除事件
+        }
+    
+        // function moveImg(url) {
+        //     let strArr = ["long string", "long string", "long string", "long string", "long string"]
+        //     root.style.backgroundImage = "url(" + url + ")"
+        //     root.onmousedown = function (event) {
+        //         let x = event.offsetX;
+        //         let y = event.offsetY;
+        //         document.body.onmousemove = function (e) {
+        //             root.style.left = (e.clientX - x) + "px";
+        //             root.style.top = (e.clientY - y) + "px";
+        //         }
+        //     }
+
+        //     root.onmouseup = function () {
+        //         document.body.onmousemove = null;
+        //     }
+
+        //     root.onclick = function () {
+        //         root.innerText = strArr[(Math.random() * 2).toFixed(0) * 1]
+        //     }
+        // }
+
+            // root.onmousedown = function(event){
+            //     let x = event.offsetX;
+            //     let y = event.offsetY;
+            //     document.body.onmousemove = function(event){
+            //         root.style.left = event.clientX - x + "px"; //鼠标移动时，盒子的left值等于鼠标的x值减去鼠标在盒子中的x值
+            //         root.style.top = event.clientY - y + "px"; //鼠标移动时，盒子的top值等于鼠标的y值减去鼠标在盒子中的y值
+            //     }
+            //     console.log("X",event.clientX - x);
+            //         console.log("Y",event.clientY - y);
+            // }
+            
+            document.body.onmouseup = function(){
+                document.body.onmousemove = null    //清除事件
+            }
+            //点击后再次激活事件
+    </script>
+</body>
+
+</html>

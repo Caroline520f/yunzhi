@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section,
+        div {
+            height: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            height: 40vh;
+            align-items: flex-start;
+        }
+
+        body>section:nth-child(1) {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        body>section:nth-child(2)>input {
+            width: 5vw;
+            height: 3vh;
+            margin: 0vw 3vw;
+        }
+
+        /* #add {
+            width: 5vw;
+            height: 3vh;
+            border: none;
+            background-color: #004085;
+            color: #fff;
+            margin-left: 2vw;
+        } */
+
+        caption {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        td {
+            width: 10vw;
+            height: 5vh;
+            text-align: center;
+        }
+
+        table>tbody>tr:nth-child(1)>td {
+            background-color: #CFE5FF;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        body>div:nth-child(4) {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden
+        }
+
+        .new_visibility {
+            visibility: visible !important;
+        }
+
+        #setTable td {
+            background-color: #fff;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <section>新增学员</section>
+    <section>
+        <span>姓名：</span>
+        <input type="text" id="username" />
+        <span>年龄：</span>
+        <input type="text" id="age" />
+        <span>性别：</span>
+        <select id="sex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        <span>学号</span>
+        <input type="text" id="studyId" />
+        <span>省份：</span>
+        <select id="province">
+            <option value="浙江省">浙江省</option>
+            <option value="广东省">广东省</option>
+            <option value="二次元">二次元</option>
+            <option value="火星">火星</option>
+            <option value="间隙之里">间隙之里</option>
+        </select>
+        <button id="add">录入</button>
+    </section>
+    <div>
+        <table id="main">
+            <caption>
+                学员信息表
+            </caption>
+            <tr></tr>
+        </table>
+    </div>
+    <div id="dialog">
+        <div>
+            <table id="setTable">
+                <tr>
+                    <td>学号:</td>
+                    <td><input type="text" id="setStudyId"></td>
+                </tr>
+                <tr>
+                    <td>姓名:</td>
+                    <td><input type="text" id="setUsername"></td>
+                </tr>
+                <tr>
+                    <td>年龄:</td>
+                    <td><input type="text" id="setAge"></td>
+                </tr>
+                <tr>
+                    <td>性别:</td>
+                    <td>
+                        <select id="setSex">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>省份：</td>
+                    <td>
+                        <select id="setProvince">
+                            <option value="浙江省">浙江省</option>
+                            <option value="广东省">广东省</option>
+                            <option value="二次元">二次元</option>
+                            <option value="火星">火星</option>
+                            <option value="间隙之里">间隙之里</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>操作：</td>
+                    <td>
+                        <button id="confirm">确定</button>
+                        <button id="cancel">取消</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+
+
+        var xhr = new XMLHttpRequest()
+        xhr.open("get", "http://192.168.2.105:8080/api/data")
+        xhr.setRequestHeader("Content-Type", "")
+        xhr.send()
+        xhr.onreadystatechange = function () {
+            var data = [];
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                data = JSON.parse(xhr.responseText)
+                console.log(data)
+            }
+            const dataAr = data;
+            //put the data into the array
+
+
+
+            //模拟数据
+
+
+            //strat to render table
+            //get tbody
+            var table = document.querySelector('#main');
+            var mainTbody = table.children[1];
+
+            //render
+            function render() {
+                //clear tbody
+                mainTbody.innerHTML = '';
+                //render table data
+                for (let i = 0; i < dataAr.length; i++) {
+                    mainTbody.innerHTML += `
+                <tr>
+                     <td>${data[i].studyId}</td>
+                     <td>${data[i].username}</td>
+                    <td>${data[i].age}</td>
+                    <td>${data[i].sex}</td>
+                    <td>${data[i].province}</td>
+                    <td><button id="delete${i}">删除</button>
+                /
+                <button id="edit${i}">编辑</button>
+                </td>
+            </tr>`
+                }
+                mainTbody.children[0].children[5].innerText = '操作';
+                getClick()
+            }
+            render();
+            //get the data from input
+            var add = document.querySelector('#add');
+
+            function addInfo() {
+                let obj = {
+                    studyId: document.querySelector('#studyId').value,
+                    username: document.querySelector('#username').value,
+                    age: document.querySelector('#age').value,
+                    sex: document.querySelector('#sex').value,
+                    province: document.querySelector('#province').value
+                }
+                // console.log(obj)
+                data.push(obj);
+                render();
+            }
+            // add.addEventListener('click', addInfo); //add event to button
+            //use onclick
+            add.onclick = addInfo;
+            //delete
+            function deleteInfo(event) {
+                let del = event.target
+                // console.log(del)
+                let idValue = del.getAttribute("id")
+                // console.log(idValue)
+                let index = idValue[idValue.length - 1] * 1
+                // let index = idValue[idValue.length - 1] * 1;
+                data.splice(index, 1);
+                render();
+            }
+
+            //给按钮附事件
+            function getClick() {
+                //get the button
+                var btn = document.querySelectorAll('button');
+                //delete the button
+                for (let i = 0; i < btn.length; i++) {
+                    if (i % 2 == 1 && i != btn.length - 1 && i != btn.length - 2) {
+                        //-1 and -2 is the last two button
+                        btn[i].onclick = deleteInfo;
+                    } else if (i % 2 == 0 && i != 0 && i != btn.length - 1 && i != btn.length - 2) {
+                        btn[i].onclick = editData;
+                    }
+
+                }
+            }
+            //edit the data
+            //give a value 
+
+            var pos;
+            //get the dialog
+            function editData(e) { //
+                pos = e.target.id[e.target.id.length - 1] * 1; //why get wrong?
+                // console.log(pos)
+                let dialog = document.querySelector('#dialog');
+                // console.log(dialog)
+                dialog.classList.add('new_visibility');
+            }
+            //edit the function of edit button
+            const confirm = document.querySelector('#confirm');
+            const cancel = document.querySelector('#cancel');
+            function changeInfo() {
+                cancel.onclick = function () {
+                    dialog.classList.remove('new_visibility');
+                }
+                confirm.onclick = function (e) {
+                    dialog.classList.remove('new_visibility');
+                    let obj = {
+                        studyId: document.querySelector("#setStudyId").value,
+                        username: document.querySelector("#setUsername").value,
+                        sex: document.querySelector("#setSex").value,
+                        age: document.querySelector("#setAge").value,
+                        province: document.querySelector("#setProvince").value
+                    }
+                    console.log(obj)
+                    data.splice(pos, 1, obj);
+                    render();
+                }
+            }
+            changeInfo()
+        }
+    </script>
+</body>
+
+</html>

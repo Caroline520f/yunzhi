@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+            position:fixed;
+            background-image:url(./QQ图片20230403092517.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            color:#ff00ff;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var root = document.querySelector("div")
+        console.log(root)
+        /* root.onclick = function(event){
+            // 事件对象
+            console.log(event)
+            // 事件发生主体对象
+            console.log("事件发生主体对象：",event.target)
+            // 事件发生类型
+            console.log("事件发生类型：",event.type)
+            // 事件发生时，鼠标距离页面左上角窗口的X轴上的距离
+            console.log("鼠标距离页面左上角窗口的X轴上的距离：",event.clientX)
+            // 事件发生时，鼠标距离页面左上角窗口的Y轴上的距离
+            console.log("鼠标距离页面左上角窗口的Y轴上的距离：",event.clientY)
+            // 事件发生时，鼠标距离事件发生主体对象的左上角X轴上的距离
+            console.log("鼠标距离事件发生主体对象的左上角X轴上的距离：",event.offsetX)
+            // 事件发生时，鼠标距离事件发生主体对象的左上角Y轴上的距离
+            console.log("鼠标距离事件发生主体对象的左上角Y轴上的距离：",event.offsetY)
+            // 事件发生时，鼠标距离页面左上角的X轴上的距离
+            console.log("鼠标距离页面左上角的X轴上的距离：",event.pageX)
+            // 事件发生时，鼠标距离页面左上角的Y轴上的距离
+            console.log("鼠标距离页面左上角的Y轴上的距离：",event.pageY)
+
+        } */
+
+        // 鼠标跟随案例
+        /* document.body.onmousemove = follow
+        function follow(event){
+            root.style.left = (event.pageX -100) + "px"
+            root.style.top = (event.pageY-100 ) + "px"
+        } */
+
+        function tuozhuai(url){
+        // 拖拽盒子案例
+        var strArr = ["无路赛无路赛","剑出影随","占尽牛杂"]
+        // Math.random() 随机数 随机取 0~1之间的数字
+        // 0~2  Math.random()*2
+        // toFiexd(0) 取整
+        root.style.backgroundImage = "url("+ url +")"
+        // 鼠标按下时，拖拽盒子
+        root.onmousedown = function(event){
+            // 起始鼠标按下时的位置
+            var x = event.offsetX;
+            var y = event.offsetY;
+            // 为了让盒子跟随鼠标
+            document.body.onmousemove = function(e){
+                root.style.left = (e.clientX - x) + "px"
+                root.style.top = (e.clientY - y) + "px"
+            }
+        }
+
+        // 鼠标松开时，取消跟随事件
+        root.onmouseup = function(){
+            // 取消事件
+            document.body.onmousemove = null;
+        }
+        root.onclick = function(){
+            root.innerText = strArr[(Math.random()*2).toFixed(0)*1]
+            
+        }
+        }
+    </script>
+</body>
+</html>
