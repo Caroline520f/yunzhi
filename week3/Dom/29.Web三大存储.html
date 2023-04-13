@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        一、本地存储  localStorage
+        特点：
+        1. 存储大小为4MB 
+        2. 存储时间：永久保留(关闭浏览器后也存在)
+        3. 所有网页适用
+        4. (不)能与后端交互
+
+        二、会话存储  sessionStorage
+        特点：
+        1. 存储大小4MB
+        2. 存储时间：关闭网页后数据丢失
+        3. 所有网页适用
+        4. (不)能与后端交互
+        
+        三、cookie
+        特点：
+        1.存储大小4kb
+        2.存储时间：关闭网页后失效
+        3.兼容主流浏览器
+        4.不能与后端交互
+     -->
+     <script src="./base.js"></script>
+    <script>
+        
+        // * 本地存储
+        // localStorage
+
+        // 将数据保存在本地存储上
+        // localStorage.setItem(string:key(秘钥),string:value(值))
+        // localStorage.setItem(`username`,`123456abc`)
+        // localStorage.setItem(`username1`,`123456abc`)
+        // localStorage.setItem(`username2`,`123456abc`)
+        // localStorage.setItem(`username3`,`123456abc`)
+
+        // 将本地存储的某一条数据删除
+        // localStorage.removeItem(string:key(秘钥))
+        // localStorage.removeItem("username")
+
+        // 获取本地存储的某条数据
+        // localStorage.getItem(string:key(秘钥))
+        // var username = localStorage.getItem("username")
+        // console.log(username)
+
+        // 清空本地存储的数据
+        // localStorage.clear()
+        // localStorage.clear()
+
+
+        // * 会话存储 sessionStorage
+        // 存储一条会话存储的数据
+        // sessionStorage.setItem(string:key(秘钥),string:value(值))
+        // sessionStorage.setItem("password","666666")
+        // sessionStorage.setItem("password2","666666")
+
+        // 将会话存储的某条数据删除
+        // sessionStorage.removeItem(string:key(秘钥))
+        // sessionStorage.removeItem("password")
+
+        // 获取会话存储中的数据
+        // sessionStorage.getItem(string:key(秘钥))
+        // var password2 = sessionStorage.getItem("password2")
+        // console.log(password2)
+
+        // 将会话存储中的数据清空
+        // sessionStorage.clear()
+        // sessionStorage.clear()
+        
+
+        // cookie
+
+        // 存储数据
+        // document.cookie = string:key(秘钥) + "=" + string:value
+        // document.cookie = `string:key(秘钥)=string:value&key2=value2`
+        document.cookie = "username=wzh123"
+        console.log(addCookie)
+        addCookie("username","123456",1)
+    </script>
+</body>
+</html>

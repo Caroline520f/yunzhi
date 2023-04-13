@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>第一个页面</h1>
+    <button>点击前往阿里云</button>
+    <button id="second">点击前往第二个页面</button>
+    <button id="third">点击前往第三个页面</button>
+    <button id="toNext">点击前往下一个页面</button>
+    <button id="goTwo">点击前往下面第二个页面</button>
+    <script>
+        // 弹窗
+        // 1. 普通弹窗
+        // window.alert(string:弹窗内容)
+        // window.alert(`我是弹窗内容`)
+
+        // 2. 询问弹窗
+        // window.confirm(string:弹窗内容)
+        // 结果返回一个布尔值
+       /*  var bool = window.confirm(`你是智障吗？`)
+        console.log(bool)
+        if(window.confirm("你确定要删除嘛？")){
+            console.log("鬼才是智障")
+        } */
+
+        // 3. 输入框弹窗
+        // window.prompt
+      /*   var res =window.prompt("年龄？")
+        console.log(res) */
+
+        // * 页面跳转
+        // 新打开一个标签页进行跳转
+        // window.open(string:网页url)
+        var button = document.querySelector("button")
+
+         button.onclick = function(){
+            window.open("../css/CSS作业/阿里云.html")
+        }
+
+        // location.href = string:网页url
+        // 不会新建一个标签页，而是单页面跳转
+        var second = document.querySelector("#second")
+        second.onclick = function(){
+            location.href = "./31.BOM 第二个页面 copy.html"
+        }
+
+        var third = document.querySelector("#third")
+        third.onclick = function(){
+            location.href = "./31.BOM 第三个页面.html"
+        }
+        // 页面历史记录
+        // 只有进入过的页面才能开启历史记录模式进行跳转
+        // history
+
+        // 前往下一个有历史记录的页面
+        var toNext = document.querySelector("#toNext")
+        toNext.onclick = function(){
+            history.forward()
+        }
+
+        // 前往下面第二个有历史记录页面
+        // history.go(跳往的页面数)
+        var goTwo = document.querySelector("#goTwo")
+        goTwo.onclick = function(){
+            history.go(2)
+        }
+    </script>
+</body>
+</html>

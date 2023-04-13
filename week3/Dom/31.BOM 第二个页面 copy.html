@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>第二个页面</h1>
+    <button id="second">前往第三个页面</button>
+    <button id="back">返回上一个页面</button>
+    <button id="toNext">点击前往下一个页面</button>
+    
+    <script>
+       
+        // 页面历史记录
+        // 只有进入过的页面才能开启历史记录模式进行跳转
+        // history
+        var second = document.querySelector("#second")
+        second.onclick = function(){
+            location.href = "31.BOM 第三个页面.html"
+        }
+
+        var toNext = document.querySelector("#toNext")
+        toNext.onclick = function(){
+            history.forward()
+        }
+
+        // * hitory.back()
+        // 返回有历史记录的上一个页面
+        var back = document.querySelector("#back")
+        back.onclick = function(){
+            history.back()
+        }
+    </script>
+</body>
+</html>

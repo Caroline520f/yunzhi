@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    list-style-type: none;
+}
+
+#mainIndex {
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#mainPage {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr 0.7fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "mainArea midBlink nav";
+}
+
+/* 左边主要图片区域 */
+#mainInfo {
+    /* background-color: pink; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr 1fr;
+    grid-template-areas: "logoArea" "textArea" "downloadArea";
+}
+
+/* 左区logo+九宫 */
+#logoArea {
+    grid-area: logoArea;
+    background-color: black;
+}
+
+/*  */
+#nineSquare {
+    display: flex;
+    flex-wrap: wrap;
+    word-spacing: 3.6rem;
+    /* text-align: center; */
+    padding-top: 3vh;
+
+}
+
+/* 九宫格文字 */
+#nineSquare span {
+    width: 100%;
+    padding-top: 2.5vh;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+
+/* 左边文字001002003 视频按钮 */
+#textArea {
+    grid-area: textArea;
+    width: 100%;
+    height: 100%;
+}
+
+/* 大字！！ */
+#firstShow {
+    grid-area: rhodes;
+    height: 10vh;
+}
+
+.rhodes {
+    font-weight: bold;
+    font-size: 5.4rem;
+    color: #E3E3E3;
+}
+
+/* 001 002 003 滚动 视频按钮 */
+#rollingSelect {
+    display: flex;
+    padding-top: 2vh;
+    justify-content: space-between;
+}
+
+#getNumber {
+    display: flex;
+}
+
+#getNumber>li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #65676A;
+    width: 3.5vw;
+    height: 5vh;
+}
+
+#getNumber>li>a {
+    color: #65676A;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+#scrollText {
+    display: flex;
+    width: 15vw;
+    font-weight: bold;
+    font-size: 0.75rem;
+    justify-content: flex-start;
+    align-items: center;
+    color: #65676A;
+    margin-right: 6vw;
+
+}
+
+#videoSvg {
+    width: 2.4vw;
+    display: block;
+    background-color: #fff;
+}
+
+#getDownload>li>a {
+    text-decoration: none;
+}
+
+#download {
+    display: flex;
+    align-items: flex-end;
+    grid-area: downloadArea;
+    background-color: blue;
+}
+
+#localPlace {
+    width: 100%;
+    height: 15vh;
+    display: grid;
+    grid-template-columns: 0.8fr 0.9fr 2fr;
+    grid-template-rows: 1fr;
+    background-color: #fff;
+    margin-bottom: 2vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 右边登录 分享 导航栏 */
+#media_nav {
+    grid-area: nav;
+    background-color: aqua;
+}

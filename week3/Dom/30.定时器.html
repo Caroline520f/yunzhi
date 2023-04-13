@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定时器
+        // 延迟执行代码(异步执行代码)
+        // * setTimeout(执行函数,延迟时间(毫秒))
+        // 只会执行1次
+        setTimeout(function(){
+            console.log(1)
+        },3000)
+
+        // * setInterval(执行函数,延迟时间(毫秒))
+        // 一直执行，除非被打断 
+        // 消除定时器
+        // * clearInterval(定时器名称)
+        var index = 0;
+        var time = setInterval(function(){
+            index++
+            console.log(index)
+            if(index == 5){
+                clearInterval(time)
+            }
+        },1000)
+    </script>
+</body>
+</html>
