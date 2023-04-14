@@ -148,17 +148,37 @@ hr {
     /* background-color: #fff; */
     width: 100vw;
     height: 100vh;
-    /* position: absolute;
+    position: absolute;
     left: 0;
-    top: 0;*/
-    overflow: hidden;
+    top: 0;
+    visibility: hidden;
     animation: fadeIn 1s 0.7s forwards;
 }
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
+        display: none;
     }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+#Amiya {
+    animation: AmiyaIn 1s 2s forwards;
+    visibility: hidden;
+    z-index: -1;
+}
+
+@keyframes AmiyaIn {
+    0% {
+        opacity: 0;
+
+    }
+
     100% {
         opacity: 1;
         visibility: visible;

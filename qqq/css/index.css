@@ -6,6 +6,11 @@
     list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 #mainIndex {
     width: 100vw;
     height: 100vh;
@@ -16,33 +21,36 @@
 
 #mainPage {
     display: grid;
-    grid-template-columns: 1fr 0.9fr 0.7fr;
+    grid-template-columns: 1.1fr 0.7fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "mainArea midBlink nav";
+    grid-template-areas: "mainArea  nav";
+    z-index: 9;
 }
 
 /* 左边主要图片区域 */
 #mainInfo {
     /* background-color: pink; */
+    /* background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat; */
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 0.5fr 1fr;
+    grid-template-rows: 1fr 0.4fr 1fr;
     grid-template-areas: "logoArea" "textArea" "downloadArea";
 }
 
 /* 左区logo+九宫 */
 #logoArea {
     grid-area: logoArea;
-    background-color: black;
 }
 
 /*  */
 #nineSquare {
     display: flex;
     flex-wrap: wrap;
-    word-spacing: 3.6rem;
+    word-spacing: 4rem;
     /* text-align: center; */
-    padding-top: 3vh;
+    padding-top: 4vh;
 
 }
 
@@ -71,7 +79,7 @@
 
 .rhodes {
     font-weight: bold;
-    font-size: 5.4rem;
+    font-size: 5.9rem;
     color: #E3E3E3;
 }
 
@@ -80,6 +88,7 @@
     display: flex;
     padding-top: 2vh;
     justify-content: space-between;
+    width: 65%;
 }
 
 #getNumber {
@@ -97,63 +106,321 @@
 
 #getNumber>li>a {
     color: #65676A;
-    text-decoration: none;
     font-weight: bold;
     font-size: 1.4rem;
 }
 
+/* 选择文字项、 */
 #scrollText {
     display: flex;
-    width: 15vw;
+    width: 14vw;
     font-weight: bold;
     font-size: 0.75rem;
-    justify-content: flex-start;
     align-items: center;
+    margin-right: 9vw;
     color: #65676A;
-    margin-right: 6vw;
 
 }
 
+/* 视频的svg */
 #videoSvg {
     width: 2.4vw;
-    display: block;
-    background-color: #fff;
+}
+
+/* 下载字体 */
+#getDownload>li>a {
+    color: white;
+}
+
+#getDownload>li>a>svg {
+    object-fit: contain;
+}
+
+/* 下载的方框 */
+#getDownload>li {
+    width: 100%;
+    height: 25.5%;
+    margin-bottom: 5%;
+    border: 1px solid #181818;
+    color: #fff;
+    font-size: 1.15rem;
+    background-color: #000;
+    border-radius: 1vw;
+    display: flex;
+}
+
+#getDownload>li:nth-child(2) {
+    background-color: #8FC31F;
+}
+
+#getDownload>li:nth-child(3) {
+    background-color: #009BAA;
 }
 
 #getDownload>li>a {
-    text-decoration: none;
+    width: 8vw;
 }
 
+/* 下载区域 */
 #download {
     display: flex;
     align-items: flex-end;
     grid-area: downloadArea;
-    background-color: blue;
+    /* background-color: #f00; */
 }
 
+
+/* 下载区的div三个内容 */
 #localPlace {
     width: 100%;
-    height: 15vh;
+    height: 20vh;
     display: grid;
-    grid-template-columns: 0.8fr 0.9fr 2fr;
+    grid-template-columns: 0.7fr 0.5fr 1.9fr;
     grid-template-rows: 1fr;
-    background-color: #fff;
+    /* background-color: #fff; */
     margin-bottom: 2vh;
 }
 
+.tips {
+    margin-left: 1vw;
+}
 
+.textInfo {
+    padding: 0.2vw;
 
-
-
-
-
-
-
-
+    letter-spacing: 2.1vw;
+    color: #fff;
+}
 
 
 /* 右边登录 分享 导航栏 */
 #media_nav {
     grid-area: nav;
-    background-color: aqua;
+    /* background-color: aqua; */
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    position: relative;
+
+}
+
+#loginBox {
+    width: 100%;
+    height: 6.8vh;
+}
+
+/* 右上角分享svg */
+#login_share {
+    position: absolute;
+    top: 3.2rem;
+    /* right: -8px; */
+    /* left: 10.1vw; */
+    display: flex;
+    /* right: 7rem; */
+    width: 100%;
+}
+
+#share {
+    position: absolute;
+    right: 0;
+}
+
+/* 登录注册位置 */
+#login_reg {
+    position: absolute;
+    right: 12rem;
+}
+
+/* 登录注册大小 */
+#login_reg>a {
+    font-size: 1.15rem;
+}
+
+/* 右上角空隙 */
+#sep {
+    margin: 0 1rem;
+    color: #fff;
+}
+
+/* 侧边栏 */
+#sideNav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* 侧边栏 */
+#leftNav>li {
+    padding-top: 11.4vh;
+
+}
+
+#leftNav>li>a {
+    font-size: 1.25rem;
+}
+
+/*更改三个下载样式 */
+#shift {
+    position: relative;
+    right: 4.6vw;
+    width: 3.2vw;
+}
+
+#shift>p {
+    height: 2.5vh;
+    width: 5.5vw;
+}
+
+.tap {
+    position: relative;
+    top: 1vh;
+    width: 7vw !important;
+}
+
+#data {
+    position: absolute;
+    right: 0;
+    bottom: 3rem;
+}
+
+#data>span {
+    font-size: 1.1rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.5rem;
+    color: #7F8182;
+}
+
+/* 中建任务背景 */
+#Amiya {
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    object-fit: cover;
+    top: 0;
+    left: 4vw;
+    filter: opacity(0.2);
+}
+
+/* 跟随鼠标 */
+#cursor {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    position: absolute;
+}
+
+/* 登录窗口遮罩层 */
+#mask,
+#maskVideo {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 11;
+}
+
+/* 登录弹窗口 */
+#loginWind {
+    width: 30rem;
+    height: 30rem;
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0vw 2vw 0vw 2vw;
+}
+
+#loginLogo,
+#postUP,
+#subcancel {
+    padding: 0vw 1vw;
+}
+
+/* 登录框 */
+/* 手机密码 */
+#postUP>form>p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top: 2vh;
+    padding-bottom: 0.8vh;
+}
+
+/* 输入框 */
+#postUP>form>input {
+    height: 3vh;
+    border: none;
+    width: 100%;
+    height: 3.1vh;
+    border-bottom: 1px solid #000;
+    color: #aaa;
+    font-size: 1.25rem;
+}
+
+#loginTitle {
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    border-bottom: 2px solid #37B2FF;
+    border-radius: 0vw 2vw 0vw 0vw;
+}
+
+#loginTitle>span {
+    letter-spacing: 2px;
+    font-size: 1.55rem;
+    font-weight: bold;
+    color: white;
+}
+
+#loginLogo {
+    width: 4.8vw;
+    /* height: 3vw; */
+    padding: 0.4vw;
+}
+
+/* 蓝色跳转 */
+#sendCode {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.65vw 0vw;
+}
+
+#sendCode>a {
+    color: #06A3DA !important;
+    font-size: 0.95rem;
+}
+
+/* 登录按钮和注册 */
+#subcancel {
+    display: flex;
+    justify-content: center;
+    padding: 1vw 1vw;
+}
+
+#subcancel>button {
+    width: 8rem;
+    height: 2.5rem;
+    color: #999995;
+    /* border: #999995 solid 1px; */
+}
+
+#clickTcancel {
+    margin-left: 2.21vw;
+}
+
+/* 视频控件*/
+#videoControl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
 }

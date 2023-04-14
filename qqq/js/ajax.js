@@ -12,11 +12,13 @@ window.onload = function () {
         }
     }
     //背景图片
-    getServer("get", "http://192.168.2.105:8080/api/index/imgs", null, imgaes)
+    getServer("get", "http://192.168.0.104:8080/api/index/imgs", null, imgaes)
     //视频信息
-    getServer("get", "http://192.168.2.105:8080/api/index/videoes", null, indexVideoes)
+    getServer("get", "http://192.168.0.104:8080/api/index/videoes", null, indexVideoes)
     //svgTool
-    getServer("get", "http://192.168.2.105:8080/api/svgTool", null, svgTool)
+    getServer("get", "http://192.168.0.104:8080/api/svgTool", null, svgTool)
     //downloadinfo
-    getServer("get", "http://192.168.2.105:8080/api/index/downloads", null, getDownload)
+    getServer("get", "http://192.168.0.104:8080/api/index/downloads", null, getDownload)
+    getServer("get", "http://192.168.0.104:8080/api/index/shows", null, getShare)
+    getServer("get", "http://8.134.165.47/8082/public", null, newGetSever)
 }
