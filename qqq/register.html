@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/ajax.js"></script>
+    <script src="./js/regAjax.js"></script>
+    <link rel="stylesheet" href="./css/register.css">
 </head>
+
 <body>
-    <h1>hello world</h1>
+    <!-- bg -->
+    <div id="bgImg"></div>
+    <!-- 图标和客服 -->
+    <header>
+        <section id="topMid">
+            <img src="" alt="" id="topLogo">
+        </section>
+        <div id="topRIght">
+            <section>
+                <img src="" alt="" id="customLine">
+                <p>客服中心</p>
+            </section>
+        </div>
+    </header>
+    <main>
+        <div>
+            <div id="loginAre" class="logoAre">
+                <section id="title">登录</section>
+                <div id="users">
+                    <p><input id="telephone" type="tel" placeholder="请输入手机号" required></p>
+                    <p style="color:red;visibility:hidden;font-size: 12px;">*账号格式不正确</p>
+                    <p><input id="password" type="password" placeholder="请输入密码" required></p>
+                    <p style="color:red;visibility:hidden;font-size: 12px;">*密码格式不正确</p>
+                </div>
+                <div id="btns">
+                    <section id="sms">
+                        <a href="javascript:;">使用短信验证码登录</a>
+                    </section>
+                    <section id="logia">登录</section>
+                    <section id="BiliBili">
+                        <a href="javascript:;">使用BiliBili账号</a>
+                    </section>
+                </div>
+            </div>
+            <div id="confBtn">
+                <section id="twoBtn">
+                    <span id="loginBtn">登录</span>
+                    <span>·</span>
+                    <span id="registerBtn">注册</span>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
     <script src="./js/register.js"></script>
 </body>
+
 </html>

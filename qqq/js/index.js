@@ -59,6 +59,8 @@ function indexVideoes(data) {
     for (let i = 0; i < videoesA.length; i++) {
         videoesA[i].setAttribute("href", "javascript:;")
     }
+
+    
     //获取滚动文字
     var scrollText = document.querySelector("#scrollText")
     //将前三个li的001,002,003渲染
@@ -78,6 +80,9 @@ function indexVideoes(data) {
             return false
         }
     }
+
+
+
     //页面默认进入的时候显示的英文单词
     scrollText.innerHTML = data.videos[2].infoTitle + `<br>` + data.videos[2].infoBgm
 
@@ -222,3 +227,10 @@ function changeNavLi() {
     }
 }
 changeNavLi()
+
+function changMouseIcon(data){
+    var curs = document.querySelector("body")  
+    var getIcon = data.points
+    console.log(`getIcon`, getIcon)
+    curs.style.cursor = `url(${getIcon.image1}),auto`
+}
