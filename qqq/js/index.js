@@ -1,6 +1,5 @@
 function imgaes(img) {
     //背景
-    console.log(`背景图片的数据：`, img)
     var bg = document.querySelector('#mainIndex')
     bg.style.backgroundImage = `url(${img.scene})`;
     //logo
@@ -27,7 +26,7 @@ function imgaes(img) {
     //icon
     var hidePage = document.querySelector('#mainPage')
     setTimeout(() => {
-        
+
     }, 700);
     //qrcode
     var qrcode = document.querySelector('#QRcode')
@@ -50,7 +49,6 @@ function imgaes(img) {
 
 function indexVideoes(data) {
     //请求过来的视频信息数据data
-    console.log(`视频信息的数据：`, data)
     //获取所有li
     var videoes = document.querySelector("#getNumber")
     var videoesLi = videoes.children //获取所有li
@@ -60,7 +58,7 @@ function indexVideoes(data) {
         videoesA[i].setAttribute("href", "javascript:;")
     }
 
-    
+
     //获取滚动文字
     var scrollText = document.querySelector("#scrollText")
     //将前三个li的001,002,003渲染
@@ -113,7 +111,6 @@ function svgTool(data) {
     document.body.appendChild(svg)
     var icon = document.querySelector('#icon')
     icon.setAttribute("href", data.pageTitle)
-    console.log(`icon`, icon)
 
     // 登录头部图片获取
     var loginLogo = document.querySelector("#loginLogo")
@@ -122,11 +119,9 @@ function svgTool(data) {
 
 function getDownload(data) {
 
-    console.log(`下载信息的数据：`, data)
     //get ul 
     var ulDownloadA = document.querySelector("#getDownload")
     var downLi = ulDownloadA.children
-    console.log(downLi)
     for (let i = 0; i < downLi.length; i++) {
         let dwonSvg = downLi[i].children[0];
         dwonSvg.innerHTML += data.downloadBtn
@@ -138,7 +133,6 @@ function getDownload(data) {
 }
 
 function getShare(data) {
-    console.log(`分享信息的数据：`, data)
     var share = document.querySelector("#share")
     share.innerHTML = `${data.showBtnSvg}`
 
@@ -201,36 +195,60 @@ clickTreg()
 
 // jude the telphone number
 function telReg() {
+    console.log('进入了telReg')
     var confrimBtn = document.querySelector("#clickTlogin");
     confrimBtn.onclick = function () {
+        console.log("点击了登录按钮")
         var telephone = document.querySelector("#telephone").value
         var password = document.querySelector("#password").value
         var telReg = /^1{1}[3-9]{1}\d{9}$/;
-        var pwdCheck = /^\w{6,12}$/;
+        var pwdCheck = /^\w{8,12}$/;
         if (telReg.test(telephone) && pwdCheck.test(password)) {
-            console.log("输入正确")
+            isLogin()
+            console.log("登录成功")
         } else {
-            console.log("账号或密码有误")
+            window.alert("手机号或密码错误")
         }
     }
 }
 telReg()
+function isLogin() {
+    console.log("进入了isLogin")
+    var telephon1e = document.querySelector("#telephone")
+    var password = document.querySelector("#password")
+    var xhr = new XMLHttpRequest()
+    xhr.open("post", "http://8.134.165.47:8080/api/user/login")
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(`telephone=${telephon1e.value}&password=${password.value}`);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var Data = JSON.parse(xhr.responseText);
+            if (Data.status == 0) {
+                window.alert("登录成功")
+            } else {
+                console.log("登录失败")
+            }
+        }
+    }
 
+}
 function changeNavLi() {
     var leftNav = document.querySelector("#leftNav a")
-    console.log(leftNav)
     for (let i = 0; i < leftNav.length; i++) {
         leftNav[i].onclick = function () {
             leftNav[i].setAttribute("href", "javascript:;")
         }
-        console.log(leftNav[i])
     }
 }
 changeNavLi()
 
-function changMouseIcon(data){
-    var curs = document.querySelector("body")  
+function changMouseIcon(data) {
+    var curs = document.querySelector("body")
     var getIcon = data.points
-    console.log(`getIcon`, getIcon)
     curs.style.cursor = `url(${getIcon.image1}),auto`
+}
+
+function connectSe() {
+    var xhr = new XMLHttpRequest()
+    xhr.open("get", "http://")
 }

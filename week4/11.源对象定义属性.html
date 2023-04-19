@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name:"张三",
+            age:12,
+        }
+
+        let p = {}
+        Object.defineProperty(p,"name",{
+            // 开启监控模式
+            configurable:true,
+            get(target,propKey){
+                return obj.name
+            },
+            set(target,propKey,value){
+                console.log(value)
+                obj.name = getValue(value)
+            }
+        })
+
+        let p2 = {}
+        Object.defineProperty(p2,"age",{
+            // 开启监控模式
+            configurable:true,
+            get(target,propKey){
+                console.log("aaa")
+                return obj.age
+            },
+            set(target,propKey,value){
+                console.log(value)
+                obj.age = getValue(value)
+            }
+        })
+
+        function getValue(value){
+            target[propKey] = value
+        }
+        // console.log(obj.value)
+        console.log(p.name)
+        console.log(p2.age)
+
+    </script>
+</body>
+</html>

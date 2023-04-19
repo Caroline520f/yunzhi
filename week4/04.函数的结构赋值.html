@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 函数的结构赋值 -->
+    <script>
+      let msg = {
+        name: "张三",
+        age: 24,
+      };
+
+      // 函数参数默认值
+      // 当函数的某个形参没有对应的实参时，就取默认值
+      /* function fun1(names = "李四") {
+        console.log(names);
+      }
+
+      fun1();
+      fun1(obj.name); */
+
+    //  函数参数为对象时，进行对象解构
+    /* function fun2({name,age} = obj){
+        console.log(name);
+        console.log(age);
+    }
+    fun2(msg) */
+
+    // 函数参数为数组时，解构数组
+   /*  let feb = [1,1]
+    function febnacci([ar1,ar2] = arr){
+        console.log(ar1)
+        console.log(ar2)
+    }
+    febnacci(feb) */
+
+    // 应用：对象解构，将后台JSON对象进行解构
+    let json = {
+        index:{
+            indexImg:"111",
+            indexTitle:"222",
+            indexVideo:["11","22","33"]
+        }
+    }
+    /* function index({index:{indexVideo,...index2}} = json){
+        console.log(index2)
+        console.log(indexVideo)
+        
+    }
+    index(json) */
+
+    // 应用：交换变量的值
+ /*    let a = 1;
+    let b = 2;
+
+    [a,b] = [b,a];
+    console.log(a,b); */
+
+    // 函数返回多个值
+    function res(data){
+        console.log(data);
+        let {index:{...index2}} = data;
+        return index2
+    }
+    let result = res(json)
+    console.log("res函数返回的结果：",result)
+
+    
+    </script>
+  </body>
+</html>

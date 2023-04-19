@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name:"张三",
+            age:24
+        }
+
+        // Reflect 对象反射
+        // 获取对象的某条属性
+        // obj.name
+        console.log(Reflect.get(obj,"name"))
+        
+        // 修改/新增对象的某条属性
+        // obj.age = 12
+        Reflect.set(obj,"age",12)
+        console.log("修改了age属性的obj:",obj)
+
+        // 判断对象是否包含某条属性
+        var boolean = Reflect.has(obj,"name")
+        console.log("判断对象是否含有name属性：",boolean)
+
+        // 删除对象的某条属性
+        // delete obj.job
+        let boolean2 = Reflect.deleteProperty(obj,"job")
+        console.log("判断对象是否删除job属性：",boolean2)
+        console.log("删除了age属性的obj:",obj)
+        console.log("----分隔符 -----")
+
+        // 函数apply
+        function fun1(num,num2,num3){
+            console.log("111")
+            console.log("this的指向",this)
+            console.log("函数的num参数",num)
+            console.log("函数的num2参数",num2)
+            console.log("函数的num3参数",num3)
+        }
+
+        // fun1.apply(obj,[2,3,4])
+        Reflect.apply(fun1,obj,[1,2,3])
+        console.log("----分隔符 -----")
+
+        // 返回对象的所有属性名
+        // Object.keys(obj)
+        // Object.values(obj)
+        // Object.entries(obj)
+        const ARR = Reflect.ownKeys(obj)
+        console.log("将目标对象的属性名转为数组",ARR)
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = "1234"
+
+        // 字符串方法
+        // includes(想要寻找的字符串,寻找起始下标)(可用)
+        // 结果返回布尔值
+        let bool = str.includes("ab",0)
+        console.log("从第0项开始寻找ab,",bool)
+        console.log("---分隔符----")
+
+        // startsWith(想要寻找的字符串,寻找起始下标)
+        // 结果返回布尔值
+        let bool2 = str.startsWith("2",0)
+        console.log("判断是否以1从第0项开始,",bool2)
+        console.log("---分隔符----")
+
+         // startsWith(想要寻找的字符串,寻找起始下标)
+        // 结果返回布尔值
+        let bool3 = str.startsWith("4",3)
+        console.log("判断从第0项开始,是否以4结尾,",bool3)
+        console.log("---分隔符----")
+
+        // 字符串重复
+        // repeat(次数)
+        // 返回新的字符串，表示将字符串重复指定次数返回。
+        var str2 = str.repeat(20);
+        console.log("将str重复20次获得的str2，",str2)
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name:"张湾"
+        }
+
+        let proxy = new Proxy(obj,{
+            // 判断对象的属性时，触发
+            has(target,propKey){
+                console.log("target：",target)
+                console.log("propKey",propKey)
+            },
+            // 当删除对象的某条属性时，触发方法
+            deleteProperty(target,propKey){
+                console.log("target：",target)
+                console.log("propKey",propKey)
+            }
+        })
+
+        // 判断对象中是否有某个属性
+        // console.log(proxy.name)
+        
+        // 源对象无法触发该方法
+        // delete obj.name
+        delete proxy.name
+
+        
+    </script>
+</body>
+</html>

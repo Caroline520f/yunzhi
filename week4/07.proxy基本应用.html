@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // proxy 代理对象
+        
+        let obj = {
+            // name:"蔡徐坤",
+            // age:26
+        }
+
+        // 创建一个proxy对象
+        let myProxy = new Proxy(obj,{
+            // 如何触发get方法？
+            // 当代理的对象中的某条属性被获取时，触发get
+            get(target,key,receiver){
+                console.log("target:",target)
+                console.log("key",key)
+                console.log("receiver",receiver)
+                return target[key]
+            },
+            // 当代理的对象中有某条属性被修改/新增时，触发set
+            set(target,key,value){
+                console.log("target:",target)
+                console.log("key",key)
+                console.log("value:",value)
+                target[key] = value
+            }
+        })
+
+        // console.log(obj["name"])
+        console.log(myProxy.name)
+
+        // 修改
+        // obj["name"] = "张三"
+        myProxy.age = 28
+        console.log(obj)
+
+        // 新增
+        myProxy.job = "鸡你太美"
+        console.log(obj)
+        myProxy.show = ''
+        // 代理对象与被代理对象相互影响
+        obj.name = "蔡徐坤"
+        console.log(obj)
+        console.log(myProxy)
+    </script>
+</body>
+</html>

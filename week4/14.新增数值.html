@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // * Number.isNaN(any:value)
+        // 返回一个布尔值
+        let nan = NaN
+        if(Number.isNaN(nan)){
+            console.log(nan)
+        }
+        console.log("---分隔符---")
+        
+
+        // Number.parseInt(string:"数字",进制)
+        // 浮点数str
+        // 返回一个整数
+        let str = "2233.22233"
+        let num = Number.parseInt(str)
+        console.log("num",num)
+        console.log("---分隔符---")
+
+         // Number.parseFloat(string:"数字",进制)
+        // 浮点数str2
+        // 返回一个带有小数的数字（浮点数）
+        let str2 = "2233.22233"
+        let num2 = Number.parseFloat(str2)
+        console.log("num2",num2)
+        console.log("---分隔符---")
+
+        // Number.isInteger(<string,number>:)
+        // 浮点数str3
+        // 返回一个布尔值
+        let str3 = "2233.22233"
+        let bool = Number.isInteger(str3)
+        let bool2 = Number.isInteger(num)
+        console.log("判断str3的数字是否为整数,",bool)
+        console.log("判断num的数字是否为整数,",bool2)
+        console.log("---分隔符---")
+        
+        // Math.trunc(any:value)
+        let str4 = "222.222"
+        let num3 = Math.trunc(str4)
+        console.log("num3",num3)
+        console.log("---分隔符---")
+
+        // Math.sign(value)
+        // 判断正数还是负数
+        let num4 = 8
+        let num5 = -8
+        let num6 = 0
+        let sign = Math.sign(num4)
+        let sign2 = Math.sign(num5)
+        let sign3 = Math.sign(num6)
+        console.log("判断num4的符号,",sign)
+        console.log("判断num5的符号,",sign2)
+        console.log("判断num6的符号,",sign3)
+        console.log("---分隔符---")
+
+        // 最大最小值
+        // Math.max(numbers(数字序列))
+        let arr = [463,45,36,34,523,4,326,324]
+        let max = Math.max(...arr)
+        console.log("arr中的最大数字",max)
+
+        // Math.min(numbers:(数字序列))
+        let min = Math.min(...arr)
+        console.log("arr中的最小数字",min)
+        console.log("---分隔符---")
+
+        // 面试题： 请以ES5的方法实现Math.max(...arr)和Math.min(...arr)
+       /*  let max1 = arr[0]
+        let min1 = arr[0]
+        for(var i = 0 ; i < arr.length ; i++){
+            if(max1 < arr[i]){
+                max1 = arr[i]
+            }else if(min1 > arr[i]){
+                min1 = arr[i]
+            }
+        }
+        console.log(max1,min) */
+
+        // 随机数
+        // Math.random()
+        // 返回 0~1 随机数
+        let num7 = Math.random()
+        let num8 = Math.random()*100
+        console.log("0~1随机数",num7)
+        console.log("0~100随机数",num8)
+        console.log("---分隔符---")
+
+        // 向下取整
+        // Math.floor(number:value)
+        let num9 = Math.floor(num8)
+        console.log("0~100随机整数",num9)
+
+        // 向上取整
+        // Math.ceil(number:value)
+        let num10 = Math.ceil(num8)
+        console.log("1~101随机整数",num10)
+    </script>
+</body>
+</html>

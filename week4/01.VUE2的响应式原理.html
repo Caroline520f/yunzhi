@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name:"张三",
+            age:24
+        }
+
+        let p = {}
+        Object.defineProperty(p,'name',{ // 为p对象添加一个name属性
+            configurable:true, // 是否可以删除
+            get(){// 当获取p.name的值时，触发get方法
+                return person.name // 返回person.name的值
+            },
+            set(value){ // 当修改p.name的值时，触发set方法
+                console.log("有人修改了name值，我要去更新界面了") //
+                person.name = value // 修改person.name的值
+            }
+        })
+        Object.defineProperty(p,'age',{
+            configurable:true,
+            get(){
+                return person.age
+            },
+            set(value){
+                console.log("有人修改了age值，我要去更新界面了")
+                person.age = value
+            }
+        })
+    </script>
+</body>
+</html>

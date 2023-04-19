@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let person = {
+        name: "张三",
+        age: 24,
+      };
+
+      // VUE3响应式原理DEMO
+       let p = new Proxy(person,{
+            // 读取
+            get(target,propName){
+                console.log(`有人读取了p身上的${propName}属性`)
+                // return target[propName]
+                return Reflect.get(target,propName) // Reflect.get()方法等同于target[propName]
+            },
+            // 新增/修改
+            set(target,propName,value){
+                console.log(`有人修改了p身上的${propName}属性，我要去更新界面了`)
+                // target[propName] = value
+                Reflect.set(target,propName,value)
+            },
+            // 删除
+            deleteProperty(target,propName){
+                console.log(`有人删除了p身上的${propName}属性`)
+                // return delete target[propName]
+                return Reflect.deleteProperty(target,propName)
+            }
+        }) 
+
+      let obj = {
+        a: 1,
+        b: 2,
+      };
+
+        let obj2 = {
+          name:'yuyuko',
+          age:17,
+          skill:'magic'
+        }
+
+        let y = new Proxy(obj2,{
+          get(target,value){
+            console.log(`有人读取了y身上的${value}属性`)
+            return Reflect.get(target,value)
+          },
+          set(target,value,newValue){
+            console.log(`有人修改了y身上的${value}属性${newValue}，我要去更新界面了`)
+            return Reflect.set(target,value,newValue)
+          },
+          deleteProperty(target,value){
+            console.log(`有人删除了y身上的${value}属性`)
+            return Reflect.deleteProperty(target,value)
+          }
+        })
+        // y.name = 'yukari'
+        Reflect.deleteProperty(y,'name')
+        console.log(y)
+      // 直接使用Object.defineProperty会直接爆错导致框架崩溃(除非使用try..catch捕获异常)
+      /**Object.defineProperty(obj, "c", {
+        get() {
+          return 3;
+        },
+      });
+      Object.defineProperty(obj, "c", {
+        get() {
+          return 4;
+        },
+      });*/
+
+      // 使用Reflect.defineProperty 可以通过哪一个的结果为true来判断操纵是否进行，从而避免一次性崩溃
+      /**let x1 = Reflect.defineProperty(obj, "c", {
+        get() {
+          return 3;
+        },
+      });
+      let x2 = Reflect.defineProperty(obj, "c", {
+        get() {
+          return 4;
+        },
+      });
+      console.log(x1,x2)*/
+    </script>
+  </body>
+</html>

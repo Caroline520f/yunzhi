@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*       let sy = Symbol("name");
+      let obj = {
+        0: "1",
+        1: "2",
+        1: "2",
+        [sy]: "张三",
+      };
+      console.log(obj); */
+
+      // 创建map对象
+      let map = new Map();
+
+      /*       console.log("map对象：", map);
+      console.log("---创建map---");
+
+      // 向map中添加属性
+      // map.set(string:key,string:value)
+      map.set("name", "2222");
+      console.log("map中的key是string：", map);
+      console.log("---key是string---");
+
+      // map.set(number:key,string:value)
+      map.set(1223, "2222");
+      console.log("map中的key是number：", map);
+      console.log("---key是number---");
+
+      // map.set(boolean:key,string:value)
+      map.set(true, "2222");
+      console.log("map中的key是boolean：", map);
+      console.log("---key是boolean---");
+
+      // map.set(null:key,string:value)
+      map.set(null, "2222");
+      console.log("map中的key是null：", map);
+      console.log("---key是null---");
+
+      // map.set(undefined:key,string:value)
+      map.set(undefined, "2222");
+      console.log("map中的key是undefined：", map);
+      console.log("---key是undefined---");
+
+      // map.set(Symbol:key,string:value)
+      map.set(sy, "2222");
+      console.log("map中的key是Symbol：", map);
+      console.log("---key是Symbol---");
+
+      // map.set(Array:key,string:value)
+      map.set([1, 2, 3], "2222");
+      console.log("map中的key是Array：", map);
+      console.log("---key是Array---");
+
+      // map.set(Object:key,string:value)
+      map.set(obj, "2222");
+      console.log("map中的key是Object：", map);
+      console.log("---key是Object---");
+
+      // map.set(Function:key,string:value)
+      map.set(function () {
+        console.log(11);
+      }, "2222");
+      console.log("map中的key是Function：", map);
+      console.log("---key是Function---");
+
+      // map.set(NaN:key,string:value)
+      map.set(NaN, "2222");
+      console.log("map中的key是NaN：", map);
+      console.log("---key是NaN---");
+
+      // map.set(Map:key,string:value)
+      map.set(map, "2222");
+      console.log("map中的key是Map：", map);
+      console.log("---key是Map---"); */
+
+      //   2. map键值对根据代码执行的顺序排列
+      //      obj键值对根据字母顺序排列
+/*       let obj2 = {
+        name: "11",
+        age: "222",
+        sc: "333",
+      };
+      console.log(obj2);
+
+      //   map.set的链式写法
+      map
+        .set("name", "11")
+        .set("age", "222")
+        .set("sc", "333")
+        .set("name2", "222");
+      console.log(map);
+      console.log("---顺序排列区别----");
+
+      //   map的键值对个数通过map.size获取
+      console.log(`map键值对个数：${map.size}`);
+      console.log("---键值对个数区别----");
+
+      //   map.get(any:key)
+      var Name = map.get("name");
+      console.log(`map中的name键的值：${Name}`);
+      console.log("----获取map中的键的值---");
+
+      // map.has(any:key)
+      var bool = map.has("aaaa");
+      console.log(`map查找aaaa键的值：${bool}`);
+      var bool2 = map.has("name");
+      console.log(`map查找name键的值：${bool2}`);
+      console.log("----查找map中的键的值---");
+
+      // map.delete(any:key)
+      map.delete("name");
+      console.log(`删除map中的name键：`, map);
+      console.log("----删除map中的键---"); */
+
+      // map.clear()
+      /* map.clear();
+      console.log(`清空map中的键：`, map);
+      console.log("----清空map中的键---"); */
+/* 
+      // map.keys()
+      // 把map中所有的键转化为伪数组(无长度，只有下标)
+      let keyArr = map.keys();
+      console.log(`把map中所有的键转化为伪数组`, keyArr);
+      console.log("----把map中所有的键转化为伪数组---");
+
+      //   map.values()
+      // 把map中所有的值转化为伪数组(无长度，只有下标)
+      let valueArr = map.values();
+      console.log(`把map中所有的值转化为伪数组`, valueArr);
+      console.log("----把map中所有的值转化为伪数组---");
+
+      //   map.entries()
+      // 把map中所有的键值对转化为二维伪数组(无长度，只有下标)
+      let propArr = map.entries();
+      console.log(`把map中所有的键值对转化为二维伪数组`, propArr);
+      console.log("----把map中所有的键值对转化为二维伪数组---"); */
+
+    // forEach
+    // 针对Set Array string Map是for循环的一种
+    // 对Map遍历
+    //  map.forEach(function(item){
+    //     console.log(item)
+    //  })
+
+    //  对Array遍历
+    // let arr = [1,2,3,4,5]
+ /*    arr.forEach(function(item){
+        console.log(item)
+    }) */
+    // for...of 
+    // 针对 Array Map Set
+
+    // 在for...of中，不可对数组进行简单的解构
+    // array
+    /* for(let i of arr){
+        console.log(i)
+    } */
+
+    // map
+    // 将map每一个键值对转化为真正的array
+    /* for(let item of map){
+        console.log(item)
+    } */
+
+    // 将每一个键值对的键和值进行遍历
+    // 可以对map对象进行简单的解构
+ /*    for(let [key,value] of map){
+        console.log("key值：",key)
+        console.log("value值：",value)
+    } */
+
+    // map 与 Array 互相转换
+    let map2 = new Map()
+    map2.set("22","11")
+    .set(1,22)
+    .set(true,false)
+
+    // 将map 转化为Array
+/*     let map2Arr = [...map2]
+    console.log(map2Arr) */
+
+    // 将array 转化为 map
+    /* let map3 = new Map()
+    map2Arr.forEach(function(item){
+        console.log("item:",item)
+        let [a,b] = item;
+        console.log("a的值："+a)
+        console.log("b的值："+b)
+        map3.set(a,b)
+        console.log("map3:",map3)
+    })
+     */
+    // Map与Object互相之间的转换
+    // Map转化为Object
+    let objArr = [...map2]
+    console.log(objArr)
+
+    // 该方法会将数组转化为对象，
+    // 在过程中，所有小数组的第0项都会被强制转化为字符串
+    let obj = Object.fromEntries(objArr);
+    console.log(obj)
+
+    // Object转化为数组
+    let obj2 = {
+        name:"校长",
+        age:24
+    }
+    let obj2Arr = Object.entries(obj2)
+    console.log(obj2Arr)
+    
+    let map4 = new Map()
+    obj2Arr.forEach(function(item){
+        let [key,value] = item
+        map4.set(key,value)
+    })
+    console.log(map4)
+    console.log("----隔断符-----")
+
+    // Map的克隆
+    let map5 = new Map([...map4]);
+    console.log(map5)
+
+    // map的合并
+    let map6 = [...map5,...map4];
+    console.log(map6)
+    let map7 = new Map(map6)
+    console.log(map7)
+
+    </script>
+  </body>
+</html>

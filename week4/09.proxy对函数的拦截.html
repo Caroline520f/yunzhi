@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function hello(canva) {
+            console.log("你好")
+            console.log("原函数的形参的值数：", canva)
+        }
+        //解释每一行代码的意思
+        let myProxy = new Proxy(hello, { // hello:原函数
+            apply(target, ctx, args) { // target:原函数，ctx:原函数的this指向，args:原函数的参数
+                console.log("target", target); //
+                console.log("ctx", ctx);
+                console.log("代理函数的参数args", args)
+                // 第一种调用到原代理函数的方式，使用闭包的形式，将函数返回
+                // return target
+                let arr = []
+                args.forEach(function (item) {
+                    if (item % 2 == 1) {
+                        arr.push(item)
+                    }
+                })
+                target(arr)
+            }
+        })
+
+        // 第一种调用到原代理函数的方式，使用闭包的形式
+        // hello.call(window)
+        // console.log(myProxy())
+        // myProxy()()
+
+        // 第二种
+        myProxy(1, 2, 3, 4, 5)
+    </script>
+</body>
+
+</html>

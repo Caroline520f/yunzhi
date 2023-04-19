@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个symbol数据类型的数据
+        let names = Symbol("name")
+        console.log("symbol数据类型names的值:",names)
+        console.log("----创建symbol----")
+
+        // 如何在对象中放入一个symbol属性
+        let obj = {
+            [names]:"张三"
+        }
+        // 获取对象中symbol属性所对应的属性值
+        console.log("symbol数据类型names的属性值",obj[names])
+        console.log("----获取symbol属性的属性值----")
+        
+        // 搜索全局symbol
+        // 登记symbol，如果没有登记(未创建的symbol数据类型)
+        // 会创建并登记symbol类型
+        // 如果创建了未登记，登记该symbol数据类型
+        var names2 = Symbol.for("name")
+        var ids = Symbol.for("id")
+        
+
+        // 检测symbol是否被登记
+        console.log(Symbol.keyFor(ids))
+    </script>
+</body>
+</html>

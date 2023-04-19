@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let obj ={
+            name:"张三",
+            age:24,
+            telephone:"1315555555",
+            partner:{
+                name:"蔡徐坤",
+
+            },
+            friends:{
+                name:"吴兴华"
+            }
+        }
+        // 对象的结构赋值
+        
+        // 基本解构
+        let {name} = obj
+        console.log("对象解构的属性值,name:",name)
+        console.log("---基本解构---")
+
+        // 重命名
+        let {age:age2} = obj
+        console.log("对象解构的属性值,age:",age2)
+        console.log("---重命名---")
+
+        // 可嵌套可忽略,不完全解构
+        let {partner:{name:name2}} = obj
+        console.log("对象解构的partner的name属性值,age:",name2)
+        console.log("---可嵌套可忽略,不完全解构---")
+
+        // 剩余运算符(扩展运算符)
+        // 剔除隐私信息
+        let {name:name3,age,telephone,...obj2} = obj
+        console.log("对象解构的剩余运算符,obj2:",obj2)
+        console.log("---剩余运算符---")
+        
+    </script>
+</body>
+</html>

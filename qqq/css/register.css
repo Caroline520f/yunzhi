@@ -141,11 +141,11 @@ main {
     ;
 }
 
-#sms {
+#btns>section:nth-child(1){
     grid-area: sms;
 }
 
-#logia {
+#btns>section:nth-child(2){
     grid-area: loginBtn;
     background-color: #158FC5;
     color: #fff;
@@ -155,15 +155,15 @@ main {
     align-items: center;
 }
 
-#BiliBili {
+#btns>section:nth-child(3) {
     grid-area: BiliBili;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#sms,
-#BiliBili {
+#btns>section:nth-child(1),
+#btns>section:nth-child(3) {
     color: #158FC5;
     font-size: 0.8rem;
 }
@@ -210,6 +210,7 @@ main {
 
 /* footer区域位置 */
 footer {
+    grid-area: footer;
     height: 10vh;
     width: 100vw;
     background-color: #ff1;
