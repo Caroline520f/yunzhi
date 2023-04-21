@@ -11,6 +11,7 @@ window.onload = function () {
             }
         }
     }
+   
     //背景图片
     getServer("get", "http://8.134.165.47:8080/api/index/imgs", null, imgaes)
     //视频信息
@@ -21,5 +22,6 @@ window.onload = function () {
     getServer("get", "http://8.134.165.47:8080/api/index/downloads", null, getDownload)
     getServer("get", "http://8.134.165.47:8080/api/index/shows", null, getShare)
     getServer("get", "http://8.134.165.47:8080/api/index/imgs", null, changMouseIcon)
+
 
 }

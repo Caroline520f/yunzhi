@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 一般形式
+        let name2 = "张三"
+        let age = 24
+
+        let obj ={
+            name2:name2,
+            age:age,
+            fun2:function fun2(){
+                console.log(222)
+            }
+        }
+        console.log("一般形式下无简写obj",obj)
+        console.log("----------分隔符-------")
+
+        // 简写形式
+        // 注意！ 属性名必须与变量名/形参名相同
+        let obj2 = {
+            name2,
+            age,
+            fun2(){
+                console.log(222)
+            }
+        }
+        console.log("简写属性的obj2,",obj2)
+        console.log("----------分隔符-------")
+
+
+        function fun1(name,age,fn){
+            let obj = {
+                name,
+                age,
+                fn,
+            }
+            console.log("函数参数下简写属性的obj,",obj)
+            console.log("----------分隔符-------")
+        }
+
+        let fun2 = function(){
+                console.log(222)
+        }
+
+        fun1(name2,age,fun2)
+        
+
+    </script>
+</body>
+</html>

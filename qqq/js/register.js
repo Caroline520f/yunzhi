@@ -1,3 +1,6 @@
+let token = localStorage.getItem("token")
+let usr = localStorage.getItem("telephone")
+let pwd = localStorage.getItem("password")
 function personalCenter(data) {
     // logo
     var topLogo = document.querySelector('#topLogo')
@@ -174,52 +177,50 @@ function personalCenter(data) {
 
             if (bt1 == loginBtn) {
                 svaeUsrPwd()
-                loginCheck()
             }
-            //保存用户信息
-            // localStorage.getItem("token")
-            // localStorage.getItem("telephone")
-            // localStorage.getItem("password")
-
         }
     }
-
-
-
-
 
     firstChec()
-
-    function loginCheck() {
-        var loginTest = document.querySelector("#logia");
-        var telephon1e = document.querySelector("#telephone")
-        var password = document.querySelector("#password")
-        loginTest.onclick = function () {
-            console.log("111")
-            var xhr = new XMLHttpRequest();
-            xhr.open("post", "http://8.134.165.47:8080/api/user/login")
+    var loginTest = document.querySelector("#logia");
+    var telephon1e = document.querySelector("#telephone")
+    var password = document.querySelector("#password")
+    function loginCheck(method, url, tel, pwd) {
+        return new Promise(function (resolve, reject) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(method, url);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.send(`telephone=${telephon1e.value}&password=${password.value}`);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    var Data = JSON.parse(xhr.responseText);
-                    if (Data.status == 0) {
-                        window.open("index.html")
-                        console.log(Data)
-                        localStorage.setItem("token", Data.token);
-                        localStorage.setItem("telephone", Data.telephone);
-                        localStorage.setItem("password", Data.password);
-                    } else {
-                        console.log(Data)
-                        //13233332345 123456789   usr pwd
-                    }
+            xhr.send(`telephone=${tel}&password=${pwd}`);
+            xhr.onload = () => {
+                if (xhr.status == 200 && xhr.readyState == 4) {
+                    const res = JSON.parse(xhr.responseText);
+                    resolve(res);
+                } else {
+                    reject(xhr.status);
                 }
             }
-        }
+        })
     }
-    loginCheck()
 
-
+    async function UsrPwdgin() {
+        loginCheck("post", "http://8.134.165.47:8080/api/user/login", telephon1e.value, password.value)
+            .then(
+                function (res) {
+                    loginTest.onclick = async function () {
+                        const res = await loginCheck("post", "http://8.134.165.47:8080/api/user/login", telephon1e.value, password.value);
+                        console.log(res);
+                        window.open("index.html")
+                        localStorage.setItem("token", res.token);
+                        localStorage.setItem("telephone", res.telephone);
+                        localStorage.setItem("password", res.password);
+                    }
+                }
+            )
+            .then(
+                
+            )
+    }
+    UsrPwdgin()
     var loginUsers = `
     <p><input type="tel" placeholder="请输入手机号" id='telephone' required></p>
     <p style="color:red;visibility:hidden;font-size: 12px;">*账号格式不正确</p>
@@ -360,9 +361,7 @@ function firstChec() {
 
 function svaeUsrPwd() {
     // 保存用户信息
-    let token = localStorage.getItem("token")
-    let usr = localStorage.getItem("telephone")
-    let pwd = localStorage.getItem("password")
+
     // 获取输入框
     let telephone = document.querySelector("#telephone")
     let password = document.querySelector("#password")

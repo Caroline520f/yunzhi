@@ -202,18 +202,20 @@ a {
     color: #fff;
     flex-direction: column;
     position: relative;
+    display: block !important;
 
 }
 
 #loginBox {
     width: 100%;
     height: 6.8vh;
+    position: fixed;
 }
 
 /* 右上角分享svg */
 #login_share {
     position: absolute;
-    top: 3.2rem;
+    top: 4.5rem;
     /* right: -8px; */
     /* left: 10.1vw; */
     display: flex;
@@ -223,13 +225,14 @@ a {
 
 #share {
     position: absolute;
-    right: 0;
+    left: 29vw;
+    top: auto;
 }
 
 /* 登录注册位置 */
 #login_reg {
-    position: absolute;
-    right: 8vw;
+    position: relative;
+    left: 21vw;
 }
 
 /* 登录注册大小 */
@@ -245,18 +248,28 @@ a {
 
 /* 侧边栏 */
 #sideNav {
+    position: fixed;
+    right: 6vw;
+    top: 8vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 /* 侧边栏 */
+#leftNav {
+    width: 4vw;
+    height: 80vh;
+    padding-top: 3vh;
+}
+
 #leftNav>li {
-    padding-top: 11.4vh;
+    margin-top: 10.5vh;
 
 }
 
 #leftNav>li>a {
     font-size: 1.25rem;
+    text-align: center;
 }
 
 /*更改三个下载样式 */
@@ -278,8 +291,8 @@ a {
 }
 
 #data {
-    position: absolute;
-    right: 0;
+    position: fixed;
+    right: 6vw;
     bottom: 3rem;
 }
 
@@ -298,7 +311,6 @@ a {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
     object-fit: cover;
     top: 0;
     left: 4vw;
@@ -424,4 +436,85 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
+}
+
+/* 干员页面 */
+#roleDiv {
+    width: 80vw;
+    height: 100vh;
+    /* background-color: #fff; */
+    /* display: none; */
+    display: grid;
+    /* visibility: hidden; */
+    grid-template-columns: 1.3fr 1.7fr 1.7fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "roleName roleImg roleInfo";
+    position: absolute;
+    top: 0;
+    padding-left: 6rem;
+}
+
+/* 干员列表 */
+#roleList {
+    grid-area: roleName;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 3fr 0.1fr;
+    grid-template-areas: "roleTop" "roleMid" "roleBot";
+}
+
+/* 干员列表头部文字 */
+#roleList_Top {
+    grid-area: roleTop;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+}
+
+#roleList_Top>span {
+    font-size: 2.5rem;
+    letter-spacing: 0.2vw;
+    font-weight: bold;
+    color: #505052;
+}
+
+/* 干员列表13个循环出现 */
+#roleList_all {
+    grid-area: roleMid;
+    background-color: #00aa00;
+}
+
+#roleList_all>ul {}
+
+#roleList_all>ul>li {
+    padding: 3vh 0vw;
+    height: 4rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+/* 底部文字 */
+#roleList_text {
+    background-color: #aa00aa;
+    grid-area: roleBot;
+}
+
+
+
+
+
+
+
+
+#roleImg {
+    grid-area: roleImg;
+    background-color: pink;
+}
+
+#roleInfo {
+    grid-area: roleInfo;
+    background-color: gold;
 }

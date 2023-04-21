@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 普通函数匿名函数
+        /* let fun2 = function(){
+            
+        } */
+
+        // 使用字面量的形式创建箭头函数
+        /* let fun = (a)=>{
+            console.log("111")
+            console.log(a)
+        }
+
+        fun(2)
+        fun(5) */
+
+        // 无参数/多参数箭头函数写法
+       /*  // 无参数写法
+        let fun = ()=>{}
+
+        // 多参数写法
+        let fun2 = (a,b)=>{
+            console.log(a,b)
+        }
+        fun2(2,3) */
+
+        // 当箭头函数函数体有多行语句，用 {} 包裹起来，表示代码块
+        /* let fun2 = (a,b)=>{
+            console.log(a)
+            console.log(b)
+        }
+        fun2(2,3) */
+
+        // 当只有一行语句并且需要返回结果时
+      /*   let fun3 = (a) => a
+        let res = fun3(3)
+        console.log("箭头函数fun3执行完毕后返回的结果值res：",res)
+
+        let fun4 = function(a){
+            return a
+        }
+        let res2 = fun4(3)
+        console.log("普通函数fun4执行完毕后返回的结果值res2：",res2) */
+        
+        // 当箭头函数只有一个形参时，可以省略()
+       /*  let fun6 = a => a
+        let res3 = fun6(3)
+        console.log("箭头函数fun3执行完毕后返回的结果值res3：",res3) */
+
+
+        // 当箭头函数只有一行语句且要返回对象的时候，
+        // 为了区分于代码块，要用 () 将对象包裹起来。(不常用)
+     /*    let fun5 = (name,age)=> ({name,age})
+        let res4 = fun5("张三",24)
+        console.log("箭头函数fun5执行完毕后返回的结果值res34：",res4) */
+
+
+
+        // 箭头函数没有this,arguments
+     /*    let obj = {
+            name:"阿萨德",
+            fun1(){
+                console.log("普通函数fun1的this:",this)
+                console.log("普通函数的arguments：",arguments)
+            },
+            fun2:()=>{
+                console.log("箭头函数fun2的this:",this)
+            }
+        }
+        obj.fun1(1,2,3)
+        obj.fun2(1,2,3) */
+
+    //    应用 ： 数组排序
+    // 普通函数
+   /*  let arr = [1,3,2523,5,23,626,312,2,4,66]
+    arr.sort(function(a,b){
+        return a-b
+    })
+    console.log(arr) */
+
+    // 箭头函数
+    let arr = [1,3,2523,5,23,626,312,2,4,66]
+    arr.sort((a,b)=> a-b)
+    console.log(arr)
+
+    // 应用： 数组map遍历 
+    // 普通函数
+  /*   let arr2 = arr.map(function(item){
+        return item*2
+    })
+    console.log(arr2) */
+
+    // 箭头函数
+    /* let arr2 = arr.map(item => item*2)
+    console.log(arr2) */
+
+    // 应用： 数组过滤
+    // 普通函数
+   /*  let arr3 = arr.filter(function(item){
+        if(item >5){
+            return item
+        }
+    })
+    console.log(arr3) */
+    // 箭头函数针对 filter,find,findIndex 方法
+    // 特殊写法
+    let arr3 = arr.filter(item => item>5)
+    console.log(arr3)
+    </script>
+</body>
+</html>

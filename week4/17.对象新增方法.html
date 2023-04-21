@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Object.assign(Object:target,Object:source)
+        // 复制对象
+        // 用于将源对象的所有可枚举属性复制到目标对象中
+        // 同时生成一个新的对象,不会改变源对象
+       /*  let obj ={
+            name:"2333",
+            age:24
+        }
+        let obj2 = {}
+
+        let obj3 = Object.assign(obj2,obj)
+        console.log("复制了obj的对象obj3:",obj3)
+        console.log("复制了obj的对象obj2:",obj2)
+        console.log("----------分隔符-------")
+
+        // 面试题：论Object.assgin的深拷贝和浅拷贝
+        obj2.name = "3322"
+        console.log("复制了obj的目标对象obj2，修改了name:",obj2)
+        console.log("源对象obj:",obj)
+        console.log("----------分隔符-------")
+        
+        obj3.age = 30
+        console.log("复制了obj的新生成对象obj3，修改了age:",obj3)
+        console.log("源对象obj:",obj)
+        console.log("----------分隔符-------")
+
+        console.log("复制了obj的目标对象obj2:",obj2)
+        console.log("----------分隔符-------") */
+        
+        // 总结：  
+        // 1. 目标对象与源对象以及新生成的对象与源对象之间是深拷贝
+        // 2. 目标对象与新生成的对象之间是浅拷贝
+
+        // 2. Object.is(any:value1,any:value2)
+        // 判断两个值是否严格相等
+        // 结果返回一个布尔值
+ /*        let bool = Object.is(2,"2")
+        console.log("2和'2'是否相等：",bool)
+        let bool2 = Object.is('2',"2")
+        console.log("'2'和'2'是否相等：",bool2)
+        let bool3 = Object.is(NaN,NaN)
+        console.log("用Object.is判断NaN和NaN是否相等：",bool3)
+        let bool4 = NaN === NaN
+        console.log("用===判断NaN和NaN是否相等：",bool4)
+        console.log("----------分隔符-------")
+ */
+
+
+        // 扩展运算符
+    /*     let obj ={
+            name:"2333",
+            age:24
+        }
+
+        let obj2 = {...obj}
+        console.log("利用扩展运算符复制的对象obj2:",obj2)
+        console.log("----------分隔符-------")
+
+        obj2.age = 30;
+        console.log("源对象obj",obj)
+        console.log("----------分隔符-------") */
+
+        // 总结： 利用扩展运算符复制的对象是深拷贝
+
+        // JSON.stringify
+      /*   let obj ={
+            name:"2333",
+            age:24,
+            fun2(){
+                console.log(2222)
+            },
+            und:undefined
+        }
+
+        let str = JSON.stringify(obj)
+        let obj2 = JSON.parse(str)
+        console.log("通过JSON方法复制的对象obj2:",obj2)
+
+        obj2.name = "6666"
+        console.log("源对象obj:",obj)
+        console.log("----------分隔符-------") */
+
+        // 总结： 利用JSON方法复制的对象是深拷贝
+
+        // 直接赋值
+        let obj ={
+            name:"2333",
+            age:24,
+            fun2(){
+                console.log(2222)
+            },
+            und:undefined
+        }
+
+        let obj2 = obj
+        console.log("通过直接赋值方法复制的对象obj2:",obj2)
+
+        obj2.age = 40
+        console.log("源对象obj:",obj)
+        console.log("----------分隔符-------")
+        
+        // 总结： 利用直接赋值的方法复制的对象是浅拷贝
+
+        // 总结：
+        // 浅拷贝实现方式： 
+        // 1. Object.assign中的目标对象和新生成的对象
+        // 2. 直接赋值
+        // 深拷贝的实现方式：
+        // 1. Object.assign中的目标对象和源对象以及新生成的对象和源对象
+        // 2. 扩展运算符
+        // 3. JSON方法
+    </script>
+</body>
+</html>

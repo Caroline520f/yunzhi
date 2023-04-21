@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 创建promise
+      /* // Promise(function(resolve,reject){
+
+        }) */
+      /* 
+            Promise状态：
+            1. 进行中
+            2. 已成功
+            3. 已失败
+
+            默认进行中
+            当异步执行完毕，状态就会进行改变（只能改变一次状态）
+            进行中 => 已成功
+            Or 
+            进行中 => 已失败
+            状态一旦发生改变，就无法再度改变
+        */
+
+      // promise状态唯一性
+      /* const promise = new Promise(function(resolve,reject){
+            // resolve和reject的使用
+            // resolve(any:value)
+            // 如果调用了resolve方法，promise对象的状态会发生改变，
+            // 改变为 Fulfilled 已成功
+            resolve("已成功")
+            // reject(any:value)
+             // 如果调用了Rejected方法，promise对象的状态会发生改变，
+            // 改变为 Rejected 已失败
+            reject("已失败")
+        })
+        console.log(promise) */
+
+      // promise 通过条件判断要进入的状态
+      let num = 1;
+      const promise = new Promise(function (resolve, reject) {
+        if (num >= 2) {
+          resolve("1111");
+        }
+        reject("222");
+      });
+
+      // then方法
+      // 第一种方法
+      /* promise.then(
+        result =>{
+            console.log("成功函数中result的值",result)
+        },
+        err => {
+            console.log("失败函数中err的值",err)
+        }
+        ) */
+
+      // 第二种
+      promise.then(
+        result => {
+            console.log("成功函数中result的值",result)
+        }
+      )
+      .catch(
+        err => {
+            console.log("失败函数中err的值",err)
+        }
+      )
+
+      
+    </script>
+  </body>
+</html>

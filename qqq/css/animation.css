@@ -155,6 +155,10 @@ hr {
     animation: fadeIn 1s 0.7s forwards;
 }
 
+#leftNav {
+    animation: fadeIn 1s 0.7s forwards;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -170,13 +174,12 @@ hr {
 #Amiya {
     animation: AmiyaIn 1s 2s forwards;
     visibility: hidden;
-    z-index: -1;
+    z-index: 0;
 }
 
 @keyframes AmiyaIn {
     0% {
         opacity: 0;
-
     }
 
     100% {

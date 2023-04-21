@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // async 异步函数本质就是promise对象
+      async function fun1(params){
+                return "1111"
+        }
+        // console.log(fun1(1))
+
+/*         fun1().then(
+            res =>{
+                console.log("异步函数执行成功的参数res:",res)
+            }
+        ) */
+
+      // 配合await 关键字使用
+      async function fun2(params) {
+        const return_value = await fun1(1);
+        return return_value
+      }
+
+      fun2(1).then((res) => {
+        console.log("异步函数执行成功的参数res:", res);
+      });
+    </script>
+  </body>
+</html>

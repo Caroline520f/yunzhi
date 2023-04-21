@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 手动抛出错误
+        // throw new Error("我是错误对象");
+
+        // 错误机制
+        let num = 4
+        function err(){
+            return new Promise((resolve,reject)=>{
+                if(num >=5){
+                    resolve(num)
+                }else{
+                    throw new Error("num的值不能小于5")
+                }
+            })
+        }
+        err().then(
+            res =>{
+                console.log(res)
+            }
+        )
+        .catch(
+            err =>{
+                console.log(err)
+            }
+        )
+
+        console.log("2222")
+    </script>
+</body>
+</html>

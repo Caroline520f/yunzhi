@@ -1,3 +1,11 @@
+var telephon1e = document.querySelector("#telephone")
+var password = document.querySelector("#password")
+var loginWind = document.querySelector("#mask")
+var listRo = document.querySelector('#listRo')
+var listRoLi = [...listRo.children];
+var token = localStorage.getItem('token')
+var pageNum = '003'
+var roleImgShow = document.querySelector('#roleImgShow')
 function imgaes(img) {
     //背景
     var bg = document.querySelector('#mainIndex')
@@ -196,51 +204,43 @@ clickTreg()
 // jude the telphone number
 function telReg() {
     console.log('进入了telReg')
-    var confrimBtn = document.querySelector("#clickTlogin");
+    var confrimBtn = document.querySelector("#logia");
+    if (localStorage.getItem('token') != null) {
+        telephone.value = localStorage.getItem('telephone')
+        password.value = localStorage.getItem('password')
+    }
     confrimBtn.onclick = function () {
         console.log("点击了登录按钮")
-        var telephone = document.querySelector("#telephone").value
-        var password = document.querySelector("#password").value
         var telReg = /^1{1}[3-9]{1}\d{9}$/;
         var pwdCheck = /^\w{8,12}$/;
-        if (telReg.test(telephone) && pwdCheck.test(password)) {
+        if (telReg.test(telephone.value) && pwdCheck.test(password.value)) {
             isLogin()
-            console.log("登录成功")
         } else {
             window.alert("手机号或密码错误")
         }
     }
+
 }
 telReg()
+
 function isLogin() {
-    console.log("进入了isLogin")
-    var telephon1e = document.querySelector("#telephone")
-    var password = document.querySelector("#password")
     var xhr = new XMLHttpRequest()
     xhr.open("post", "http://8.134.165.47:8080/api/user/login")
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send(`telephone=${telephon1e.value}&password=${password.value}`);
+    xhr.send(`telephone=${telephon1e.value}&password=${password.value}&token=${token}`);
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var Data = JSON.parse(xhr.responseText);
             if (Data.status == 0) {
                 window.alert("登录成功")
+                loginWind.style.display = "none"
+
             } else {
                 console.log("登录失败")
             }
         }
     }
-
 }
-function changeNavLi() {
-    var leftNav = document.querySelector("#leftNav a")
-    for (let i = 0; i < leftNav.length; i++) {
-        leftNav[i].onclick = function () {
-            leftNav[i].setAttribute("href", "javascript:;")
-        }
-    }
-}
-changeNavLi()
 
 function changMouseIcon(data) {
     var curs = document.querySelector("body")
@@ -248,7 +248,127 @@ function changMouseIcon(data) {
     curs.style.cursor = `url(${getIcon.image1}),auto`
 }
 
-function connectSe() {
-    var xhr = new XMLHttpRequest()
-    xhr.open("get", "http://")
+function jumpTrole() {
+    var roles = document.querySelector('#roles')
+    var mainInfo = document.querySelector('#mainInfo')
+    roles.onclick = () => mainInfo.style.display = 'none'
 }
+jumpTrole()
+let tele = localStorage.getItem('telephone')
+let pwd = localStorage.getItem('password')
+function getRolesInfo(method, url, tele, pwd, token) {
+    return new Promise((resolve, reject) => {
+        var xhr = new XMLHttpRequest()
+        xhr.open(method, url)
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(`telephone=${tele}&password=${pwd}&pageNum=003&token=${token}`);
+        xhr.onload = () => {
+            if (xhr.status == 200 && xhr.readyState == 4) {
+                // console.log(`getData CV`, Data.roleinfo[0].CV)
+                // console.log(`getData audio`, Data.roleinfo[0].audio)
+                // console.log(`getData englishName`, Data.roleinfo[0].englishName)
+                // console.log(`getData id`, Data.roleinfo[0].id)
+                // console.log(`getData info`, Data.roleinfo[0].info)
+                // console.log(`getData name`, Data.roleinfo[0].name)
+                // console.log(`getData roleImage`, Data.roleinfo[0].roleImage)
+                // console.log(`getData staff`, Data.roleinfo[0].staff)
+                // console.log(`getData staffHerf`, Data.roleinfo[0].staffHerf)
+                // for (let i = 0; i < listRoLi.length; i++) {
+                //     listRoLi[i].setAttribute('id', `id${Data.roleinfo[i].id}`)
+                // }
+                //map遍历listRoLi
+
+                const res = xhr.responseText
+                const Data = JSON.parse(res)
+                resolve(Data)
+            } else {
+                reject('请求失败', xhr.responseText)
+            }
+            // Data.roleinfo[0].CV
+            // Data.roleinfo[0].audio
+            // Data.roleinfo[0].englishName
+            // Data.roleinfo[0].id
+            // Data.roleinfo[0].info
+            // Data.roleinfo[0].name
+            // Data.roleinfo[0].roleImage
+            // Data.roleinfo[0].staff
+            // Data.roleinfo[0].staffHerf
+
+
+        }
+    })
+}
+
+
+// listRoLiArr.map((item, index) => { //item是listRoLi[index] index是索引
+//     item.setAttribute('id', `roleId${Data.roleinfo[index].id}`)
+// })
+// 链式请求
+async function staff() {
+    const data = await getRolesInfo('post', "http://8.134.165.47:8080/api/roles", tele, pwd, token)
+    console.log(data)
+
+    listRoLi.map((item, index) => { //item是listRoLi[index] index是索引
+        item.setAttribute('id', `roleId${data.roleinfo[index].id}`)
+    })
+    roleImgShow.setAttribute('src', data.roleinfo[0].roleImage)
+    console.log(listRoLi)
+}
+staff()
+// 角色图片
+
+// add animation to NAV
+// get ul
+var nav = document.querySelector('#leftNav')
+// get leftNav li a
+// var leftLi = nav.querySelectorAll('li a')
+// console.log(leftLi)
+let navLi = [...nav.children]
+console.log(navLi)
+// move
+navLi.forEach(item => {
+    // li  item.children[0]
+    item.children[0].onmouseenter = moveIn;
+    function moveIn() {
+        item.style = 'transform:translateX(-1vw)'
+        item.children[0].style = 'color:#22bbff'
+        cursor.style = 'background-color:rgba(255,255,255,0.5);transform:scale(0.75)'
+    }
+    item.children[0].onmouseleave = moveOut;
+    function moveOut() {
+        item.style = ''
+        item.children[0].style = 'color:#fff;'
+        cursor.style = ''
+    }
+
+    item.onclick = function (e) {
+        // a wait.children[0]
+        navLi.forEach((wait) => {
+            wait.onmouseenter = function () {
+                wait.children[0].style = 'transform:translateX(-1vw)'
+                wait.children[0].style = 'color:#22bbff'
+                cursor.style = 'background-color:rgba(255,255,255,0.5);transform:scale(0.75)'
+                 };
+            wait.onmouseleave = function () {
+                // wait.children[0].style = "";
+                // cursor.style = "";
+                // wait.style = ''
+            };;
+            item.children[0].style = `
+            color:#06A3DA;
+            border-right:5px solid #06A3DA;
+            padding-right:1vw;
+            `;
+        });
+       
+        console.log(item.children[0])
+        item.children[0].onmouseenter = null;
+        item.children[0].onmouseleave = null;
+    };
+
+})
+
+
+// get curosr
+var cursor = document.querySelector('#cursor')
+// curosr move aniam

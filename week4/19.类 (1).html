@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JAVA 中对类的定义
+        // Public Class Name{ ...类的内容 }
+        // Javascript 对类的定义
+        // 类名的命名规范
+        // 1. 不可重复声明(报错)
+        // 2. 类名的首字母必须大写(建议遵守，不遵守不会报错)
+        
+        // 声明一个类 class + 类名
+        class Message{
+            // 构造函数 constructor 
+            // 在类被实例化时调用 constructor 构造函数
+            constructor(work){
+                // 实例属性 公有属性
+                this.job = work
+                // 实例方法 公有方法
+                this.fun4 = ()=>{
+                    console.log("我是实例(公有的)方法")
+                }
+                // 调用公有方法 第2种 在类的构造函数内部调用
+                // this.getMessage()
+                // this.fun4()
+            }
+
+            // 静态属性 static 私有属性
+            static name2 = "张三"
+            // 静态方法 私有方法
+            static fun3(){
+                console.log("我是私有的方法")
+                console.log("-----静态方法的声明与调用-----")
+            }
+            // 公共属性 公有属性
+            age = 24
+            // 原型方法 公有方法
+            getMessage(){
+                console.log("获取job属性值：",this.job)
+            }
+            getName(){
+                console.log("获取name属性",this.getName)
+            }
+            // get与set
+            // 拦截 job属性被获取/修改 
+            // 触发机制： 
+            // 当job被获取时 触发get方法
+            // 当job 被修改时，触发set方法
+            // 会自动设置一个公有属性
+           /*  get job(){
+                console.log("我获取了job属性")
+            }
+            set job(value){
+                console.log("我修改了job属性，修改的值为：",value)
+                console.log("访问job属性",this.job)
+            } */
+        }
+        
+        // // 获取静态属性
+        // console.log("静态属性name2的值：",Message.name2)
+        // console.log("-----静态属性的获取-----")
+
+        // 调用私有方法
+        // Message.fun3()
+
+        // 获取类的名字
+        // console.log("类的名字,",Message.name)
+        // console.log("-----获取类的名字-----")
+
+        // 获取公共属性
+        // console.log()
+
+        // 实例类
+        // new关键字
+        let Zhangsan = new Message("法外狂徒")
+        // let Lisi = new Message("偷摩托车")
+        // console.log(Zhangsan)
+        // console.log("-----获取类的名字-----")
+
+        // console.log(Lisi)
+
+        // 公有属性的修改
+        // Zhangsan.age = 22;
+        // console.log(Zhangsan)
+
+        // 公有方法的调用 第1种方式，在类的外部调用
+        // Zhangsan.getMessage()
+
+        // setter与getter
+        Zhangsan.job = "法外狂徒"
+        // console.log(Zhangsan.job)
+        // console.log("-----获取类的名字-----")
+
+        // 类的继承
+        // class 子类名 extends 父类名
+        class Student extends Message{
+            // 类的继承方法必须写在 constructor 构造函数中
+            constructor(work){
+                // super方法 继承实例属性、实例方法、公共属性
+                // 可以调用父类中的原型方法
+                // 且必须出现在 this 之前。
+                super(work)
+                this.getMessage()
+            }
+        }
+
+        class persnal extends Student{
+            // 类的继承方法必须写在 constructor 构造函数中
+            constructor(work){
+                // super方法 继承实例属性、实例方法、公共属性
+                // 可以调用父类中的原型方法
+                // 且必须出现在 this 之前。
+                super(work)
+                this.getMessage()
+            }
+        }
+
+        class job extends Student{
+            // 类的继承方法必须写在 constructor 构造函数中
+            constructor(work){
+                // super方法 继承实例属性、实例方法、公共属性
+                // 可以调用父类中的原型方法
+                // 且必须出现在 this 之前。
+                super(work)
+                this.getMessage()
+            }
+        }
+
+        class persnal2 extends Student{
+            // 类的继承方法必须写在 constructor 构造函数中
+            constructor(work){
+                // super方法 继承实例属性、实例方法、公共属性
+                // 可以调用父类中的原型方法
+                // 且必须出现在 this 之前。
+                super(work)
+                this.getMessage()
+            }
+        }
+
+        class persnal3 extends Student{
+            // 类的继承方法必须写在 constructor 构造函数中
+            constructor(work){
+                // super方法 继承实例属性、实例方法、公共属性
+                // 可以调用父类中的原型方法
+                // 且必须出现在 this 之前。
+                super(work)
+                this.getMessage()
+            }
+        }
+
+        class Teac extends Message{
+            constructor(work){
+                super(work)
+                this.fun4()
+            }
+        }
+        // 类的继承只继承公有属性和公有方法，不会继承私有属性和私有方法
+        // 类的继承需要将子类实例化
+        let Wangwu = new Student("偷井盖")
+        let Lisi = new Teac("偷摩托车")
+
+        class Teac2 extends Message{
+            constructor(work){
+                super(work)
+                this.fun4()
+            }
+        }
+        // 类的继承只继承公有属性和公有方法，不会继承私有属性和私有方法
+        // 类的继承需要将子类实例化
+        let Wangwu2 = new Student("偷井盖")
+        let Lisi2 = new Teac("偷摩托车")
+
+    </script>
+</body>
+</html>
