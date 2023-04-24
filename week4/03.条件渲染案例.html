@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="odd">搜索奇数序列</button>
+    <button id="even">搜索偶数序列</button>
+    <ul id="list"></ul>
+    <script>
+      function req(method, url, data) {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open(method, `http://8.134.165.47:8080${url}`);
+          xhr.setRequestHeader(
+            "content-type",
+            "application/x-www-form-urlencoded"
+          );
+          xhr.send(
+            `telephone=${data.telephone}&password=${data.password}&token=${data.token}&pageNum=003`
+          );
+          xhr.onload = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              const res = xhr.responseText;
+              const json = JSON.parse(res);
+              resolve(json);
+            } else {
+              throw new Error("请求失败，失败的数据为", xhr.responseText);
+            }
+          };
+        });
+      }
+
+      // 第一种方式 利用async 和 await 获取到相应的数据
+      async function datas() {
+        let user = {
+          telephone: localStorage.getItem("telepthone"),
+          password: localStorage.getItem("password"),
+          token: localStorage.getItem("token"),
+        };
+        const res = await req("post", "/api/roles", user);
+        console.log(res);
+
+        const ARR = res.roleinfo;
+
+        // 用户搜索信息的底层原理： 条件渲染
+        // 获取按钮
+        const odd = document.querySelector("#odd");
+        const even = document.querySelector("#even");
+
+        res.roleinfo.forEach((item) => {
+              list.innerHTML += `
+            <li>
+                <section>${item.id}</section>
+                <section>${item.name}</section>
+                <section>${item.englishName}</section>
+                <section>${item.info}</section>
+                <section>${item.CV}</section>
+                <section>${item.staff}</section>
+            </li>
+            `;
+            });
+
+        // 将条件渲染的逻辑包装成函数
+        // 渲染奇数
+        let renderListOdd = () => {
+          let list = document.querySelector("#list");
+          list.innerHTML = ``;
+
+          res.roleinfo
+            .filter((item) => (item.id * 1) % 2 == 1)
+            .forEach((item) => {
+              list.innerHTML += `
+            <li>
+                <section>${item.id}</section>
+                <section>${item.name}</section>
+                <section>${item.englishName}</section>
+                <section>${item.info}</section>
+                <section>${item.CV}</section>
+                <section>${item.staff}</section>
+            </li>
+            `;
+            });
+        };
+
+        odd.onclick = renderListOdd;
+
+        //   渲染偶数
+        let renderListEven = () => {
+          let list = document.querySelector("#list");
+          list.innerHTML = ``;
+
+          res.roleinfo
+            .filter((item) => (item.id * 1) % 2 == 0)
+            .forEach((item) => {
+              list.innerHTML += `
+            <li>
+                <section>${item.id}</section>
+                <section>${item.name}</section>
+                <section>${item.englishName}</section>
+                <section>${item.info}</section>
+                <section>${item.CV}</section>
+                <section>${item.staff}</section>
+            </li>
+            `;
+            });
+        };
+
+        even.onclick = renderListEven;
+      }
+      datas();
+    </script>
+  </body>
+</html>

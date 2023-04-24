@@ -19,8 +19,10 @@
 
       // 创建map对象
       let map = new Map();
+      // console.log("map对象：", map);
 
-      /*       console.log("map对象：", map);
+      map.set('name','seija')
+      /*      
       console.log("---创建map---");
 
       // 向map中添加属性
@@ -238,30 +240,30 @@
       // 创建一个新的set对象
       let arr2 = [1, 1, 2, 3, 5, 2, 3, 4, 5];
       let mySet = new Set(arr2);
-      console.log(mySet);
+      // console.log(mySet);
 
       // 将去重完毕的set对象转化为数组
       let arr3 = [...mySet];
-      console.log("去重完毕的set对象所转化数组：", arr3);
+      // console.log("去重完毕的set对象所转化数组：", arr3);
 
       // +0和-0
       let arr4 = [+0, -0];
       let set = new Set(arr4);
-      console.log("去重+0和-0：", set);
+      // console.log("去重+0和-0：", set);
 
       //  undefined 与 undefined
       let arr5 = [undefined, undefined];
       let set2 = new Set(arr5);
-      console.log("去重undefined 与 undefined：", set2);
+      // console.log("去重undefined 与 undefined：", set2);
 
       // NaN 与NaN
       let arr6 = [NaN,NaN]
       let set3 = new Set(arr6);
-      console.log("去重NaN 与NaN：", set3);
+      // console.log("去重NaN 与NaN：", set3);
 
       // set.add(any:value)
       set3.add("222")
-      console.log("添加222：", set3);
+      // console.log("添加222：", set3);
 
       // set.clear()
     /*   set3.clear()
@@ -270,28 +272,28 @@
       // 判断是否包含某个值
       // set.has(any:value)
       let bool = set3.has(NaN)
-      console.log("判断有无NaN：", bool)
+      // console.log("判断有无NaN：", bool)
 
       // [1,2,3]  [2,3,4]
       // * 并集： [1,2,3,4]
       const ARR = [1,1,2,3,5]
       const ARR2 = [2,2,3,4,5]
       let arr11 = [...new Set([...ARR,...ARR2])]
-      console.log(arr11) // [1,2,3,4,5]
+      // console.log(arr11) // [1,2,3,4,5]
 
       // [1,2,3]  [2,3,4]
       // 交集：[2,3]
       let set4 = new Set(ARR)
       let set5 = new Set(ARR2)
       let arr12 = []
-      console.log(set4)
-      console.log(set5)
+      // console.log(set4)
+      // console.log(set5)
       set4.forEach(function(item){
           if(set5.has(item)){
               arr12.push(item);
           }
       })
-      console.log(arr12) // [2,3]
+      // console.log(arr12) // [2,3]
 
       // 差集
       // set4 {1, 2, 3, 5}
@@ -303,7 +305,7 @@
             arr13.push(item);
           }
       })
-      console.log(arr13)
+      // console.log(arr13)
 
     </script>
   </body>

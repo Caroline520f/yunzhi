@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const ARR = [2, [3, [4, [3, 4, [6, 3, [2, 5, [6, [34, [8]]]]]]]]]
+
+        /*         // 将多维数组转化为一维数组
+                // flat(infinity)
+                const ARR2 = ARR.flat(Infinity)
+                console.log(ARR)
+                console.log(ARR2)
+        
+                // 数组去重
+                // 转化为set对象去重
+                const SET = new Set(ARR2)
+                console.log(SET)
+        
+                // 转化为真正的数组
+                const ARR3 = [...SET]
+                console.log(ARR3)
+        
+                // 排序
+                // sort((a,b) => a-b)
+                ARR3.sort((a,b) => a-b)
+                console.log(ARR3) */
+
+        const ARR4 = [...new Set(ARR.flat(Infinity))].sort((a, b) => a - b)
+        console.log(ARR4)
+
+        // 过滤
+        // filter(item => 条件语句)
+        // const ARR5 = ARR4.filter(item => item < 10 && item % 2 == 0)
+        const ARR5 = ARR4.filter(item => item % 2 == 0)
+        console.log(ARR5)
+
+        // 查找
+        // find(item => 条件语句)
+        const item = ARR5.find(con => con > 5)
+        console.log(item)
+
+        // 包含
+        // includes(内容)
+        const bool = ARR5.includes(item)
+        console.log(bool)
+        const bool2 = ARR5.includes("6")
+        console.log(bool2)
+
+        // 数组合并
+        const ARR6 = [...ARR4, ...ARR5]
+        console.log(ARR6)
+    </script>
+</body>
+
+</html>

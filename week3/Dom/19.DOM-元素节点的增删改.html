@@ -22,49 +22,50 @@
    </ul>
     <script>
         var ul = document.querySelector("ul")
-        console.log(ul)
+        // console.log(ul)
         var lis = document.querySelectorAll("li")
-        console.log(lis)
+        // console.log(lis)
         // 元素的增删改
 
         // 增
         // 创建一个元素节点
         // document.createElement(string:元素标签名)
-        var li = document.createElement("li")
-        console.log("所创建的li标签",li)
-        console.log("----我是分隔符-----")
+        // var li = document.createElement("li")
+        // console.log("所创建的li标签",li)
+        // console.log("----我是分隔符-----")
 
         // 将所创建的元素节点放入到某个元素内容里（向某个父元素添加一个子元素节点，放到最后面）
         // parentNode.appendChild(元素节点)
-        ul.appendChild(li)
+        // ul.appendChild(li)
 
         // 删
         // 父元素删除一个子元素节点
         // parentNode.removeChild(元素节点)
-        ul.removeChild(li)
+        // ul.removeChild(li)
         // ul.removeChild(lis[1])
 
         // 改
         // 父元素下某一个子节点的修改(将元素标签改为另外一个元素标签)
         // parentNode.replaceChild(新元素节点，旧元素节点)
-        var section = document.createElement("section")
-        ul.replaceChild(section,lis[1])
+        // var section = document.createElement("section")
+        // ul.replaceChild(section,lis[1])
 
         // 父元素下插入一个子元素
         // insertBefore(已有子元素，新元素节点)
         // 在某一个子元素前面一个位置插入一个新的子元素
         var div = document.createElement("div")
-        ul.insertBefore(div,lis[lis.length-1])
+        // ul.insertBefore(div,lis[lis.length-1])
+        ul.insertBefore(div,lis[lis.length-2])
 
-        var div2 = document.createElement("div")
-        document.body.appendChild(div2)
-        div2.style.backgroundColor = "#0000ff"
-        div2.style.width = "200px"
-        div2.style.height = "200px"
-        div2.style.borderRadius = "50%"
-        var sec = document.createElement("section")
-        div2.appendChild(sec)
-        sec.style.visibility = "hidden"
+        // var div2 = document.createElement("div")
+        // document.body.appendChild(div2)
+        // div2.style.backgroundColor = "#0000ff"
+        // div2.style.width = "200px"
+        // div2.style.height = "200px"
+        // div2.style.borderRadius = "50%"
+        // var sec = document.createElement("section")
+        // div2.appendChild(sec)
+        // sec.style.visibility = "hidden"
     </script>
 </body>
 </html>

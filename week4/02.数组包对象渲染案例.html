@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 获取数据，利用promise和异步函数封装ajax请求
+        function req(method,url,data){
+            return new Promise((resolve,reject)=>{
+                const xhr = new XMLHttpRequest()
+                xhr.open(method,`http://8.134.165.47:8080${url}`)
+                xhr.setRequestHeader("content-type","application/x-www-form-urlencoded")
+                xhr.send(`telephone=${data.telephone}&password=${data.password}&token=${data.token}&pageNum=003`)
+                xhr.onload = ()=>{
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        const res = xhr.responseText
+                        const json = JSON.parse(res)
+                        resolve(json)
+                    }else{
+                        throw new Error("请求失败，失败的数据为",xhr.responseText)
+                    }
+                }
+            })
+        }
+
+        // 第一种方式 利用async 和 await 获取到相应的数据
+    /*     async function datas(){
+            let user = {
+                telephone:localStorage.getItem("telepthone"),
+                password:localStorage.getItem("password"),
+                token:localStorage.getItem("token")
+            }
+            const res = await req("post","/api/roles",user)
+            console.log(res)
+        }
+        datas() */
+
+        // 第二种方式 利用promise特性，进行链式请求
+        let user = {
+                telephone:localStorage.getItem("telepthone"),
+                password:localStorage.getItem("password"),
+                token:localStorage.getItem("token")
+        }
+        // 请求干员页面
+        let staff = data => {
+                console.log("干员页面数据：",data)
+        }
+
+        // 主页第一页图片
+        let indexImgs = data =>{
+            console.log("主页图片数据：",data)
+        }
+
+        // 主页视频信息
+        let indexVideo = data =>{
+            console.log("主页视频数据：",data)
+
+        }
+
+        req("post","/api/roles",user)
+        .then(res =>{
+            staff(res)
+            return req("get","/api/index/imgs","")
+        })
+        .then(res =>{
+            indexImgs(res)
+            return req("get","/api/index/videoes","")
+        })
+        .then(res =>{
+            indexVideo(res)
+            // return 
+        })
+    </script>
+</body>
+</html>

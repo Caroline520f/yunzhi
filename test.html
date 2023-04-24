@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" name="container">
+        <button class="btn" name="button1" id="button1">click</button>
+        <button class="btn" name="button2" id="button2">click</button>
+        <button class="btn" name="button3" id="button3">click</button>
+        <button class="btn" name="button4" id="button4">click</button>
+        <button class="btn" name="button5" id="button5">click</button>
+        <button class="btn" name="button6" id="button6">click</button>
+        <button class="btn" name="button7" id="button7">click</button>
+        <button class="btn" name="button8" id="button8">click</button>
+        <button class="btn" name="button9" id="button9">click</button>
+    </div>
+    <script>
+        const btn = document.querySelectorAll('.btn');
+        const container = document.querySelector('.container');
+        container.onclick = function (e) {
+            console.log(e)
+            console.log('target:', e.target)
+            console.log('currentTarget:', e.currentTarget)
+            console.log('', e.target.getAttribute('name'))
+            console.log('', e.currentTarget.getAttribute('name'))
+        }
+
+
+        // let obj = {
+        //     try: '1',
+        //     catch: '2',
+        //     finally: '3'
+        // }
+        // let proxy = new Proxy(obj, {
+        //     get(target, prop) {
+        //         console.log('using get ', 'targer', target, 'prop', prop);
+        //         return Reflect.get(target, prop)
+        //     },
+        //     set(target, prop, value) {
+        //         console.log('using set ', 'targer', target, 'prop', prop, 'value', value);
+        //         Reflect.set(target, prop, value)
+        //     }
+        // })
+        // proxy.try;
+        // proxy.try = '6';
+        // // proxy.catch = '7';
+        // proxy.finally = '8';
+        // console.log('修改后的try', proxy.try)
+        // console.log('修改后的catch', proxy.catch)
+        // console.log('修改后的finaly', proxy.finally)
+        // console.log(obj)
+
+        //解释代码
+        console.log(Array.prototype)
+
+        // let getText = new Promise(reslove => {
+        //     setTimeout(() => {
+        //         reslove('hello world')
+        //     }, 1000);
+        // })
+        // getText.then((res) => {
+        //     console.log(res)
+        // })
+
+        function getSever(method, url) {
+            return new Promise((reslove, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open(method, url)
+                xhr.setRequestHeader('Content-Type', 'application/json')
+                xhr.send()
+                xhr.onload = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        reslove(xhr.responseText)
+                    } else {
+                        reject(xhr.responseText)
+                    }
+                }
+            })
+        }
+
+        async function getData() {
+            try {
+                const res = await getSever('get', 'http://8.134.165.47:8080/api/index/imgs');
+                console.log(JSON.parse(res));
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        getData()
+        // let ar = [12, 2, 321, 4, 54, 223, 3333]
+        // ar.filter((item, index) => {
+        //     if (item % 2 == 0) {
+        //         console.log(item)
+        //     }
+        // })
+
+
+        // function getText(method, url, data) {
+        //     return new Promise((reslove, reject) => {
+        //         const xhr = new XMLHttpRequest();
+        //         xhr.open(method, url)
+        //         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        //         xhr.send(data)
+        //         xhr.onload = () => {
+        //             xhr.status == 200 && xhr.readyState == 4 ? reslove(xhr.responseText) : reject(xhr.responseText)
+        //         }
+        //     })
+        // }
+
+        // let getData = data => {
+        //     setTimeout(() => {
+        //         const dat = document.createElement('div')
+        //         document.body.appendChild(dat)
+        //         dat.innerHTML = data
+        //     }, 1500)
+        //     // console.log(data)
+        // }
+        // let getImg = data => {
+        //     setTimeout(() => {
+        //         const img = document.createElement('img')
+        //         document.body.appendChild(img)
+        //         img.setAttribute('src', data.Amiya)
+        //         img.style.width = '10vw'
+        //         img.style.height = '10vh'
+        //         img.style.backgroundColor = '#faaffa'
+        //         setTimeout(() => {
+        //             img.style.width = '50vw'
+        //             img.style.height = '50vh'
+        //             img.style.backgroundColor = 'aqua'
+        //             img.style.objectFit = 'cover'
+        //             setTimeout(() => {
+        //                 img.style.width = '120vw'
+        //                 img.style.height = '272vh'
+        //                 img.style.objectFit = 'cover'
+        //                 img.style.backgroundColor = 'black'
+        //                 setTimeout(() => {
+        //                     img.style.display = 'none'
+        //                 }, 100);
+        //             }, 10500)
+        //         }, 1000);
+        //     }, 2000)
+        // }
+
+        // let savePUT = data => {
+        //     let save = JSON.parse(data)
+        //     // console.log(save)
+        //     localStorage.setItem('telephone', save.telephone)
+        //     localStorage.setItem('password', save.password)
+        //     localStorage.setItem('token', save.token)
+        // }
+        // const tele = localStorage.getItem('telephone')
+        // const pwd = localStorage.getItem('password')
+        // const token = localStorage.getItem('token')
+        // // let a = document.createElement('div')
+        // // document.body.appendChild(a)
+        // let role = data => {
+        //     let dat = JSON.parse(data);
+        //     let div = document.createElement('div')
+        //     let sec = document.createElement('ul')
+        //     document.body.appendChild(div)
+        //     div.appendChild(sec)
+        //     div.style.width = '100vw'
+        //     div.style.height = '20vh'
+        //     let search = document.createElement('input')
+        //     let bt = document.createElement('button')
+        //     let bt2 = document.createElement('button')
+        //     document.body.appendChild(search)
+        //     document.body.appendChild(bt)
+        //     document.body.appendChild(bt2)
+        //     bt.innerHTML = '搜索'
+        //     bt2.innerHTML = 'reset'
+
+
+
+        //     dat.roleinfo.forEach(item => {
+        //         sec.innerHTML += `
+        //         <li>
+        //             <section>${item.id}</section>
+        //         <section>${item.name}</section>
+        //         <section>${item.englishName}</section>
+        //         <section>${item.info}</section>
+        //         <section>${item.CV}</section>
+        //         <section>${item.staff}</section>
+        //             </li>
+        //         `
+        //     })
+        //     bt.onclick = () => {
+        //         let val = search.value
+        //         // 生成一个新数组，符合条件的过滤出来   id搜索或者其他 改target.xxxx.includes(val)
+        //         let arr = dat.roleinfo.filter(target => {
+        //             return target.id.includes(val);
+        //         })
+        //         console.log(arr)
+        //         sec.innerHTML = ''
+        //         if (arr.length == 0) {
+        //             sec.innerHTML = '没有找到'
+        //             sec.style.color = 'red'
+        //         } else {
+        //             sec.style.color = 'black'
+        //         }
+        //         arr.forEach(item => {
+
+        //             sec.innerHTML += `
+        //             <li>
+        //                 <section>${item.id}</section>
+        //             <section>${item.name}</section>
+        //             <section>${item.englishName}</section>
+        //             <section>${item.info}</section>
+        //             <section>${item.CV}</section>
+        //             <section>${item.staff}</section>
+        //                 </li>
+        //             `
+        //         })
+        //     }
+        //     bt2.onclick = () => {
+        //         sec.innerHTML = ''
+        //         dat.roleinfo.forEach(item => {
+        //             sec.innerHTML += `
+        //         <li>
+        //             <section>${item.id}</section>
+        //         <section>${item.name}</section>
+        //         <section>${item.englishName}</section>
+        //         <section>${item.info}</section>
+        //         <section>${item.CV}</section>
+        //         <section>${item.staff}</section>
+        //             </li>
+        //         `
+        //         })
+        //     }
+        // }
+
+        // getText('get', 'http://8.134.165.47:8080/api/index/opacity')
+        //     .then(res => {
+        //         getData(res)
+        //         return getText('get', 'http://8.134.165.47:8080/api/index/imgs')
+        //     })
+        //     .then(res => {
+        //         getImg(JSON.parse(res))
+        //         // console.log(JSON.parse(res))
+
+        //         return getText('post', 'http://8.134.165.47:8080/api/user/login', 'telephone=13233332345&password=123456789')
+        //     })
+        //     .then(res => {
+        //         savePUT(res)
+        //         return getText('post', 'http://8.134.165.47:8080/api/roles', `telephone=${tele}&password=${pwd}&pageNum=003&token=${token}`)
+        //     })
+        //     .then(res => {
+        //         role(res)
+
+        //     })
+        // // 模拟异步操作1
+        // function asyncOperation1() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log('异步操作1完成');
+        //             resolve('异步操作1的结果');
+        //         }, 1000);
+        //     });
+        // }
+
+        // // 模拟异步操作2
+        // function asyncOperation2() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log('异步操作2完成');
+        //             resolve('异步操作2的结果');
+        //         }, 2000);
+        //     });
+        // }
+
+        // // 模拟异步操作3
+        // function asyncOperation3() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log('异步操作3完成');
+        //             resolve('异步操作3的结果');
+        //         }, 1500);
+        //     });
+        // }
+
+        // // 应用多个 then
+        // asyncOperation1()
+        //     .then(result1 => {
+        //         console.log('异步操作1的结果：', result1);
+        //         return asyncOperation2(); // 返回一个新的 Promise 对象
+        //     })
+        //     .then(result2 => {
+        //         console.log('异步操作2的结果：', result2);
+        //         return asyncOperation3(); // 返回一个新的 Promise 对象
+        //     })
+        //     .then(result3 => {
+        //         console.log('异步操作3的结果：', result3);
+        //         // 所有异步操作完成后的处理
+        //         console.log('所有异步操作完成');
+        //     })
+        //     .catch(error => {
+        //         console.error('出现错误：', error);
+        //     });
+
+
+
+
+        // class newC {
+        //     constructor(name, age) {
+        //         this.name = name
+        //         this.age = age
+        //         this.fun4 = () => {
+        //             console.log('fun4')
+        //         }
+        //         this.getName()
+        //     }
+        //     static self = '12'
+        //     getName() {
+        //         console.log('name', this.name)
+        //         console.log('age', this.age)
+        //     }
+        // }
+        // let c = new newC('zhangsan', 12)
+        // let d = new newC('zhang1san', 121)
+
+
+
+
+        // let a = 2;
+        // try {
+        //     if (a == 1) {
+        //         throw new Error('a==1')
+        //     } else {
+        //         throw new Error('a!=1')
+        //     }
+        // }
+        // catch (e) {
+        //     console.log(e)
+        // }
+        // finally {
+        //     console.log('finally')
+        // }
+
+
+        // // 模拟异步操作
+        // function asyncOperation() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log('异步操作完成');
+        //             resolve('异步操作的结果');
+        //         }, 1000);
+        //     });
+        // }
+
+        // // 创建一个 Promise 对象
+        // const promise = asyncOperation();
+
+        // // 应用多个 then
+        // promise
+        //     .then(result1 => {
+        //         console.log('第一个 then 处理结果：', result1);
+        //         // 返回一个新的 Promise 对象
+        //         return new Promise((resolve, reject) => {
+        //             setTimeout(() => {
+        //                 console.log('新的异步操作完成');
+        //                 resolve('新的异步操作的结果');
+        //             }, 2000);
+        //         });
+        //     })
+        //     .then(result2 => {
+        //         console.log('第二个 then 处理结果：', result2);
+        //         // 返回一个新的 Promise 对象
+        //         return new Promise((resolve, reject) => {
+        //             setTimeout(() => {
+        //                 console.log('又一个新的异步操作完成');
+        //                 resolve('又一个新的异步操作的结果');
+        //             }, 1500);
+        //         });
+        //     })
+        //     .then(result3 => {
+        //         console.log('第三个 then 处理结果：', result3);
+        //         // 所有异步操作完成后的处理
+        //         console.log('所有异步操作完成');
+        //     })
+        //     .catch(error => {
+        //         console.error('出现错误：', error);
+        //     });
+
+
+
+        //用class模拟实现一个promise
+
+    </script>
+</body>
+
+</html>

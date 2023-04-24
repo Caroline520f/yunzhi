@@ -17,6 +17,7 @@ a {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    position: fixed;
 }
 
 #mainPage {
@@ -80,7 +81,7 @@ a {
 
 .rhodes {
     font-weight: bold;
-    font-size: 5.9rem;
+    font-size: 5rem;
     color: #E3E3E3;
 }
 
@@ -188,8 +189,7 @@ a {
 
 .textInfo {
     padding: 0.2vw;
-
-    letter-spacing: 2.1vw;
+    letter-spacing: 1.8vw;
     color: #fff;
 }
 
@@ -214,7 +214,7 @@ a {
 
 /* 右上角分享svg */
 #login_share {
-    position: absolute;
+    position: fixed;
     top: 4.5rem;
     /* right: -8px; */
     /* left: 10.1vw; */
@@ -257,17 +257,19 @@ a {
 
 /* 侧边栏 */
 #leftNav {
-    width: 4vw;
-    height: 80vh;
-    padding-top: 3vh;
+    padding-top: 7vh;
 }
 
 #leftNav>li {
-    margin-top: 10.5vh;
+    height: 12vh;
+    /* margin-top: 10.5vh; */
+    width: 5vw;
+    text-align: center;
+    line-height: 14vh;
 
 }
 
-#leftNav>li>a {
+#leftNav>li>span {
     font-size: 1.25rem;
     text-align: center;
 }
@@ -290,13 +292,13 @@ a {
     width: 7vw !important;
 }
 
-#data {
+#pageNum {
     position: fixed;
     right: 6vw;
     bottom: 3rem;
 }
 
-#data>span {
+#numpage {
     font-size: 1.1rem;
     font-size: 1.3rem;
     letter-spacing: 0.5rem;
@@ -446,21 +448,19 @@ a {
     /* display: none; */
     display: grid;
     /* visibility: hidden; */
-    grid-template-columns: 1.3fr 1.7fr 1.7fr;
+    grid-template-columns: 0.8fr 2.1fr 1.3fr;
     grid-template-rows: 1fr;
     grid-template-areas: "roleName roleImg roleInfo";
-    position: absolute;
-    top: 0;
     padding-left: 6rem;
 }
 
 /* 干员列表 */
 #roleList {
     grid-area: roleName;
-    background-color: aqua;
+    /* background-color: aqua; */
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 3fr 0.1fr;
+    grid-template-rows: 0.5fr 3fr 0.2fr;
     grid-template-areas: "roleTop" "roleMid" "roleBot";
 }
 
@@ -470,7 +470,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: grey;
+    /* background-color: grey; */
 }
 
 #roleList_Top>span {
@@ -483,7 +483,7 @@ a {
 /* 干员列表13个循环出现 */
 #roleList_all {
     grid-area: roleMid;
-    background-color: #00aa00;
+    /* background-color: #00aa00; */
 }
 
 #roleList_all>ul {}
@@ -498,23 +498,51 @@ a {
 
 /* 底部文字 */
 #roleList_text {
-    background-color: #aa00aa;
+    /* background-color: #aa00aa; */
     grid-area: roleBot;
 }
 
-
-
-
-
-
-
-
-#roleImg {
-    grid-area: roleImg;
-    background-color: pink;
+#roleList_text>span {
+    color: #fff;
+    font-size: 1.2rem;
 }
 
-#roleInfo {
+
+#underName {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3.5vh;
+}
+
+#roleInfoAre {
+    margin: 5.4vh 0vh;
+}
+
+
+#roleImgPla {
+    grid-area: roleImg;
+    /* background-color: pink; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+
+}
+
+#roleImgShow {
+    object-fit: contain;
+}
+
+#roleI1nfo {
     grid-area: roleInfo;
-    background-color: gold;
+    /* background-color: gold; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.925fr;
+    grid-template-areas: "rightbLINK" "Maininfo";
+}
+
+#mainInnf {
+    grid-area: Maininfo;
+    line-height: 3vh;
+    /* background-color: #fff; */
 }

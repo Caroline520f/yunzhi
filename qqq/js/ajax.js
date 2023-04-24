@@ -11,7 +11,7 @@ window.onload = function () {
             }
         }
     }
-   
+
     //背景图片
     getServer("get", "http://8.134.165.47:8080/api/index/imgs", null, imgaes)
     //视频信息

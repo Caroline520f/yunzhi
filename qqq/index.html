@@ -10,15 +10,25 @@
     <link rel="stylesheet" href="./css/animation.css">
     <link rel="icon" href="" id="icon">
     <script src="./js/ajax.js"></script>
+    <style>
+        .pages {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            top: 0;
+            transition: top 0.5s 0s linear;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="curs"></div>
-    <div id="Amiya"></div>
-    <div id="cursor"></div>
+
 
     <!-- 主页 -->
     <main id="mainIndex">
+        <div id="curs"></div>
+        <div id="Amiya"></div>
+        <div id="cursor"></div>
         <div id="loadingAnm">
             <img src="" alt="" id="logo">
             <div class="leftSide">
@@ -35,8 +45,8 @@
             </section>
         </div>
 
-       
-        <div class="mainPage" id="mainPage">
+        <!-- 主页 -->
+        <div class="mainPage pages" id="mainPage">
 
             <div id="mainInfo">
                 <!-- 左边logo -->
@@ -144,166 +154,80 @@
                 <div id="sideNav">
                     <ul id="leftNav">
                         <li>
-                            <a href="javascript:;">首页</a>
+                            <span
+                                style="transform: translateX(0vw); color: rgb(6, 163, 218); border-right: 5px solid rgb(6, 163, 218); padding-right: 1vw;">首页</span>
                         </li>
                         <li>
-                            <a href="javascript:;">情报</a>
+                            <span>情报</span>
                         </li>
                         <li>
-                            <a href="javascript:;" id="roles">干员</a>
+                            <span>干员</span>
                         </li>
                         <li>
-                            <a href="javascript:;">设定</a>
+                            <span>设定</span>
                         </li>
                         <li>
-                            <a href="javascript:;">档案</a>
+                            <span>档案</span>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <section id="data">
-                        <span>/01/05</span>
+                    <section id="pageNum">
+                        <span id="numpage">/01/05</span>
                     </section>
                 </div>
             </div>
         </div>
+        <!-- 情报 -->
+        <div class="pages"></div>
+        <!--   干员 -->
+        <div id="roleDiv" class="pages">
+
+            <div id="roleList">
+                <section id="roleList_Top">
+                    <span>02-STAFF</span>
+                </section>
+                <div id="roleList_all">
+                    <ul id="listRo">
+                    </ul>
+                </div>
+                <section id="roleList_text">
+                </section>
+
+            </div>
+
+
+            <div id="roleImgPla">
+                <section >
+                    <!-- <img src="" alt="failed to load" id="roleImgShow"> -->
+                </section>
+            </div>
+
+            <div id="roleI1nfo">
+                <div></div>
+                <div id="mainInnf">
+                    <section>
+                        <p id="roleNhame">name</p>
+                    </section>
+                    <section id="underName">
+                        <span id="roleEName"></span>
+                        <section id="stafaudio">
+                            <span id="CV"></span>
+                        </section>
+                    </section>
+                    <section id="roleInfoAre">
+                        <span id="roleInf">info</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!-- 设定 -->
+        <div class="pages"></div>
+        <!-- 档案 -->
+        <div class="pages"></div>
     </main>
-    <!--   干员 -->
-    <div id="roleDiv">
-        
-        <div id="roleList">
-            <section id="roleList_Top">
-                <span>02-STAFF</span>
-            </section>
-            <div id="roleList_all">
-                <ul id="listRo">
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
 
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                    <li>
-                        <section>
-                            <span id="roleId">1</span>
-                            <img src="" alt="failed to load" id="roleImg">
-                            <span id="roleName">2</span>
-                        </section>
-                    </li>
-                </ul>
-            </div>
-            <section id="roleList_text">
-                <span>PL04 CROISSANT</span>
-            </section>
-        </div>
-
-
-        <div id="roleImg">
-            <section>
-                <img src="" alt="failed to load" id="roleImgShow">
-            </section>
-        </div>
-        
-        <div id="roleInfo">
-            <div>
-
-                <section>
-                    <p>name</p>
-                </section>
-                <section>
-                    <span>english name</span>
-                    <span>CV:?????</span>
-                    <audio src=""></audio>
-                </section>
-                <section>
-                    <span>info</span>
-                </section>
-            </div>
-        </div>
-    </div>
-
+    <audio src="" style="display:none" id="audios"></audio>
 
     <div id="mask">
         <div id="loginWind">
@@ -334,6 +258,7 @@
     </div>
 
     <script src="./js/index.js"></script>
+    <script src="./js/roleJs.js"></script>
 </body>
 
 </html>

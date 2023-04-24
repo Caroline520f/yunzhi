@@ -2,7 +2,6 @@ var telephon1e = document.querySelector("#telephone")
 var password = document.querySelector("#password")
 var loginWind = document.querySelector("#mask")
 var listRo = document.querySelector('#listRo')
-var listRoLi = [...listRo.children];
 var token = localStorage.getItem('token')
 var pageNum = '003'
 var roleImgShow = document.querySelector('#roleImgShow')
@@ -50,10 +49,7 @@ function imgaes(img) {
     //Amiya
     var amiya = document.querySelector("#Amiya")
     amiya.style.backgroundImage = `url(${img.Amiya})`
-
-
 }
-
 
 function indexVideoes(data) {
     //请求过来的视频信息数据data
@@ -86,7 +82,6 @@ function indexVideoes(data) {
             return false
         }
     }
-
 
 
     //页面默认进入的时候显示的英文单词
@@ -148,15 +143,115 @@ function getShare(data) {
 
 function getcCursor() {
     var circle = document.querySelector("#cursor")
-    var bg = document.querySelector('#mainIndex')
+    var Fbody = document.querySelector('body')
 
     circle.style.display = "none"
-    bg.onmousemove = function (e) {
+    Fbody.onmousemove = function (e) {
         circle.style.display = "block"
-        circle.style.left = (e.pageX - 20) + "px"
-        circle.style.top = (e.pageY - 20) + "px"
-    }
+        circle.style.left = (e.pageX - 18) + "px"
+        circle.style.top = (e.pageY - 13) + "px"
+    };
+
+
+
+
+    let leftNav = document.querySelector("#leftNav")
+    let navMenus = [...leftNav.children]
+    console.log(navMenus)
+
+    navMenus.forEach((now, index) => {
+        // 将每一个li的文字变蓝，同时向左移
+        now.children[0].addEventListener("mouseenter", function () {
+            now.children[0].style = "color:#22BBFF;transform:translateX(-1vw);";
+            // 小球变大
+            circle.style =
+                "background-color:rgba(255,255,255,0.5);transform:scale(0.75);";
+        });
+
+        // 移出：将每一个li复原
+        now.children[0].addEventListener("mouseleave", function () {
+            now.children[0].style = "";
+            // 小球复原
+            circle.style = "";
+        });
+
+        // 每一个li施加点击事件
+        now.children[0].onclick = function () {
+
+            // 将所有Li中span的style消除
+            navMenus.forEach((elses) => {
+                elses.children[0].style = "";
+
+                // 给所有li加上移入移出效果
+                elses.children[0].onmouseenter = function () {
+                    elses.children[0].style = "color:#22BBFF;transform:translateX(-1vw);";
+                    // 将小球复原
+                    circle.style =
+                        "background-color:rgba(255,255,255,0.5);transform:scale(0.75);";
+                };
+                elses.children[0].onmouseleave = function () {
+                    elses.children[0].style = "";
+                    // 将小球复原
+                    circle.style = "";
+                };
+            });
+
+            // 给点击的li施加对应样式
+            now.children[0].style = `
+            color:#06A3DA;
+            border-right:5px solid #06A3DA;
+            padding-right: 1vw;
+            `;
+
+            // 赋予移入移出的事件
+            now.children[0].onmouseenter = indexEnter;
+            now.children[0].onmouseleave = indexLeave;
+
+            // 跳转到相应的页面
+            // 获取首页、新闻、干员、设定、档案页面
+            let pages = document.querySelectorAll(".pages");
+            // 首页、新闻、干员、设定、档案页面都回归到原点
+            pages.forEach((item) => {
+                item.style.top = `${(-100) * index}vh`;
+            });
+
+            //
+
+            if (index != 0) {
+                let amiya = document.querySelector("#Amiya")
+                amiya.style.display = "none"
+            } else {
+                let amiya = document.querySelector("#Amiya")
+                amiya.style.display = "block"
+            }
+            let pageNum = document.querySelector("#numpage")
+            pageNum.innerText = `/0${index + 1}/05`
+        };
+
+    });
+
+    // 移入事件函数
+    let indexEnter = (event) => {
+        event.target.style = `color:#06A3DA;
+      border-right:5px solid #06A3DA;
+      padding-right: 1vw;
+      transform:translateX(-1vw);
+      `;
+    };
+
+    // 移出事件函数
+    let indexLeave = (event) => {
+        event.target.style = `transform:translateX(0vw);
+        color:#06A3DA;
+        border-right:5px solid #06A3DA;
+        padding-right: 1vw;`;
+    };
+
+    // 页面初始化时，首页的移入移出事件的函数
+    navMenus[0].children[0].onmouseenter = indexEnter;
+    navMenus[0].children[0].onmouseleave = indexLeave;
 }
+
 getcCursor()
 function login() {
     //登录按钮
@@ -248,127 +343,21 @@ function changMouseIcon(data) {
     curs.style.cursor = `url(${getIcon.image1}),auto`
 }
 
-function jumpTrole() {
-    var roles = document.querySelector('#roles')
-    var mainInfo = document.querySelector('#mainInfo')
-    roles.onclick = () => mainInfo.style.display = 'none'
-}
-jumpTrole()
 let tele = localStorage.getItem('telephone')
 let pwd = localStorage.getItem('password')
-function getRolesInfo(method, url, tele, pwd, token) {
-    return new Promise((resolve, reject) => {
-        var xhr = new XMLHttpRequest()
-        xhr.open(method, url)
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send(`telephone=${tele}&password=${pwd}&pageNum=003&token=${token}`);
-        xhr.onload = () => {
-            if (xhr.status == 200 && xhr.readyState == 4) {
-                // console.log(`getData CV`, Data.roleinfo[0].CV)
-                // console.log(`getData audio`, Data.roleinfo[0].audio)
-                // console.log(`getData englishName`, Data.roleinfo[0].englishName)
-                // console.log(`getData id`, Data.roleinfo[0].id)
-                // console.log(`getData info`, Data.roleinfo[0].info)
-                // console.log(`getData name`, Data.roleinfo[0].name)
-                // console.log(`getData roleImage`, Data.roleinfo[0].roleImage)
-                // console.log(`getData staff`, Data.roleinfo[0].staff)
-                // console.log(`getData staffHerf`, Data.roleinfo[0].staffHerf)
-                // for (let i = 0; i < listRoLi.length; i++) {
-                //     listRoLi[i].setAttribute('id', `id${Data.roleinfo[i].id}`)
-                // }
-                //map遍历listRoLi
-
-                const res = xhr.responseText
-                const Data = JSON.parse(res)
-                resolve(Data)
-            } else {
-                reject('请求失败', xhr.responseText)
-            }
-            // Data.roleinfo[0].CV
-            // Data.roleinfo[0].audio
-            // Data.roleinfo[0].englishName
-            // Data.roleinfo[0].id
-            // Data.roleinfo[0].info
-            // Data.roleinfo[0].name
-            // Data.roleinfo[0].roleImage
-            // Data.roleinfo[0].staff
-            // Data.roleinfo[0].staffHerf
-
-
-        }
-    })
-}
-
-
-// listRoLiArr.map((item, index) => { //item是listRoLi[index] index是索引
-//     item.setAttribute('id', `roleId${Data.roleinfo[index].id}`)
-// })
-// 链式请求
-async function staff() {
-    const data = await getRolesInfo('post', "http://8.134.165.47:8080/api/roles", tele, pwd, token)
-    console.log(data)
-
-    listRoLi.map((item, index) => { //item是listRoLi[index] index是索引
-        item.setAttribute('id', `roleId${data.roleinfo[index].id}`)
-    })
-    roleImgShow.setAttribute('src', data.roleinfo[0].roleImage)
-    console.log(listRoLi)
-}
-staff()
-// 角色图片
-
-// add animation to NAV
-// get ul
-var nav = document.querySelector('#leftNav')
-// get leftNav li a
-// var leftLi = nav.querySelectorAll('li a')
-// console.log(leftLi)
-let navLi = [...nav.children]
-console.log(navLi)
-// move
-navLi.forEach(item => {
-    // li  item.children[0]
-    item.children[0].onmouseenter = moveIn;
-    function moveIn() {
-        item.style = 'transform:translateX(-1vw)'
-        item.children[0].style = 'color:#22bbff'
-        cursor.style = 'background-color:rgba(255,255,255,0.5);transform:scale(0.75)'
-    }
-    item.children[0].onmouseleave = moveOut;
-    function moveOut() {
-        item.style = ''
-        item.children[0].style = 'color:#fff;'
-        cursor.style = ''
-    }
-
-    item.onclick = function (e) {
-        // a wait.children[0]
-        navLi.forEach((wait) => {
-            wait.onmouseenter = function () {
-                wait.children[0].style = 'transform:translateX(-1vw)'
-                wait.children[0].style = 'color:#22bbff'
-                cursor.style = 'background-color:rgba(255,255,255,0.5);transform:scale(0.75)'
-                 };
-            wait.onmouseleave = function () {
-                // wait.children[0].style = "";
-                // cursor.style = "";
-                // wait.style = ''
-            };;
-            item.children[0].style = `
-            color:#06A3DA;
-            border-right:5px solid #06A3DA;
-            padding-right:1vw;
-            `;
-        });
-       
-        console.log(item.children[0])
-        item.children[0].onmouseenter = null;
-        item.children[0].onmouseleave = null;
-    };
-
-})
 
 
 // get curosr
-var cursor = document.querySelector('#cursor')
-// curosr move aniam
+// var cursor = document.querySelector('#cursor')
+// // curosr move aniam
+// function opac() {
+//     let xhr = new XMLHttpRequest()
+//     xhr.open('get', "http://8.134.165.47:8080/api/index/opacity")
+//     xhr.send()
+//     xhr.onload = () => {
+//         if (xhr.status == 200 && xhr.readyState == 4) {
+//             console.log(xhr.responseText)
+//         }
+//     }
+// }
+// opac()

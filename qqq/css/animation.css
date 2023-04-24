@@ -187,3 +187,24 @@ hr {
         visibility: visible;
     }
 }
+#firstShow{
+    animation: showFirst 1s 2s forwards;
+}
+/* 下到上 */
+@keyframes showFirst {
+
+}
+#roleImgPla{
+    animation: showRoleImg 1s 2s forwards;
+}
+@keyframes showRoleImg {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
